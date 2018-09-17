@@ -3,8 +3,8 @@
 //
 // It moves three pictures around on the canvas.
 // One moves from the left to the right of the screen.
-// One moves linearly down the screen.
-// One moves toward the mouse cursor.
+// One follows the mouse's movement.
+// One moves toward the mouse cursor at a different speed.
 
 
 // The image of ghost that moves from the left to the right of the screen
@@ -14,6 +14,13 @@ var ghostImageX;
 var ghostImageY;
 
 
+// The image of a spider
+var spiderImage;
+// The current position of the spider
+var spiderImageX;
+var spiderImageY;
+
+
 
 // preload()
 //
@@ -21,7 +28,7 @@ var ghostImageY;
 
 function preload() {
   ghostImage = loadImage("assets/images/ghost.png");
-
+  spiderImage = loadImage("assets/images/spider.png");
 }
 
 
@@ -34,7 +41,7 @@ function setup() {
   createCanvas(640,640);
 
   // Start the ghost image at the left side of the canvas
-  ghostImageX = 0;
+  ghostImageX = 0 - ghostImage.width/4;
   ghostImageY = height/2;
 
   // Start the clown image at the centre of the canvas
@@ -61,8 +68,14 @@ function draw() {
   ghostImageX += 1;
 
   // Display the ghost image in 1.5 times
-  image(ghostImage,ghostImageX,ghostImageY,135 * 1.5,180 * 1.5);
+  image(ghostImage,ghostImageX,ghostImageY,ghostImage.width * 0.5,ghostImage.height * 0.5);
 
+  // Start the spider image at the position of the cursor and follows its movement
+  spiderImageX = mouseX;
+  spiderImageY = mouseY;
+
+  // Display the spider image
+  image(spiderImage,spiderImageX,spiderImageY,spiderImage.width * 0.5,spiderImage.height * 0.5);
 
   // Move the felt image down by increasing its y position
   // feltTextureImageY += 1;
