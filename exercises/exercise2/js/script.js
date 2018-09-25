@@ -21,6 +21,12 @@ var avatarSpeed = 10;
 var avatarVX = 0;
 var avatarVY = 0;
 
+// The minimum and maximum speed and size of the avatar.
+var avatarSpeedMin = 2;
+var avatarSpeedMax = 15;
+var avatarSizeMin = 55;
+var avatarSizeMax = 100;
+
 // The image of the enemy water bubble.
 var enemyImage;
 
@@ -43,13 +49,13 @@ var rewardImage;
 // The position and size of the reward starfish.
 var rewardX;
 var rewardY;
-var rewardSize = 40;
+var rewardSize = 38;
 
 // The speed, velocity and acceleration of the reward starfish.
-var rewardSpeed = 5;
+var rewardSpeed = 2;
 var rewardVX = 2;
 // How much faster the enemy gets with each successful dodge.
-var rewardSpeedIncrease = 0.1;
+var rewardAX = 1;
 
 // How many dodges the player has made.
 var dodges = 0;
@@ -196,6 +202,9 @@ function draw() {
     // Increase the enemy's speed and size to make the game harder.
     enemySpeed = enemySpeed + enemySpeedIncrease;
     enemySize = enemySize + enemySizeIncrease;
+    // Change the avatar's speed and size after each successful dodges.
+    avatarSpeed = random(avatarSpeedMin, avatarSpeedMax);
+    avatarSize = random(avatarSizeMin, avatarSizeMax);
   }
 
   // Check if the reward has moved all the way across the screen.
@@ -204,7 +213,7 @@ function draw() {
     rewardX = 0;
     rewardY = random(0,height);
     // Increase the reward's speed to make the game harder.
-    rewardSpeed = rewardSpeed + rewardSpeedIncrease;
+    rewardVX = rewardVX + rewardAX;
     rewardVX = constrain(rewardVX, -rewardSpeed, rewardSpeed)
   }
 
