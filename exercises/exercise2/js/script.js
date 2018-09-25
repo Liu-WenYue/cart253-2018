@@ -4,14 +4,16 @@ Exercise 2 - The Artful Dodger
 Liu WenYue
 
 //This exercise is a dodger game where an octopus hiding
-//from the water bubbles.
+//from the water bubbles and when it goes near to the
+//starfish, the dodges increase until the octopus and the
+//starfish are no longer overlapped.
 
 *********************************************************/
 
 // The image of the avatar octopus.
 var avatarImage;
 
-// The position and size of our avatar octopus.
+// The position and starting size of our avatar octopus.
 var avatarX;
 var avatarY;
 var avatarSize = 85;
@@ -21,7 +23,7 @@ var avatarSpeed = 10;
 var avatarVX = 0;
 var avatarVY = 0;
 
-// The minimum and maximum speed and size of the avatar.
+// The minimum and maximum speeds and sizes of the avatar.
 var avatarSpeedMin = 2;
 var avatarSpeedMax = 15;
 var avatarSizeMin = 55;
@@ -35,13 +37,13 @@ var enemyX;
 var enemyY;
 var enemySize = 50;
 // How much bigger the enemy gets with each successful dodge.
-var enemySizeIncrease = 5;
+var enemySizeIncrease = 2;
 
 // The speed and velocity of our enemy water bubble.
-var enemySpeed = 5;
-var enemyVX = 5;
+var enemySpeed = 3;
+var enemyVX = 3;
 // How much faster the enemy gets with each successful dodge.
-var enemySpeedIncrease = 0.5;
+var enemySpeedIncrease = 0.1;
 
 // The image of reward, starfish.
 var rewardImage;
@@ -72,7 +74,7 @@ var backgroundImage;
 
 // preload()
 //
-// Preload the font and images.
+// Preload the font and images used in the program.
 function preload() {
   myFont = loadFont("assets/fonts/GearedSlab-Light.ttf")
   avatarImage = loadImage("assets/images/avatar.png")
@@ -83,7 +85,8 @@ function preload() {
 
 // setup()
 //
-// Make the canvas, position the avatar and enemy and set the image mode.
+// Make the canvas, position the avatar, enemy and reward and set
+// the image mode.
 function setup() {
   // Create our playing area.
   createCanvas(500,500);
@@ -106,7 +109,7 @@ function setup() {
 
 // draw()
 //
-// Handle moving the avatar and enemy and Display the number of
+// Handle moving the avatar, enemy and reward and display the number of
 // successful dodges in the game and checking for dodges and
 // game over situations.
 function draw() {
@@ -163,37 +166,19 @@ function draw() {
   // and the centre of the avatar is less that their combined radii.
   if (dist(enemyX,enemyY,avatarX,avatarY) < enemySize/2 + avatarSize/2) {
     // Tell the player they lost.
-    console.log("YOU LOSE!");
-    // Reset the enemy's position.
-    enemyX = 0;
-    enemyY = random(0,height);
-    // Reset the enemy's size and speed.
-    enemySize = 50;
-    enemySpeed = 5;
-    // Reset the avatar's position.
-    avatarX = width/2;
-    avatarY = height/2;
-    // Reset the dodge counter.
-    dodges = 0;
+    reset();
   }
 
   // Check if the avatar has gone off the screen (cheating!).
   if (avatarX < 0 || avatarX > width || avatarY < 0 || avatarY > height) {
     // If they went off the screen they lose in the same way as above.
-    console.log("YOU LOSE!");
-    enemyX = 0;
-    enemyY = random(0,height);
-    enemySize = 50;
-    enemySpeed = 5;
-    avatarX = width/2;
-    avatarY = height/2;
-    dodges = 0;
+    reset();
   }
 
   // Check if the enemy has moved all the way across the screen.
   if (enemyX > width) {
     // This means the player dodged so update its dodge statistic.
-    dodges = dodges + 1;
+    dodges += 1;
     // Tell them how many dodges they have made.
     console.log(dodges + " DODGES!");
     // Reset the enemy's position to the left at a random height.
@@ -234,10 +219,28 @@ function draw() {
 
   // Display the avatar image.
   image(avatarImage, avatarX, avatarY, avatarSize, avatarSize);
-
   // Display the enemy image.
   image(enemyImage, enemyX, enemyY, enemySize, enemySize);
-
   // Display the reward image.
   image(rewardImage, rewardX, rewardY, rewardSize, rewardSize);
+}
+
+// reset()
+//
+// To reset the conditions of avatar, enemy and the dodge counter if the
+// player loses the game.
+function reset() {
+  // Tell the player they lost.
+  console.log("YOU LOSE!");
+  // Reset the enemy's position.
+  enemyX = 0;
+  enemyY = random(0,height);
+  // Reset the enemy's size and speed.
+  enemySize = 50;
+  enemySpeed = 5;
+  // Reset the avatar's position.
+  avatarX = width/2;
+  avatarY = height/2;
+  // Reset the dodge counter.
+  dodges = 0;
 }
