@@ -15,11 +15,15 @@ var targetX;
 var targetY;
 var targetImage;
 var targetSize = 120;
+var targetSizeMin = 60;
+var targetSizeMax = 220;
 
 // The velocity, speed of the target image.
 var targetVX;
 var targetVY;
 var targetSpeed = 10;
+
+var numTarget = 5;
 
 // The ten decoy images
 var decoyImage1;
@@ -126,9 +130,16 @@ function setup() {
     targetX = random(0,width);
     targetY = random(0,height);
   }
+  // To have the target image in random sizes so it changes the difficulty of the game.
+  targetSize = random(targetSizeMin,targetSizeMax);
 
-  // And draw it (this means it will always be on top)
-  image(targetImage,targetX,targetY);
+  for (var i = 1; i < numTarget; i++) {
+    targetX = random(0,width);
+    targetY = random(0,height);
+
+    // And draw it (this means it will always be on top)
+    image(targetImage,targetX,targetY,targetSize,targetSize);
+  }
 
   instruction();
 }
@@ -159,7 +170,7 @@ function draw() {
     targetX += targetVX;
     targetY += targetVY;
 
-    targetSize = random(50,240);
+    targetSize = random(targetSizeMin,targetSizeMax);
 
     wrapping();
   }
