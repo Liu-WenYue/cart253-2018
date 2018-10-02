@@ -37,6 +37,9 @@ var gameOver = false;
 // The size of the box at the top right corner.
 var boxSize = 240;
 
+// The size that the box increased.
+var boxYIncrease = 10;
+
 // preload()
 //
 // Loads the target and decoy images before the program starts
@@ -60,7 +63,7 @@ function preload() {
 // Creates the canvas, sets basic modes, draws correct number
 // of decoys in random positions, then the target
 function setup() {
-  createCanvas(windowWidth,windowHeight);
+  createCanvas(windowWidth, windowHeight);
   background("#ffff00");
   imageMode(CENTER);
 
@@ -109,22 +112,31 @@ function setup() {
     }
   }
 
-  // Once we've displayed all decoys, we choose a location for the target
+  // Once we've displayed all decoys, we choose a location for the target.
   targetX = random(0,width);
   targetY = random(0,height);
+
+  // This helps us to check if the target image is underneath the box we just
+  // created for the instructions, if targetX and targetY is inside the box,
+  // it will re-locate the target image until it's not inside the box.
+  while(targetX > (windowWidth - boxSize) && targetY < (boxSize + boxYIncrease)) {
+    targetX = random(0,width);
+    targetY = random(0,height);
+  }
+
   // And draw it (this means it will always be on top)
-  image(targetImage,targetX,targetY);
+  image(targetImage, targetX, targetY);
 }
 
 function draw() {
   // The box at the top right corner will be in orange color.
   fill("#fea61b");
   rectMode(CORNERS);
-  rect(windowWidth-boxSize,0,windowWidth,boxSize+10);
+  rect(windowWidth-boxSize, 0, windowWidth, boxSize + boxYIncrease);
 
   // The image shown at the top right corner.
   imageMode(CORNERS);
-  image(targetImage,windowWidth-boxSize,0,windowWidth,boxSize);
+  image(targetImage, windowWidth - boxSize, 0, windowWidth, boxSize);
 
   // The instruction text.
   textFont("monospace")
@@ -132,8 +144,8 @@ function draw() {
   textStyle(BOLD)
   textSize(28);
   fill(60);
-  text("FIND me! ",windowWidth,10);
-  text("CLICK on me! ",windowWidth,boxSize-40);
+  text("FIND me! ", windowWidth, 10);
+  text("CLICK on me! ", windowWidth, boxSize-40);
 
   if (gameOver) {
     // Prepare our typography
