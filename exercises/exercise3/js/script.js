@@ -35,7 +35,7 @@ var numDecoys = 100;
 var gameOver = false;
 
 // The size of the box at the top right corner.
-var boxSize = 200;
+var boxSize = 240;
 
 // preload()
 //
@@ -66,9 +66,6 @@ function setup() {
 
   // There will be no stroke for the elements in this program.
   noStroke();
-
-  // The box at the top right corner will be in orange color.
-  fill("#fea61b");
 
   // Use a for loop to draw as many decoys as we need
   for (var i = 0; i < numDecoys; i++) {
@@ -120,11 +117,23 @@ function setup() {
 }
 
 function draw() {
+  // The box at the top right corner will be in orange color.
+  fill("#fea61b");
   rectMode(CORNERS);
-  rect(windowWidth-boxSize,0,windowWidth,boxSize);
+  rect(windowWidth-boxSize,0,windowWidth,boxSize+10);
 
-  imageMode(CORNERS)
+  // The image shown at the top right corner.
+  imageMode(CORNERS);
   image(targetImage,windowWidth-boxSize,0,windowWidth,boxSize);
+
+  // The instruction text.
+  textFont("monospace")
+  textAlign(RIGHT,TOP);
+  textStyle(BOLD)
+  textSize(28);
+  fill(60);
+  text("FIND me! ",windowWidth,10);
+  text("CLICK on me! ",windowWidth,boxSize-40);
 
   if (gameOver) {
     // Prepare our typography
