@@ -10,10 +10,16 @@ Animal images from:
 https://creativenerds.co.uk/freebies/80-free-wildlife-icons-the-best-ever-animal-icon-set/
 ******************************************************************************/
 
-// Position and image of the sausage dog we're searching for
+// Position, size and image of the sausage dog we're searching for
 var targetX;
 var targetY;
 var targetImage;
+var targetSize = 120;
+
+// The velocity, speed of the target image.
+var targetVX;
+var targetVY;
+var targetSpeed = 10;
 
 // The ten decoy images
 var decoyImage1;
@@ -63,12 +69,9 @@ function preload() {
 // Creates the canvas, sets basic modes, draws correct number
 // of decoys in random positions, then the target
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(windowWidth,windowHeight);
   background("#ffff00");
   imageMode(CENTER);
-
-  // There will be no stroke for the elements in this program.
-  noStroke();
 
   // Use a for loop to draw as many decoys as we need
   for (var i = 0; i < numDecoys; i++) {
@@ -112,7 +115,7 @@ function setup() {
     }
   }
 
-  // Once we've displayed all decoys, we choose a location for the target.
+  // Once we've displayed all decoys, we choose a location for the target
   targetX = random(0,width);
   targetY = random(0,height);
 
@@ -125,28 +128,12 @@ function setup() {
   }
 
   // And draw it (this means it will always be on top)
-  image(targetImage, targetX, targetY);
+  image(targetImage,targetX,targetY);
+
+  instruction();
 }
 
 function draw() {
-  // The box at the top right corner will be in orange color.
-  fill("#fea61b");
-  rectMode(CORNERS);
-  rect(windowWidth-boxSize, 0, windowWidth, boxSize + boxYIncrease);
-
-  // The image shown at the top right corner.
-  imageMode(CORNERS);
-  image(targetImage, windowWidth - boxSize, 0, windowWidth, boxSize);
-
-  // The instruction text.
-  textFont("monospace")
-  textAlign(RIGHT,TOP);
-  textStyle(BOLD)
-  textSize(28);
-  fill(60);
-  text("FIND me! ", windowWidth, 10);
-  text("CLICK on me! ", windowWidth, boxSize-40);
-
   if (gameOver) {
     // Prepare our typography
     textFont("Helvetica");
@@ -160,7 +147,21 @@ function draw() {
     noFill();
     stroke(random(255));
     strokeWeight(10);
-    ellipse(targetX,targetY,targetImage.width,targetImage.height);
+
+    // Place the target image at the place where it is found.
+    // Reset the imagemode back to center.
+    imageMode(CENTER);
+    image(targetImage,targetX,targetY,targetSize,targetSize);
+
+    // Have the target image moves around the screen.
+    targetVX = random(targetSpeed);
+    targetVY = random(targetSpeed);
+    targetX += targetVX;
+    targetY += targetVY;
+
+    targetSize = random(50,240);
+
+    wrapping();
   }
 }
 
@@ -174,5 +175,51 @@ function mousePressed() {
     if (mouseY > targetY - targetImage.height/2 && mouseY < targetY + targetImage.height/2) {
       gameOver = true;
     }
+  }
+}
+
+// instructions()
+//
+// To have the target image and instruction texts placed at the top right
+// corner of the window.
+function instruction() {
+  // There will be no stroke for the elements in this program.
+  noStroke();
+
+  // The box at the top right corner will be in orange color.
+  fill("#fea61b");
+  rectMode(CORNERS);
+  rect(windowWidth-boxSize, 0, windowWidth, boxSize + boxYIncrease);
+
+  // The image shown at the top right corner.
+  imageMode(CORNERS);
+  image(targetImage, windowWidth - boxSize, 0, windowWidth, boxSize);
+
+  // The instruction text.
+  textFont("monospace");
+  textAlign(RIGHT,TOP);
+  textStyle(BOLD)
+  textSize(28);
+  fill(60);
+  text("FIND me! ", windowWidth, 10);
+  text("CLICK on me! ", windowWidth, boxSize - 40);
+}
+
+// wrapping()
+//
+// This makes sure the target iamge is always inside the window.
+function wrapping() {
+  if (targetX + targetImage.width/2 < 0) {
+    targetX += windowWidth - targetImage.width;
+  }
+  else if (targetX - targetImage.width/2 > windowWidth) {
+    targetX -= windowWidth + targetImage.width;
+  }
+
+  if (targetY + targetImage.height/2 < 0) {
+    targetY += windowHeight - targetImage.width;
+  }
+  else if (targetY - targetImage.height/2 > windowHeight) {
+    targetY -= windowHeight + targetImage.width;
   }
 }
