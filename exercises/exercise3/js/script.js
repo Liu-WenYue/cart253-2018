@@ -10,7 +10,8 @@ Animal images from:
 https://creativenerds.co.uk/freebies/80-free-wildlife-icons-the-best-ever-animal-icon-set/
 ******************************************************************************/
 
-// Position, size and image of the sausage dog we're searching for
+// Position, size, minimum and maximum sizes and image of the sausage dog we're
+// searching for.
 var targetX;
 var targetY;
 var targetImage;
@@ -18,14 +19,12 @@ var targetSize = 120;
 var targetSizeMin = 60;
 var targetSizeMax = 220;
 
-// The velocity, speed of the target image.
+// The velocity and speed of the target image.
 var targetVX;
 var targetVY;
 var targetSpeed = 10;
 
-var numTarget = 5;
-
-// The ten decoy images
+// The ten decoy images.
 var decoyImage1;
 var decoyImage2;
 var decoyImage3;
@@ -37,11 +36,13 @@ var decoyImage8;
 var decoyImage9;
 var decoyImage10;
 
-// The number of decoys to show on the screen, randomly
-// chosen from the decoy images
-var numDecoys = 100;
+// The number of decoys to show on the screen, randomly chosen from the decoy images.
+// The minimum and maximum number of decoys to show on the screen.
+var numDecoys;
+var numDecoysMin = 10;
+var numDecoysMax = 280;
 
-// Keep track of whether they've won
+// Keep track of whether they've won.
 var gameOver = false;
 
 // The size of the box at the top right corner.
@@ -52,7 +53,7 @@ var boxYIncrease = 10;
 
 // preload()
 //
-// Loads the target and decoy images before the program starts
+// Loads the target and decoy images before the program starts.
 function preload() {
   targetImage = loadImage("assets/images/animals-target.png");
 
@@ -70,23 +71,24 @@ function preload() {
 
 // setup()
 //
-// Creates the canvas, sets basic modes, draws correct number
-// of decoys in random positions, then the target
+// Creates the canvas, sets basic modes, draws correct number of decoys in
+// random positions, then the target image.
 function setup() {
   createCanvas(windowWidth,windowHeight);
   background("#ffff00");
   imageMode(CENTER);
 
-  // Use a for loop to draw as many decoys as we need
+  // Randomize the number of decoy images.
+  numDecoys = random(numDecoysMin,numDecoysMax);
+  // Use a for loop to draw as many decoys as we need.
   for (var i = 0; i < numDecoys; i++) {
-    // Choose a random location for this decoy
+    // Choose a random location for this decoy.
     var x = random(0,width);
     var y = random(0,height);
-    // Generate a random number we can use for probability
+    // Generate a random number we can use for probability.
     var r = random();
     // Use the random number to display one of the ten decoy
-    // images, each with a 10% chance of being shown
-    // We'll talk more about this nice quality of random soon enough
+    // images, each with a 10% chance of being shown.
     if (r < 0.1) {
       image(decoyImage1,x,y);
     }
@@ -130,16 +132,12 @@ function setup() {
     targetX = random(0,width);
     targetY = random(0,height);
   }
+
   // To have the target image in random sizes so it changes the difficulty of the game.
   targetSize = random(targetSizeMin,targetSizeMax);
 
-  for (var i = 1; i < numTarget; i++) {
-    targetX = random(0,width);
-    targetY = random(0,height);
-
-    // And draw it (this means it will always be on top)
-    image(targetImage,targetX,targetY,targetSize,targetSize);
-  }
+  // And draw it (this means it will always be on top)
+  image(targetImage,targetX,targetY,targetSize,targetSize);
 
   instruction();
 }
@@ -170,6 +168,7 @@ function draw() {
     targetX += targetVX;
     targetY += targetVY;
 
+    // Have the target image changes its size while moving around.
     targetSize = random(targetSizeMin,targetSizeMax);
 
     wrapping();
