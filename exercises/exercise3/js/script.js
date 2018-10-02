@@ -1,6 +1,6 @@
 /******************************************************************************
 Where's Sausage Dog?
-by Pippin Barr
+Liu WenYue
 
 An algorithmic version of a Where's Wally searching game where you
 need to click on the sausage dog you're searching for in amongst all
@@ -34,6 +34,9 @@ var numDecoys = 100;
 // Keep track of whether they've won
 var gameOver = false;
 
+// The size of the box at the top right corner.
+var boxSize = 200;
+
 // preload()
 //
 // Loads the target and decoy images before the program starts
@@ -60,6 +63,12 @@ function setup() {
   createCanvas(windowWidth,windowHeight);
   background("#ffff00");
   imageMode(CENTER);
+
+  // There will be no stroke for the elements in this program.
+  noStroke();
+
+  // The box at the top right corner will be in orange color.
+  fill("#fea61b");
 
   // Use a for loop to draw as many decoys as we need
   for (var i = 0; i < numDecoys; i++) {
@@ -111,6 +120,12 @@ function setup() {
 }
 
 function draw() {
+  rectMode(CORNERS);
+  rect(windowWidth-boxSize,0,windowWidth,boxSize);
+
+  imageMode(CORNERS)
+  image(targetImage,windowWidth-boxSize,0,windowWidth,boxSize);
+
   if (gameOver) {
     // Prepare our typography
     textFont("Helvetica");
