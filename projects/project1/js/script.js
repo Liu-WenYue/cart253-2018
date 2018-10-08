@@ -38,8 +38,12 @@ var blood = {
   y : 0,
   tx : 0,
   ty : 10000,
-  timeIncrease : 0.01
+  timeIncrease : 0.005
 }
+
+// The width and height of the blood used to checking overlapping with the player.
+var bloodWidth;
+var bloodHeight;
 
 var bloodHealth;
 var bloodMaxHealth = 255;
@@ -121,7 +125,8 @@ function draw() {
 
     updateHealth();
     checkEating();
-    checkPlayerSpeed();
+    varyPlayerSpeed();
+    varyBloodSpeedSize();
 
     loadBlood();
     loadPlayer();
@@ -223,7 +228,7 @@ function checkEating() {
   // Get distance of player to prey
   var d = dist(player.x,player.y,blood.x,blood.y);
   // Check if it's an overlap
-  if (d < playerWidth/2 + (bloodImage.width*0.3)/2 || d < playerWidth/2 + (bloodImage.height*0.3)/2 || d < playerHeight/2 + (bloodImage.width*0.3)/2 || d < playerHeight/2 + (bloodImage.height*0.3)/2) {
+  if (d < playerWidth/2 + bloodWidth/2 || d < playerWidth/2 + bloodHeight/2 || d < playerHeight/2 + bloodWidth/2 || d < playerHeight/2 + bloodHeight/2) {
     // Increase the player health
     playerHealth = constrain(playerHealth + eatHealth,0,playerMaxHealth);
     // Reduce the prey health
@@ -243,13 +248,13 @@ function checkEating() {
   }
 }
 
-// checkPlayerSpeed()
+// varyPlayerSpeed()
 //
 // To vary the initial speed of the player in different stage by checking
 // how many blood the player caught.
 // The player evolved 1 will be faster than the original player by 2 units,
 // The player evolved 2 will be faster than the original player by 5 units.
-function checkPlayerSpeed() {
+function varyPlayerSpeed() {
   if (preyEaten < 10) {
     player.maxSpeed = player.maxSpeed;
   }
@@ -258,6 +263,28 @@ function checkPlayerSpeed() {
   }
   else {
     player.maxSpeed += 5;
+  }
+}
+
+// varyBloodSpeedSize()
+//
+// To vary the speed and size of the blood in player's different stages by
+// checking how many blood the player caught.
+function varyBloodSpeedSize() {
+  if (preyEaten < 10) {
+    blood.timeIncrease = blood.timeIncrease;
+    bloodWidth = bloodImage.width*0.3;
+    bloodHeight = bloodImage.height*0.3;
+  }
+  else if (preyEaten < 50) {
+    blood.timeIncrease = 0.01;
+    bloodWidth = bloodImage.width*0.25;
+    bloodHeight = bloodImage.height*0.25;
+  }
+  else {
+    blood.timeIncrease = 0.02;
+    bloodWidth = bloodImage.width*0.2;
+    bloodHeight = bloodImage.height*0.2;
   }
 }
 
@@ -293,7 +320,7 @@ function moveBlood() {
 //
 // Load the blood image.
 function loadBlood() {
-  image(bloodImage,blood.x,blood.y,bloodImage.width*0.3,bloodImage.height*0.3,0,0);
+  image(bloodImage,blood.x,blood.y,bloodWidth,bloodHeight,0,0);
   // tint(255, bloodHealth);
 }
 
