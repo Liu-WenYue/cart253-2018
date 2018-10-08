@@ -53,13 +53,20 @@ var backgroundImage;
 // The blood image.
 var bloodImage;
 
+// The three stages of the player's characters.
+var playerImage;
+var playerEvo1Image;
+var playerEvo2Image;
+
 // preload()
 //
 // Preload images of the background, blood, player characters and onion.
 function preload() {
   backgroundImage = loadImage("assets/images/nightBackground.png");
   bloodImage = loadImage("assets/images/blood.png");
-
+  playerImage = loadImage("assets/images/player.png");
+  playerEvo1Image = loadImage("assets/images/playerEvo1.png");
+  playerEvo2Image = loadImage("assets/images/playerEvo2.png");
 }
 
 // setup()
@@ -114,7 +121,7 @@ function draw() {
     checkEating();
 
     loadBlood();
-    drawPlayer();
+    loadPlayer();
   }
   else {
     showGameOver();
@@ -213,7 +220,7 @@ function checkEating() {
   // Get distance of player to prey
   var d = dist(player.x,player.y,blood.x,blood.y);
   // Check if it's an overlap
-  if (d < player.radius + (bloodImage.width*0.3)/2 || d < player.radius + (bloodImage.height*0.3)/2) {
+  if (d < (playerImage.width*0.3)/2 + (bloodImage.width*0.3)/2 || d < (playerImage.width*0.3)/2 + (bloodImage.height*0.3)/2) {
     // Increase the player health
     playerHealth = constrain(playerHealth + eatHealth,0,playerMaxHealth);
     // Reduce the prey health
@@ -267,15 +274,14 @@ function moveBlood() {
 function loadBlood() {
   image(bloodImage,blood.x,blood.y,bloodImage.width*0.3,bloodImage.height*0.3,0,0);
   // tint(255, bloodHealth);
-
 }
 
-// drawPlayer()
+// loadPlayer()
 //
-// Draw the player as an ellipse with alpha based on health
-function drawPlayer() {
-  fill(player.fill,playerHealth);
-  ellipse(player.x,player.y,player.radius*2);
+// load the player image.
+function loadPlayer() {
+  image(playerImage,player.x,player.y,playerImage.width*0.3,playerImage.height*0.3,0,0);
+  // tint(255, playerHealth);
 }
 
 // showGameOver()
