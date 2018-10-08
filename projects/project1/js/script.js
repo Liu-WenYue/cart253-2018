@@ -24,7 +24,7 @@ var player = {
   speed : 2,
   maxSpeed : 2,
   speedIncrease : 0.5,
-  fill : 50,
+  fill : 50
 }
 
 var playerHealth;
@@ -36,27 +36,30 @@ var blood = {
   y : 0,
   tx : 0,
   ty : 10000,
-  timeIncrease : 0.01,
-  radius : 25,
-  fill : 200,
+  timeIncrease : 0.01
 }
 
 var bloodHealth;
-var bloodMaxHealth = 100;
+var bloodMaxHealth = 255;
 
 // Amount of health obtained per frame of "eating" the prey
-var eatHealth = 10;
+var eatHealth = 15;
 // Number of prey eaten during the game
 var preyEaten = 0;
 
 // The night background image.
 var backgroundImage;
 
+// The blood image.
+var bloodImage;
+
 // preload()
 //
-// Preload images of the background, player characters, blood and onion.
+// Preload images of the background, blood, player characters and onion.
 function preload() {
   backgroundImage = loadImage("assets/images/nightBackground.png");
+  bloodImage = loadImage("assets/images/blood.png");
+
 }
 
 // setup()
@@ -110,7 +113,7 @@ function draw() {
     updateHealth();
     checkEating();
 
-    drawBlood();
+    loadBlood();
     drawPlayer();
   }
   else {
@@ -210,7 +213,7 @@ function checkEating() {
   // Get distance of player to prey
   var d = dist(player.x,player.y,blood.x,blood.y);
   // Check if it's an overlap
-  if (d < player.radius + blood.radius) {
+  if (d < player.radius + (bloodImage.width*0.3)/2 || d < player.radius + (bloodImage.height*0.3)/2) {
     // Increase the player health
     playerHealth = constrain(playerHealth + eatHealth,0,playerMaxHealth);
     // Reduce the prey health
@@ -258,12 +261,13 @@ function moveBlood() {
   }
 }
 
-// drawPrey()
+// loadBlood()
 //
-// Draw the prey as an ellipse with alpha based on health
-function drawBlood() {
-  fill(blood.fill,bloodHealth);
-  ellipse(blood.x,blood.y,blood.radius*2);
+// Load the blood image.
+function loadBlood() {
+  image(bloodImage,blood.x,blood.y,bloodImage.width*0.3,bloodImage.height*0.3,0,0);
+  // tint(255, bloodHealth);
+
 }
 
 // drawPlayer()
