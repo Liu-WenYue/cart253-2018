@@ -49,11 +49,22 @@ var eatHealth = 10;
 // Number of prey eaten during the game
 var preyEaten = 0;
 
+// The night background image.
+var backgroundImage;
+
+// preload()
+//
+// Preload images of the background, player characters, blood and onion.
+function preload() {
+  backgroundImage = loadImage("assets/images/nightBackground.png");
+}
+
 // setup()
 //
 // Sets up the basic elements of the game
 function setup() {
   createCanvas(640,640);
+  imageMode(CENTER)
 
   noStroke();
 
@@ -81,13 +92,14 @@ function setupPlayer() {
 
 // draw()
 //
+// Draws the background image every frame to cancel out the player's trace.
 // While the game is active, checks input
 // updates positions of prey and player,
 // checks health (dying), checks eating (overlaps)
 // displays the two agents.
 // When the game is over, shows the game over screen.
 function draw() {
-  background(100,100,200);
+  image(backgroundImage,width/2,height/2,backgroundImage.width*0.5,backgroundImage.height*0.5);
 
   if (!gameOver) {
     handleInput();
