@@ -1,43 +1,44 @@
-/******************************************************
+/***********************************************************
 
 Game - Chaser
-Pippin Barr
+Liu WenYue   7th October 2018
 
-A simple game of cat and mouse.
+A game of a vampire evolving from a bat to a human character
+as it catches blood.
 
 Physics-based movement, keyboard controls, health/stamina,
 sprinting, random movement, screen wrap.
 
-******************************************************/
+***********************************************************/
 
-// Track whether the game is over
+// Track whether the game is over.
 var gameOver = false;
 
-// Player position, size, velocity
-var playerX;
-var playerY;
-var playerRadius = 25;
-var playerVX = 0;
-var playerVY = 0;
-var playerMaxSpeed = 2;
-// Player health
-var playerHealth;
-var playerMaxHealth = 255;
-// Player fill color
-var playerFill = 50;
+// Player position, velocity, speed, health
+var player = {
+  x : 0,
+  y : 0,
+  vx : 0,
+  vy : 0,
+  radius : 25,
+  maxSpeed : 2,
+  health : 0,
+  maxHealth : 255,
+  fill : 50,
+}
 
-// Prey position, size, velocity
-var preyX;
-var preyY;
-var preyRadius = 25;
-var preyVX;
-var preyVY;
-var preyMaxSpeed = 4;
-// Prey health
-var preyHealth;
-var preyMaxHealth = 100;
-// Prey fill color
-var preyFill = 200;
+// Prey position, velocity, speed, health
+var blood = {
+  x : 0,
+  y : 0,
+  vx : 0,
+  vy : 0,
+  radius : 25,
+  maxSpeed : 4,
+  health : 0,
+  maxHealth : 100,
+  fill : 200,
+}
 
 // Amount of health obtained per frame of "eating" the prey
 var eatHealth = 10;
@@ -48,32 +49,32 @@ var preyEaten = 0;
 //
 // Sets up the basic elements of the game
 function setup() {
-  createCanvas(500,500);
+  createCanvas(640,640);
 
   noStroke();
 
-  setupPrey();
+  setupBlood();
   setupPlayer();
 }
 
-// setupPrey()
+// setupBlood()
 //
 // Initialises prey's position, velocity, and health
-function setupPrey() {
-  preyX = width/5;
-  preyY = height/2;
-  preyVX = -preyMaxSpeed;
-  preyVY = preyMaxSpeed;
-  preyHealth = preyMaxHealth;
+function setupBlood() {
+  blood.x = width/5;
+  blood.y = height/2;
+  blood.vx = -blood.maxSpeed;
+  blood.vy = blood.maxSpeed;
+  blood.health = blood.maxHealth;
 }
 
 // setupPlayer()
 //
 // Initialises player position and health
 function setupPlayer() {
-  playerX = 4*width/5;
-  playerY = height/2;
-  playerHealth = playerMaxHealth;
+  player.x = 4*width/5;
+  player.y = height/2;
+  player.health = player.maxHealth;
 }
 
 // draw()
@@ -90,12 +91,12 @@ function draw() {
     handleInput();
 
     movePlayer();
-    movePrey();
+    moveBlood();
 
     updateHealth();
     checkEating();
 
-    drawPrey();
+    drawBlood();
     drawPlayer();
   }
   else {
@@ -109,24 +110,24 @@ function draw() {
 function handleInput() {
   // Check for horizontal movement
   if (keyIsDown(LEFT_ARROW)) {
-    playerVX = -playerMaxSpeed;
+    player.vx = -player.maxSpeed;
   }
   else if (keyIsDown(RIGHT_ARROW)) {
-    playerVX = playerMaxSpeed;
+    player.vx = player.maxSpeed;
   }
   else {
-    playerVX = 0;
+    player.vx = 0;
   }
 
   // Check for vertical movement
   if (keyIsDown(UP_ARROW)) {
-    playerVY = -playerMaxSpeed;
+    player.vy = -player.maxSpeed;
   }
   else if (keyIsDown(DOWN_ARROW)) {
-    playerVY = playerMaxSpeed;
+    player.vy = player.maxSpeed;
   }
   else {
-    playerVY = 0;
+    player.vy = 0;
   }
 }
 
@@ -136,22 +137,22 @@ function handleInput() {
 // wraps around the edges.
 function movePlayer() {
   // Update position
-  playerX += playerVX;
-  playerY += playerVY;
+  player.x += player.vx;
+  player.y += player.vy;
 
   // Wrap when player goes off the canvas
-  if (playerX < 0) {
-    playerX += width;
+  if (player.x < 0) {
+    player.x += width;
   }
-  else if (playerX > width) {
-    playerX -= width;
+  else if (player.x > width) {
+    player.x -= width;
   }
 
-  if (playerY < 0) {
-    playerY += height;
+  if (player.y < 0) {
+    player.y += height;
   }
-  else if (playerY > height) {
-    playerY -= height;
+  else if (player.y > height) {
+    player.y -= height;
   }
 }
 
@@ -161,9 +162,9 @@ function movePlayer() {
 // Check if the player is dead
 function updateHealth() {
   // Reduce player health, constrain to reasonable range
-  playerHealth = constrain(playerHealth - 0.5,0,playerMaxHealth);
+  player.health = constrain(player.health - 0.5,0,player.maxHealth);
   // Check if the player is dead
-  if (playerHealth === 0) {
+  if (player.health === 0) {
     // If so, the game is over
     gameOver = true;
   }
@@ -174,21 +175,21 @@ function updateHealth() {
 // Check if the player overlaps the prey and updates health of both
 function checkEating() {
   // Get distance of player to prey
-  var d = dist(playerX,playerY,preyX,preyY);
+  var d = dist(player.x,player.y,blood.x,blood.y);
   // Check if it's an overlap
-  if (d < playerRadius + preyRadius) {
+  if (d < player.radius + blood.radius) {
     // Increase the player health
-    playerHealth = constrain(playerHealth + eatHealth,0,playerMaxHealth);
+    player.health = constrain(player.health + eatHealth,0,player.maxHealth);
     // Reduce the prey health
-    preyHealth = constrain(preyHealth - eatHealth,0,preyMaxHealth);
+    blood.health = constrain(blood.health - eatHealth,0,blood.maxHealth);
 
     // Check if the prey died
-    if (preyHealth === 0) {
+    if (blood.health === 0) {
       // Move the "new" prey to a random position
-      preyX = random(0,width);
-      preyY = random(0,height);
+      blood.x = random(0,width);
+      blood.y = random(0,height);
       // Give it full health
-      preyHealth = preyMaxHealth;
+      blood.health = blood.maxHealth;
       // Track how many prey were eaten
       preyEaten++;
     }
@@ -198,7 +199,7 @@ function checkEating() {
 // movePrey()
 //
 // Moves the prey based on random velocity changes
-function movePrey() {
+function moveBlood() {
   // Change the prey's velocity at random intervals
   // random() will be < 0.05 5% of the time, so the prey
   // will change direction on 5% of frames
@@ -207,44 +208,44 @@ function movePrey() {
     // and speed of movement
     // Use map() to convert from the 0-1 range of the random() function
     // to the appropriate range of velocities for the prey
-    preyVX = map(random(),0,1,-preyMaxSpeed,preyMaxSpeed);
-    preyVY = map(random(),0,1,-preyMaxSpeed,preyMaxSpeed);
+    blood.vx = map(random(),0,1,-blood.maxSpeed,blood.maxSpeed);
+    blood.vy = map(random(),0,1,-blood.maxSpeed,blood.maxSpeed);
   }
 
   // Update prey position based on velocity
-  preyX += preyVX;
-  preyY += preyVY;
+  blood.x += blood.vx;
+  blood.y += blood.vy;
 
   // Screen wrapping
-  if (preyX < 0) {
-    preyX += width;
+  if (blood.x < 0) {
+    blood.x += width;
   }
-  else if (preyX > width) {
-    preyX -= width;
+  else if (blood.x > width) {
+    blood.x -= width;
   }
 
-  if (preyY < 0) {
-    preyY += height;
+  if (blood.y < 0) {
+    blood.y += height;
   }
-  else if (preyY > height) {
-    preyY -= height;
+  else if (blood.y > height) {
+    blood.y -= height;
   }
 }
 
 // drawPrey()
 //
 // Draw the prey as an ellipse with alpha based on health
-function drawPrey() {
-  fill(preyFill,preyHealth);
-  ellipse(preyX,preyY,preyRadius*2);
+function drawBlood() {
+  fill(blood.fill,blood.health);
+  ellipse(blood.x,blood.y,blood.radius*2);
 }
 
 // drawPlayer()
 //
 // Draw the player as an ellipse with alpha based on health
 function drawPlayer() {
-  fill(playerFill,playerHealth);
-  ellipse(playerX,playerY,playerRadius*2);
+  fill(player.fill,player.health);
+  ellipse(player.x,player.y,player.radius*2);
 }
 
 // showGameOver()
