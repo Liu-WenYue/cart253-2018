@@ -14,14 +14,16 @@ sprinting, random movement, screen wrap.
 // Track whether the game is over.
 var gameOver = false;
 
-// Player position, velocity, speed
+// Player position, velocity, speed, speed increase
 var player = {
   x : 0,
   y : 0,
   vx : 0,
   vy : 0,
   radius : 25,
+  speed : 2,
   maxSpeed : 2,
+  speedIncrease : 0.5,
   fill : 50,
 }
 
@@ -128,6 +130,15 @@ function handleInput() {
   }
   else {
     player.vy = 0;
+  }
+
+  // When the player holds down SHIFT key, the sprinting is triggered,
+  // when the SHIFT key is released, it will go back to the original speed.
+  if (keyIsDown(SHIFT)) {
+    player.maxSpeed += player.speedIncrease;
+  }
+  else {
+    player.maxSpeed = player.speed;
   }
 }
 
