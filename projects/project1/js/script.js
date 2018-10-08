@@ -14,7 +14,7 @@ sprinting, random movement, screen wrap.
 // Track whether the game is over.
 var gameOver = false;
 
-// Player position, velocity, speed, health
+// Player position, velocity, speed
 var player = {
   x : 0,
   y : 0,
@@ -22,23 +22,25 @@ var player = {
   vy : 0,
   radius : 25,
   maxSpeed : 2,
-  health : 0,
-  maxHealth : 255,
   fill : 50,
 }
 
-// Prey position, velocity, speed, health
+var playerHealth;
+var playerMaxHealth = 255;
+
+// Prey position, time, time increase
 var blood = {
   x : 0,
   y : 0,
-  vx : 0,
-  vy : 0,
+  tx : 0,
+  ty : 10000,
+  timeIncrease : 0.01,
   radius : 25,
-  maxSpeed : 4,
-  health : 0,
-  maxHealth : 100,
   fill : 200,
 }
+
+var bloodHealth;
+var bloodMaxHealth = 100;
 
 // Amount of health obtained per frame of "eating" the prey
 var eatHealth = 10;
@@ -63,9 +65,7 @@ function setup() {
 function setupBlood() {
   blood.x = width/5;
   blood.y = height/2;
-  blood.vx = -blood.maxSpeed;
-  blood.vy = blood.maxSpeed;
-  blood.health = blood.maxHealth;
+  bloodHealth = bloodMaxHealth;
 }
 
 // setupPlayer()
@@ -74,7 +74,7 @@ function setupBlood() {
 function setupPlayer() {
   player.x = 4*width/5;
   player.y = height/2;
-  player.health = player.maxHealth;
+  playerHealth = playerMaxHealth;
 }
 
 // draw()
@@ -162,9 +162,9 @@ function movePlayer() {
 // Check if the player is dead
 function updateHealth() {
   // Reduce player health, constrain to reasonable range
-  player.health = constrain(player.health - 0.5,0,player.maxHealth);
+  playerHealth = constrain(playerHealth - 0.5,0,playerMaxHealth);
   // Check if the player is dead
-  if (player.health === 0) {
+  if (playerHealth === 0) {
     // If so, the game is over
     gameOver = true;
   }
@@ -179,44 +179,37 @@ function checkEating() {
   // Check if it's an overlap
   if (d < player.radius + blood.radius) {
     // Increase the player health
-    player.health = constrain(player.health + eatHealth,0,player.maxHealth);
+    playerHealth = constrain(playerHealth + eatHealth,0,playerMaxHealth);
     // Reduce the prey health
-    blood.health = constrain(blood.health - eatHealth,0,blood.maxHealth);
+    bloodHealth = constrain(bloodHealth - eatHealth,0,bloodMaxHealth);
 
     // Check if the prey died
-    if (blood.health === 0) {
-      // Move the "new" prey to a random position
-      blood.x = random(0,width);
-      blood.y = random(0,height);
+    if (bloodHealth === 0) {
+      // Move the "new" prey to a random position by giving it a
+      // new time value.
+      blood.tx = random(0,width);
+      blood.ty = random(0,height);
       // Give it full health
-      blood.health = blood.maxHealth;
+      bloodHealth = bloodMaxHealth;
       // Track how many prey were eaten
       preyEaten++;
     }
   }
 }
 
-// movePrey()
+// moveBlood()
 //
-// Moves the prey based on random velocity changes
+// Moves the blood based on the noise function.
 function moveBlood() {
-  // Change the prey's velocity at random intervals
-  // random() will be < 0.05 5% of the time, so the prey
-  // will change direction on 5% of frames
-  if (random() < 0.05) {
-    // Set velocity based on random values to get a new direction
-    // and speed of movement
-    // Use map() to convert from the 0-1 range of the random() function
-    // to the appropriate range of velocities for the prey
-    blood.vx = map(random(),0,1,-blood.maxSpeed,blood.maxSpeed);
-    blood.vy = map(random(),0,1,-blood.maxSpeed,blood.maxSpeed);
-  }
+  // Changes blood's x and y location based on the time value.
+  blood.x = width * noise(blood.tx);
+  blood.y = height * noise(blood.ty);
 
-  // Update prey position based on velocity
-  blood.x += blood.vx;
-  blood.y += blood.vy;
+  // The time value increases every frame.
+  blood.tx += blood.timeIncrease;
+  blood.ty += blood.timeIncrease;
 
-  // Screen wrapping
+  // Screen wrapping for the blood.
   if (blood.x < 0) {
     blood.x += width;
   }
@@ -236,7 +229,7 @@ function moveBlood() {
 //
 // Draw the prey as an ellipse with alpha based on health
 function drawBlood() {
-  fill(blood.fill,blood.health);
+  fill(blood.fill,bloodHealth);
   ellipse(blood.x,blood.y,blood.radius*2);
 }
 
@@ -244,7 +237,7 @@ function drawBlood() {
 //
 // Draw the player as an ellipse with alpha based on health
 function drawPlayer() {
-  fill(player.fill,player.health);
+  fill(player.fill,playerHealth);
   ellipse(player.x,player.y,player.radius*2);
 }
 
