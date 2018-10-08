@@ -278,10 +278,22 @@ function loadBlood() {
 
 // loadPlayer()
 //
-// load the player image.
+// Load the player image when the blood eaten is less than 10,
+// Load the player's first evolved image when the blood eaten is greater
+// than 10 and less than 50,
+// Load the player's second evolved images when the blood eaten is greater
+// than 50.
 function loadPlayer() {
-  image(playerImage,player.x,player.y,playerImage.width*0.3,playerImage.height*0.3,0,0);
-  // tint(255, playerHealth);
+  if (preyEaten < 10) {
+    image(playerImage,player.x,player.y,playerImage.width*0.3,playerImage.height*0.3,0,0);
+    // tint(255, playerHealth);
+  }
+  else if (preyEaten < 50) {
+    image(playerEvo1Image,player.x,player.y,playerEvo1Image.width*0.3,playerEvo1Image.height*0.3,0,0);
+  }
+  else {
+    image(playerEvo2Image,player.x,player.y,playerEvo2Image.width*0.3,playerEvo2Image.height*0.3,0,0);
+  }
 }
 
 // showGameOver()
