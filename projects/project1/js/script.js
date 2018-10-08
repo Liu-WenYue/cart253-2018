@@ -121,6 +121,7 @@ function draw() {
 
     updateHealth();
     checkEating();
+    checkPlayerSpeed();
 
     loadBlood();
     loadPlayer();
@@ -239,6 +240,24 @@ function checkEating() {
       // Track how many prey were eaten
       preyEaten++;
     }
+  }
+}
+
+// checkPlayerSpeed()
+//
+// To vary the initial speed of the player in different stage by checking
+// how many blood the player caught.
+// The player evolved 1 will be faster than the original player by 2 units,
+// The player evolved 2 will be faster than the original player by 5 units.
+function checkPlayerSpeed() {
+  if (preyEaten < 10) {
+    player.maxSpeed = player.maxSpeed;
+  }
+  else if (preyEaten < 50) {
+    player.maxSpeed += 2;
+  }
+  else {
+    player.maxSpeed += 5;
   }
 }
 
