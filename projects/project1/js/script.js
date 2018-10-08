@@ -20,12 +20,14 @@ var player = {
   y : 0,
   vx : 0,
   vy : 0,
-  radius : 25,
   speed : 2,
   maxSpeed : 2,
   speedIncrease : 0.5,
-  fill : 50
 }
+
+// The width and height of the player used to checking overlapping with the blood.
+var playerWidth;
+var playerHeight;
 
 var playerHealth;
 var playerMaxHealth = 255;
@@ -220,7 +222,7 @@ function checkEating() {
   // Get distance of player to prey
   var d = dist(player.x,player.y,blood.x,blood.y);
   // Check if it's an overlap
-  if (d < (playerImage.width*0.3)/2 + (bloodImage.width*0.3)/2 || d < (playerImage.width*0.3)/2 + (bloodImage.height*0.3)/2) {
+  if (d < playerWidth/2 + (bloodImage.width*0.3)/2 || d < playerWidth/2 + (bloodImage.height*0.3)/2 || d < playerHeight/2 + (bloodImage.width*0.3)/2 || d < playerHeight/2 + (bloodImage.height*0.3)/2) {
     // Increase the player health
     playerHealth = constrain(playerHealth + eatHealth,0,playerMaxHealth);
     // Reduce the prey health
@@ -278,6 +280,7 @@ function loadBlood() {
 
 // loadPlayer()
 //
+// Load player images at different stages.(changing player sizes)
 // Load the player image when the blood eaten is less than 10,
 // Load the player's first evolved image when the blood eaten is greater
 // than 10 and less than 50,
@@ -287,12 +290,18 @@ function loadPlayer() {
   if (preyEaten < 10) {
     image(playerImage,player.x,player.y,playerImage.width*0.3,playerImage.height*0.3,0,0);
     // tint(255, playerHealth);
+    playerWidth = playerImage.width*0.3;
+    playerHeight = playerImage.height*0.3;
   }
   else if (preyEaten < 50) {
     image(playerEvo1Image,player.x,player.y,playerEvo1Image.width*0.3,playerEvo1Image.height*0.3,0,0);
+    playerWidth = playerEvo1Image.width*0.3;
+    playerHeight = playerEvo1Image.height*0.3;
   }
   else {
     image(playerEvo2Image,player.x,player.y,playerEvo2Image.width*0.3,playerEvo2Image.height*0.3,0,0);
+    playerWidth = playerEvo2Image.width*0.3;
+    playerHeight = playerEvo2Image.height*0.3;
   }
 }
 
