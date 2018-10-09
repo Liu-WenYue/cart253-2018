@@ -24,7 +24,7 @@ var player = {
   vy : 0,
   speed : 2,
   maxSpeed : 2,
-  speedIncrease : 0.5,
+  speedIncrease : 0.5
 }
 
 // The width and height of the player used to checking overlapping with the blood.
@@ -38,9 +38,12 @@ var playerMaxHealth = 255;
 var blood = {
   x : 0,
   y : 0,
+  vx : 3,
+  vy : 3,
   tx : 0,
-  ty : 10000,
-  timeIncrease : 0.005
+  ty : 100,
+  maxSpeed : 5,
+  timeIncrease : 0.01
 }
 
 // The width and height of the blood used to checking overlapping with the player.
@@ -260,8 +263,8 @@ function checkEating() {
     if (bloodHealth === 0) {
       // Move the "new" prey to a random position by giving it a
       // new time value.
-      blood.tx = random(0,width);
-      blood.ty = random(0,height);
+      blood.x = random(0,width);
+      blood.y = random(0,height);
       // Give it full health
       bloodHealth = bloodMaxHealth;
       // Track how many prey were eaten
@@ -294,17 +297,17 @@ function varyPlayerSpeed() {
 // checking how many blood the player caught.
 function varyBloodSpeedSize() {
   if (preyEaten < 10) {
-    blood.timeIncrease = blood.timeIncrease;
+    blood.maxSpeed = blood.maxSpeed;
     bloodWidth = bloodImage.width*0.3;
     bloodHeight = bloodImage.height*0.3;
   }
   else if (preyEaten < 50) {
-    blood.timeIncrease = 0.01;
+    blood.maxSpeed = 7;
     bloodWidth = bloodImage.width*0.25;
     bloodHeight = bloodImage.height*0.25;
   }
   else {
-    blood.timeIncrease = 0.02;
+    blood.maxSpeed = 9;
     bloodWidth = bloodImage.width*0.2;
     bloodHeight = bloodImage.height*0.2;
   }
@@ -315,10 +318,14 @@ function varyBloodSpeedSize() {
 // Moves the blood based on the noise function.
 function moveBlood() {
   // Changes blood's x and y location based on the time value.
-  blood.x = width * noise(blood.tx);
-  blood.y = height * noise(blood.ty);
+  blood.vx = map(noise(blood.tx),0,1,-blood.maxSpeed,blood.maxSpeed);
+  blood.vy = map(noise(blood.ty),0,1,-blood.maxSpeed,blood.maxSpeed);
 
   // The time value increases every frame.
+  blood.x += blood.vx;
+  blood.y += blood.vy;
+
+  //Changes the time every frame.
   blood.tx += blood.timeIncrease;
   blood.ty += blood.timeIncrease;
 
