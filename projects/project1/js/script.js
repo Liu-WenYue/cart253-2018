@@ -78,6 +78,10 @@ var suckInSound;
 // Font for the game over text.
 var opificioFont;
 
+// Sound effects of the evolving.
+var evo1Sound;
+var evo2Sound;
+
 // preload()
 //
 // Preload images of the background, blood, player characters and onion.
@@ -92,7 +96,8 @@ function preload() {
 
   bgmSound = new Audio("assets/sounds/backgroundMusic.mp3");
   suckInSound = new Audio("assets/sounds/suckIn.mp3");
-
+  evo1Sound = new Audio("assets/sounds/evo1Effect.mp3");
+  evo2Sound = new Audio("assets/sounds/evo2Effect.mp3");
   opificioFont = loadFont("assets/fonts/Opificio_Bold.ttf");
 }
 
@@ -269,7 +274,18 @@ function checkEating() {
       bloodHealth = bloodMaxHealth;
       // Track how many prey were eaten
       preyEaten++;
+
+      evoEffect();
     }
+  }
+}
+
+function evoEffect() {
+  if (preyEaten === 10) {
+    evo1Sound.play();
+  }
+  if (preyEaten === 50) {
+    evo2Sound.play();
   }
 }
 
@@ -281,7 +297,7 @@ function checkEating() {
 // The player evolved 2 will be faster than the original player by 5 units.
 function varyPlayerSpeed() {
   if (preyEaten < 10) {
-    player.maxSpeed = player.maxSpeed;
+    player.maxSpeed === player.maxSpeed;
   }
   else if (preyEaten < 50) {
     player.maxSpeed += 2;
@@ -297,17 +313,17 @@ function varyPlayerSpeed() {
 // checking how many blood the player caught.
 function varyBloodSpeedSize() {
   if (preyEaten < 10) {
-    blood.maxSpeed = blood.maxSpeed;
+    blood.maxSpeed === blood.maxSpeed;
     bloodWidth = bloodImage.width*0.3;
     bloodHeight = bloodImage.height*0.3;
   }
   else if (preyEaten < 50) {
-    blood.maxSpeed = 7;
+    blood.maxSpeed === 7;
     bloodWidth = bloodImage.width*0.25;
     bloodHeight = bloodImage.height*0.25;
   }
   else {
-    blood.maxSpeed = 9;
+    blood.maxSpeed === 9;
     bloodWidth = bloodImage.width*0.2;
     bloodHeight = bloodImage.height*0.2;
   }
