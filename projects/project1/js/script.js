@@ -82,6 +82,9 @@ var opificioFont;
 var evo1Sound;
 var evo2Sound;
 
+// Sound effect of heartbeat.
+var heartbeatSound;
+
 // preload()
 //
 // Preload images of the background, blood, player characters and onion.
@@ -98,6 +101,8 @@ function preload() {
   suckInSound = new Audio("assets/sounds/suckIn.mp3");
   evo1Sound = new Audio("assets/sounds/evo1Effect.mp3");
   evo2Sound = new Audio("assets/sounds/evo2Effect.mp3");
+  heartbeatSound = new Audio("assets/sounds/heartbeat.mp3")
+
   opificioFont = loadFont("assets/fonts/Opificio_Bold.ttf");
 }
 
@@ -242,6 +247,12 @@ function updateHealth() {
     playerHealth = constrain(playerHealth - 0.5, 0, playerMaxHealth);
   }
 
+  // When the player is dying, heartbeat sound will start play to notify
+  // the player.
+  if (playerHealth < 70) {
+    heartbeatSound.play();
+  }
+
   // Check if the player is dead
   if (playerHealth === 0) {
     // If so, the game is over
@@ -280,6 +291,9 @@ function checkEating() {
   }
 }
 
+// evoEffect()
+//
+// The sound effects for the player evolving.
 function evoEffect() {
   if (preyEaten === 10) {
     evo1Sound.play();
