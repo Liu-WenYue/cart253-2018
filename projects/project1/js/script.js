@@ -9,6 +9,8 @@ as it catches blood.
 Physics-based movement, keyboard controls, health/stamina,
 sprinting, random movement, screen wrap.
 
+Special credit: Background music is from an anime(Shiki)called Mosaic,
+done by composer Yasuharu Takanashi.
 ***********************************************************/
 
 // Track whether the game is over.
@@ -64,15 +66,21 @@ var playerImage;
 var playerEvo1Image;
 var playerEvo2Image;
 
+// The background music for the game.
+var bgmSound;
+
 // preload()
 //
 // Preload images of the background, blood, player characters and onion.
+// Preload background music and sound effects.
 function preload() {
   backgroundImage = loadImage("assets/images/nightBackground.png");
   bloodImage = loadImage("assets/images/blood.png");
   playerImage = loadImage("assets/images/player.png");
   playerEvo1Image = loadImage("assets/images/playerEvo1.png");
   playerEvo2Image = loadImage("assets/images/playerEvo2.png");
+
+  bgmSound = new Audio("assets/sounds/backgroundMusic.mp3")
 }
 
 // setup()
@@ -116,6 +124,7 @@ function setupPlayer() {
 // When the game is over, shows the game over screen.
 function draw() {
   image(backgroundImage,width/2,height/2,backgroundImage.width*0.5,backgroundImage.height*0.5);
+  bgmSound.play();
 
   if (!gameOver) {
     handleInput();
