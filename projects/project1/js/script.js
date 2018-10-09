@@ -54,7 +54,7 @@ var bloodHealth;
 var bloodMaxHealth = 255;
 
 // Amount of health obtained per frame of "eating" the prey
-var eatHealth = 15;
+var eatHealth = 20;
 // Number of prey eaten during the game
 var preyEaten = 0;
 
@@ -314,10 +314,10 @@ function varyPlayerSpeed() {
     player.maxSpeed === player.maxSpeed;
   }
   else if (preyEaten < 50) {
-    player.maxSpeed += 2;
+    player.maxSpeed += 1;
   }
   else {
-    player.maxSpeed += 5;
+    player.maxSpeed += 3;
   }
 }
 
