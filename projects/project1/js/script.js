@@ -365,8 +365,10 @@ function moveBlood() {
 //
 // Load the blood image.
 function loadBlood() {
+  push();
+  tint(255, bloodHealth);
   image(bloodImage,blood.x,blood.y,bloodWidth,bloodHeight,0,0);
-  // tint(255, bloodHealth);
+  pop();
 }
 
 // loadPlayer()
@@ -380,7 +382,6 @@ function loadBlood() {
 function loadPlayer() {
   if (preyEaten < 10) {
     image(playerImage,player.x,player.y,playerImage.width*0.3,playerImage.height*0.3,0,0);
-    // tint(255, playerHealth);
     playerWidth = playerImage.width*0.3;
     playerHeight = playerImage.height*0.3;
   }
