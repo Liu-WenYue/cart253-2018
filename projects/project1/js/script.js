@@ -11,12 +11,13 @@ sprinting, random movement, screen wrap.
 
 Special credit: Background music is from an anime(Shiki)called Mosaic,
 done by composer Yasuharu Takanashi.
+
 ***********************************************************/
 
 // Track whether the game is over.
 var gameOver = false;
 
-// Player position, velocity, speed, speed increase
+// Player position, velocity, speed, speed increase.
 var player = {
   x : 0,
   y : 0,
@@ -34,7 +35,7 @@ var playerHeight;
 var playerHealth;
 var playerMaxHealth = 255;
 
-// Prey position, time, time increase
+// Prey position, time, time increase.
 var blood = {
   x : 0,
   y : 0,
@@ -85,6 +86,8 @@ var evo2Sound;
 // Sound effect of heartbeat.
 var heartbeatSound;
 
+
+
 // preload()
 //
 // Preload images of the background, blood, player characters and onion.
@@ -101,7 +104,7 @@ function preload() {
   suckInSound = new Audio("assets/sounds/suckIn.mp3");
   evo1Sound = new Audio("assets/sounds/evo1Effect.mp3");
   evo2Sound = new Audio("assets/sounds/evo2Effect.mp3");
-  heartbeatSound = new Audio("assets/sounds/heartbeat.mp3")
+  heartbeatSound = new Audio("assets/sounds/heartbeat.mp3");
 
   opificioFont = loadFont("assets/fonts/Opificio_Bold.ttf");
 }
@@ -247,7 +250,7 @@ function updateHealth() {
     playerHealth = constrain(playerHealth - 0.5, 0, playerMaxHealth);
   }
 
-  // When the player is dying, heartbeat sound will start play to notify
+  // When the player is dying, heartbeat sound effect will start play to notify
   // the player.
   if (playerHealth < 70) {
     heartbeatSound.play();
@@ -272,6 +275,8 @@ function checkEating() {
     playerHealth = constrain(playerHealth + eatHealth,0,playerMaxHealth);
     // Reduce the prey health
     bloodHealth = constrain(bloodHealth - eatHealth,0,bloodMaxHealth);
+
+    // Plays the sucking in sound when player and blood overlaps.
     suckInSound.play();
     suckInSound.currentTime = 0;
 
@@ -286,6 +291,7 @@ function checkEating() {
       // Track how many prey were eaten
       preyEaten++;
 
+      // Plays the evolving sound effects.
       evoEffect();
     }
   }
@@ -293,7 +299,7 @@ function checkEating() {
 
 // evoEffect()
 //
-// The sound effects for the player evolving.
+// Plays the sound effects for the player evolving.
 function evoEffect() {
   if (preyEaten === 10) {
     evo1Sound.play();
@@ -351,7 +357,7 @@ function moveBlood() {
   blood.vx = map(noise(blood.tx),0,1,-blood.maxSpeed,blood.maxSpeed);
   blood.vy = map(noise(blood.ty),0,1,-blood.maxSpeed,blood.maxSpeed);
 
-  // The time value increases every frame.
+  // The blood moves based on its velocity.
   blood.x += blood.vx;
   blood.y += blood.vy;
 
@@ -377,7 +383,7 @@ function moveBlood() {
 
 // loadBlood()
 //
-// Load the blood image.
+// Load the blood image with alpha based on the the blood health.
 function loadBlood() {
   push();
   tint(255, bloodHealth);
