@@ -430,3 +430,8 @@ function showGameOver() {
   gameOverText += "before you died."
   text(gameOverText,width/2,height/2);
 }
+
+// To have all the sound files to work in Safari browser.
+function mousePressed() {
+  bgmSound.play();
+}
