@@ -141,6 +141,7 @@ function draw() {
     loadPlayer();
   }
   else {
+    bgmSound.pause();
     showGameOver();
   }
 }
