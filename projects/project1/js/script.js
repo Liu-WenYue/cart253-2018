@@ -69,6 +69,9 @@ var playerEvo2Image;
 // The background music for the game.
 var bgmSound;
 
+// Sound effect of sucking in.
+var suckInSound;
+
 // preload()
 //
 // Preload images of the background, blood, player characters and onion.
@@ -80,7 +83,8 @@ function preload() {
   playerEvo1Image = loadImage("assets/images/playerEvo1.png");
   playerEvo2Image = loadImage("assets/images/playerEvo2.png");
 
-  bgmSound = new Audio("assets/sounds/backgroundMusic.mp3")
+  bgmSound = new Audio("assets/sounds/backgroundMusic.mp3");
+  suckInSound = new Audio("assets/sounds/suckIn.mp3");
 }
 
 // setup()
@@ -243,6 +247,8 @@ function checkEating() {
     playerHealth = constrain(playerHealth + eatHealth,0,playerMaxHealth);
     // Reduce the prey health
     bloodHealth = constrain(bloodHealth - eatHealth,0,bloodMaxHealth);
+    suckInSound.play();
+    suckInSound.currentTime = 0;
 
     // Check if the prey died
     if (bloodHealth === 0) {
