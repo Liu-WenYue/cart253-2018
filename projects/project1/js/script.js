@@ -72,10 +72,14 @@ var bgmSound;
 // Sound effect of sucking in.
 var suckInSound;
 
+// Font for the game over text.
+var opificioFont;
+
 // preload()
 //
 // Preload images of the background, blood, player characters and onion.
 // Preload background music and sound effects.
+// Preload fonts.
 function preload() {
   backgroundImage = loadImage("assets/images/nightBackground.png");
   bloodImage = loadImage("assets/images/blood.png");
@@ -85,6 +89,8 @@ function preload() {
 
   bgmSound = new Audio("assets/sounds/backgroundMusic.mp3");
   suckInSound = new Audio("assets/sounds/suckIn.mp3");
+
+  opificioFont = loadFont("assets/fonts/Opificio_Bold.ttf");
 }
 
 // setup()
@@ -371,11 +377,12 @@ function loadPlayer() {
 //
 // Display text about the game being over!
 function showGameOver() {
-  textSize(32);
+  textFont(opificioFont);
+  textSize(34);
   textAlign(CENTER,CENTER);
-  fill(0);
+  fill(255,0,0);
   var gameOverText = "GAME OVER\n";
-  gameOverText += "You ate " + preyEaten + " prey\n";
+  gameOverText += "You had " + preyEaten + " bloods\n";
   gameOverText += "before you died."
   text(gameOverText,width/2,height/2);
 }
