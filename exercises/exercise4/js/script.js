@@ -1,8 +1,13 @@
+/////////////////////   NEW   /////////////////////
+
 // Pong
-// by Pippin Barr
+// by Liu WenYue, 15th October.2018
 //
-// A primitive implementation of Pong with no scoring system
-// just the ability to play the game with the keyboard.
+// A Pong game that illustrates the irresponsible chicken parents
+// pushing their child away.
+
+/////////////////////   END NEW   /////////////////////
+
 
 // Game colors
 var bgColor = 0;
