@@ -63,6 +63,14 @@ var rightPaddle = {
   downKeyCode: 40 // The key code for the DOWN ARROW
 }
 
+/////////////////////   NEW   /////////////////////
+
+// Variables for the scores achieved by each paddles.
+var leftPaddleScore = 0;
+var rightPaddleScore = 0;
+
+/////////////////////   END NEW   /////////////////////
+
 // A variable to hold the beep sound we will play on bouncing
 var beepSFX;
 
@@ -257,16 +265,32 @@ function handleBallOffScreen() {
   var ballLeft = ball.x - ball.size/2;
   var ballRight = ball.x + ball.size/2;
 
-  // Check for ball going off the sides
-  if (ballRight < 0 || ballLeft > width) {
+  /////////////////////   NEW   /////////////////////
+
+  // Check if the ball is offscreen, when it is offscreen, reset
+  // it to the center of the screen and add the score to
+  // the correct paddle.
+  if (ballRight < 0) {
     // If it went off either side, reset it to the centre
     ball.x = width/2;
     ball.y = height/2;
-    // NOTE that we don't change its velocity here so it just
-    // carries on moving with the same velocity after its
-    // position is reset.
-    // This is where we would count points etc!
+
+    // Increase the score for the right paddle if the ball went
+    // offscreen at the left hand side of the screen.
+    rightPaddleScore++;
   }
+
+  //
+  if (ballLeft > width) {
+    // If it went off either side, reset it to the centre.
+    ball.x = width/2;
+    ball.y = height/2;
+
+    // Increase the score for the left paddle if the ball went
+    // offscreen at the right hand side of the screen.
+    leftPaddleScore++;
+  }
+  /////////////////////   END NEW   /////////////////////
 }
 
 // displayBall()
