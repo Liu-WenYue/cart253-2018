@@ -170,7 +170,7 @@ function setupBall() {
 // Calls the appropriate functions to run the game
 function draw() {
   /////////////////////   NEW   /////////////////////
-  
+
   push();
   imageMode(CORNERS);
   // Display the background image.
@@ -331,9 +331,11 @@ function handleBallOffScreen() {
   // it to the center of the screen and add the score to
   // the correct paddle.
   if (ballRight < 0) {
-    // If it went off either side, reset it to the centre
-    ball.x = width/2;
-    ball.y = height/2;
+    /////////////////////   NEW   /////////////////////
+
+    ballReset()
+
+    /////////////////////   END NEW   /////////////////////
 
     // Increase the score for the right paddle if the ball went
     // offscreen at the left hand side of the screen.
@@ -351,9 +353,11 @@ function handleBallOffScreen() {
   }
 
   if (ballLeft > width) {
-    // If it went off either side, reset it to the centre.
-    ball.x = width/2;
-    ball.y = height/2;
+    /////////////////////   NEW   /////////////////////
+
+    ballReset()
+
+    /////////////////////   END NEW   /////////////////////
 
     // Increase the score for the left paddle if the ball went
     // offscreen at the right hand side of the screen.
@@ -371,6 +375,20 @@ function handleBallOffScreen() {
   }
   /////////////////////   END NEW   /////////////////////
 }
+
+
+/////////////////////   NEW   ///////////////////
+
+// reset()
+//
+// Reset the location of the ball.
+function ballReset() {
+  // If it went off either side, reset it to the centre
+  ball.x = width/2;
+  ball.y = height/2;
+}
+
+/////////////////////   END NEW   /////////////////////
 
 /////////////////////   NEW   /////////////////////
 
