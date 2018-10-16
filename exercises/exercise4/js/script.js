@@ -315,80 +315,58 @@ function handleBallPaddleCollision(paddle) {
   }
 }
 
+///////////////////////   NEW   ///////////////////////
+
 // handleBallOffScreen()
 //
 // Checks if the ball has gone off screen to the left or right
 // and moves it back to the centre if so
 function handleBallOffScreen() {
+  reset();
+}
 
+// reset()
+//
+// Reset the location of the ball.
+function reset() {
   // Calculate edges of ball for clearer if statement below
   var ballLeft = ball.x - ball.size/2;
   var ballRight = ball.x + ball.size/2;
-
-  /////////////////////   NEW   /////////////////////
 
   // Check if the ball is offscreen, when it is offscreen, reset
   // it to the center of the screen and add the score to
   // the correct paddle.
   if (ballRight < 0) {
-    /////////////////////   NEW   /////////////////////
+    // If it went off either side, reset it to the centre
+    ball.x = width/2;
+    ball.y = height/2;
 
-    ballReset()
-
-    /////////////////////   END NEW   /////////////////////
-
-    // Increase the score for the right paddle if the ball went
-    // offscreen at the left hand side of the screen.
     rightPaddleScore++;
-
-    /////////////////////   NEW   /////////////////////
 
     leftPaddleScore = leftPaddleScore;
     // Check and update the size of the right paddle,
     // the size of the right paddle increases as the score increase.
     changeSize(rightPaddle);
-
-    /////////////////////   END NEW   /////////////////////
-
   }
 
   if (ballLeft > width) {
-    /////////////////////   NEW   /////////////////////
-
-    ballReset()
-
-    /////////////////////   END NEW   /////////////////////
+    // If it went off either side, reset it to the centre
+    ball.x = width/2;
+    ball.y = height/2;
 
     // Increase the score for the left paddle if the ball went
     // offscreen at the right hand side of the screen.
     leftPaddleScore++;
 
-    /////////////////////   NEW   /////////////////////
-
     rightPaddleScore = rightPaddleScore;
     // Check and update the size of the left paddle,
     // the size of the left paddle increases as the score increase.
     changeSize(leftPaddle);
-
-    /////////////////////   END NEW   /////////////////////
-
   }
-  /////////////////////   END NEW   /////////////////////
 }
 
+///////////////////////   END NEW   ///////////////////////
 
-/////////////////////   NEW   ///////////////////
-
-// reset()
-//
-// Reset the location of the ball.
-function ballReset() {
-  // If it went off either side, reset it to the centre
-  ball.x = width/2;
-  ball.y = height/2;
-}
-
-/////////////////////   END NEW   /////////////////////
 
 /////////////////////   NEW   /////////////////////
 
