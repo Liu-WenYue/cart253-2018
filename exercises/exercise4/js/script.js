@@ -337,9 +337,18 @@ function reset() {
   // it to the center of the screen and add the score to
   // the correct paddle.
   if (ballRight < 0) {
-    // If it went off either side, reset it to the centre
+    // If it went off at the left hand side, reset it to the centre
     ball.x = width/2;
     ball.y = height/2;
+
+    /////////////////////   NEW   /////////////////////
+
+    // Launch the ball to the right side of the screen and
+    // have a random y velocity that changes the angle of the ball moves.
+    ball.vx = -ball.vx;
+    ball.vy = random(-ball.speed,ball.speed);
+
+    /////////////////////   END NEW   /////////////////////
 
     rightPaddleScore++;
 
@@ -350,9 +359,18 @@ function reset() {
   }
 
   if (ballLeft > width) {
-    // If it went off either side, reset it to the centre
+    // If it went off at the right side, reset it to the centre
     ball.x = width/2;
     ball.y = height/2;
+
+    /////////////////////   NEW   /////////////////////
+
+    // Launch the ball to the right side of the screen and
+    // have a random y velocity that changes the angle of the ball moves.
+    ball.vx = -ball.vx;
+    ball.vy = random(-ball.speed,ball.speed);
+
+    /////////////////////   END NEW   /////////////////////
 
     // Increase the score for the left paddle if the ball went
     // offscreen at the right hand side of the screen.
