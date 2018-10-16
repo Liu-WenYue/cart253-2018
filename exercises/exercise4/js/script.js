@@ -8,11 +8,6 @@
 
 /////////////////////   END NEW   /////////////////////
 
-
-// Game colors
-var bgColor = 0;
-var fgColor = 255;
-
 // BALL
 
 // Basic definition of a ball object with its key properties of
@@ -20,7 +15,13 @@ var fgColor = 255;
 var ball = {
   x: 0,
   y: 0,
-  size: 20,
+
+  /////////////////////   NEW   /////////////////////
+
+  size: 65,
+
+  /////////////////////   END NEW   /////////////////////
+
   vx: 0,
   vy: 0,
   speed: 5
@@ -38,8 +39,14 @@ var paddleInset = 50;
 var leftPaddle = {
   x: 0,
   y: 0,
-  w: 20,
-  h: 70,
+
+  /////////////////////   NEW   /////////////////////
+
+  w: 35,
+  h: 180,
+
+  /////////////////////   END NEW   /////////////////////
+
   vx: 0,
   vy: 0,
   speed: 5,
@@ -54,8 +61,14 @@ var leftPaddle = {
 var rightPaddle = {
   x: 0,
   y: 0,
-  w: 20,
-  h: 70,
+
+  /////////////////////   NEW   /////////////////////
+
+  w: 35,
+  h: 180,
+
+  /////////////////////   END NEW   /////////////////////
+
   vx: 0,
   vy: 0,
   speed: 5,
@@ -71,14 +84,41 @@ var rightPaddleScore = 0;
 
 /////////////////////   END NEW   /////////////////////
 
+
+/////////////////////   NEW   /////////////////////
+
+// The varibles that store the images of background, ball,
+// left and right paddles.
+var backgroundImage;
+var ballImage;
+var leftPaddleImage;
+var rightPaddleImage;
+
+/////////////////////   END NEW   /////////////////////
+
 // A variable to hold the beep sound we will play on bouncing
 var beepSFX;
 
 // preload()
 //
 // Loads the beep audio for the sound of bouncing
+
+/////////////////////   NEW   /////////////////////
+
+// Loads the images for the game.
+
+/////////////////////   END NEW   /////////////////////
 function preload() {
   beepSFX = new Audio("assets/sounds/beep.wav");
+
+/////////////////////   NEW   /////////////////////
+
+  backgroundImage = loadImage("assets/images/background.png");
+  ballImage = loadImage("assets/images/ball.png");
+  leftPaddleImage = loadImage("assets/images/leftPaddle.png");
+  rightPaddleImage = loadImage("assets/images/rightPaddle.png");
+
+/////////////////////   END NEW   /////////////////////
 }
 
 // setup()
@@ -88,10 +128,15 @@ function preload() {
 // and velocities.
 function setup() {
   // Create canvas and set drawing modes
-  createCanvas(640,480);
-  rectMode(CENTER);
+
+  /////////////////////   NEW   /////////////////////
+
+  // Enlarged the canvas size.
+  createCanvas(880,680);
+
+  /////////////////////   END NEW   /////////////////////
+
   noStroke();
-  fill(fgColor);
 
   setupPaddles();
   setupBall();
@@ -124,8 +169,15 @@ function setupBall() {
 //
 // Calls the appropriate functions to run the game
 function draw() {
-  // Fill the background
-  background(bgColor);
+  /////////////////////   NEW   /////////////////////
+  
+  push();
+  imageMode(CORNERS);
+  // Display the background image.
+  image(backgroundImage,0,0,width,height);
+  pop();
+
+  /////////////////////   END NEW   /////////////////////
 
   // Handle input
   // Notice how we're using the SAME FUNCTION to handle the input
@@ -148,10 +200,18 @@ function draw() {
   // Handle the ball going off screen
   handleBallOffScreen();
 
+  /////////////////////   NEW   /////////////////////
+
+  push();
+  imageMode(CENTER);
   // Display the paddles and ball
-  displayPaddle(leftPaddle);
-  displayPaddle(rightPaddle);
+  displayLeftPaddle();
+  displayRightPaddle();
+
   displayBall();
+  pop();
+
+  /////////////////////   END NEW   /////////////////////
 }
 
 
@@ -293,16 +353,27 @@ function handleBallOffScreen() {
   /////////////////////   END NEW   /////////////////////
 }
 
+  /////////////////////   NEW   /////////////////////
+
 // displayBall()
 //
 // Draws ball on screen based on its properties
 function displayBall() {
-  rect(ball.x,ball.y,ball.size,ball.size);
+  image(ballImage,ball.x,ball.y,ball.size,ball.size);
 }
 
-// displayPaddle(paddle)
+// displayLeftPaddle()
 //
-// Draws the specified paddle on screen based on its properties
-function displayPaddle(paddle) {
-  rect(paddle.x,paddle.y,paddle.w,paddle.h);
+// Draws the left paddle on screen based on its properties
+function displayLeftPaddle() {
+  image(leftPaddleImage,leftPaddle.x,leftPaddle.y,leftPaddle.w,leftPaddle.h);
 }
+
+// displayRightPaddle()
+//
+// Draws the right paddle on screen based on its properties
+function displayRightPaddle() {
+  image(rightPaddleImage,rightPaddle.x,rightPaddle.y,rightPaddle.w,rightPaddle.h);
+}
+
+  /////////////////////   END NEW   /////////////////////
