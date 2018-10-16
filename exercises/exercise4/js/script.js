@@ -96,12 +96,14 @@ var rightPaddleImage;
 
 /////////////////////   END NEW   /////////////////////
 
-// A variable to hold the beep sound we will play on bouncing
-var beepSFX;
+/////////////////////   NEW   /////////////////////
+
+// A variable to hold the chicken roar sound we will play on bouncing.
+var chickenRoarAudio;
 
 // preload()
 //
-// Loads the beep audio for the sound of bouncing
+// Loads the chicken roar audio for the sound of bouncing
 
 /////////////////////   NEW   /////////////////////
 
@@ -109,7 +111,9 @@ var beepSFX;
 
 /////////////////////   END NEW   /////////////////////
 function preload() {
-  beepSFX = new Audio("assets/sounds/beep.wav");
+  chickenRoarAudio = new Audio("assets/sounds/chickenRoar.mp3");
+
+/////////////////////   END NEW   /////////////////////
 
 /////////////////////   NEW   /////////////////////
 
@@ -278,9 +282,14 @@ function handleBallWallCollision() {
   if (ballTop < 0 || ballBottom > height) {
     // If it touched the top or bottom, reverse its vy
     ball.vy = -ball.vy;
-    // Play our bouncing sound effect by rewinding and then playing
-    beepSFX.currentTime = 0;
-    beepSFX.play();
+
+    /////////////////////   NEW   /////////////////////
+
+    // Play the chicken roar sound effect by rewinding and then playing
+    chickenRoarAudio.currentTime = 0;
+    chickenRoarAudio.play();
+
+    /////////////////////   END NEW   /////////////////////
   }
 }
 
@@ -308,9 +317,14 @@ function handleBallPaddleCollision(paddle) {
     if (ballLeft < paddleRight && ballRight > paddleLeft) {
       // Then the ball is touching the paddle so reverse its vx
       ball.vx = -ball.vx;
-      // Play our bouncing sound effect by rewinding and then playing
-      beepSFX.currentTime = 0;
-      beepSFX.play();
+
+      /////////////////////   NEW   /////////////////////
+
+      // Play the chicken roar sound effect by rewinding and then playing
+      chickenRoarAudio.currentTime = 0;
+      chickenRoarAudio.play();
+
+      /////////////////////   END NEW   /////////////////////
     }
   }
 }
@@ -429,3 +443,12 @@ function displayRightPaddle() {
 }
 
   /////////////////////   END NEW   /////////////////////
+
+/////////////////////   NEW   /////////////////////
+
+// To have all the sound files to work in Safari browser.
+function mousePressed() {
+  chickenRoarAudio.play();
+}
+
+/////////////////////   END NEW   /////////////////////
