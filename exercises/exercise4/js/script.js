@@ -338,9 +338,18 @@ function handleBallOffScreen() {
     // Increase the score for the right paddle if the ball went
     // offscreen at the left hand side of the screen.
     rightPaddleScore++;
+
+    /////////////////////   NEW   /////////////////////
+
+    leftPaddleScore = leftPaddleScore;
+    // Check and update the size of the right paddle,
+    // the size of the right paddle increases as the score increase.
+    changeSize(rightPaddle);
+
+    /////////////////////   END NEW   /////////////////////
+
   }
 
-  //
   if (ballLeft > width) {
     // If it went off either side, reset it to the centre.
     ball.x = width/2;
@@ -349,9 +358,38 @@ function handleBallOffScreen() {
     // Increase the score for the left paddle if the ball went
     // offscreen at the right hand side of the screen.
     leftPaddleScore++;
+
+    /////////////////////   NEW   /////////////////////
+
+    rightPaddleScore = rightPaddleScore;
+    // Check and update the size of the left paddle,
+    // the size of the left paddle increases as the score increase.
+    changeSize(leftPaddle);
+
+    /////////////////////   END NEW   /////////////////////
+
   }
   /////////////////////   END NEW   /////////////////////
 }
+
+/////////////////////   NEW   /////////////////////
+
+// changeSize(paddle)
+//
+// Increase the paddle sizes as the paddle's score increase.
+function changeSize(paddle) {
+  if (leftPaddleScore ++) {
+    paddle.w += 0.5;
+    paddle.h += 3;
+  }
+
+  if (rightPaddleScore ++) {
+    paddle.w += 0.5;
+    paddle.h += 3;
+  }
+}
+
+/////////////////////   END NEW   /////////////////////
 
   /////////////////////   NEW   /////////////////////
 
