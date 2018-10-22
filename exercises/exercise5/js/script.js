@@ -30,6 +30,21 @@ var rightPaddleImage;
 
 /////////////////////   END NEW  /////////////////////
 
+
+/////////////////////   NEW   /////////////////////
+
+// preload()
+//
+// Preloads all the images and audios needed in the game.
+function preload() {
+  backgroundImage = loadImage("assets/images/background.png");
+  ballImage = loadImage("assets/images/ball.png");
+  leftPaddleImage = loadImage("assets/images/leftPaddle.png");
+  rightPaddleImage = loadImage("assets/images/rightPaddle.png");
+}
+
+/////////////////////   END NEW  /////////////////////
+
 // setup()
 //
 // Creates the ball and paddles
