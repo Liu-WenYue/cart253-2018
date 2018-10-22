@@ -1,8 +1,13 @@
+/////////////////////   NEW   /////////////////////
+
 // Basic OO Pong
-// by Pippin Barr
+// by Liu WenYue, 22nd October.2018
 //
-// A primitive implementation of Pong with no scoring system
-// just the ability to play the game with the keyboard.
+// A Pong game that illustrates the irresponsible chicken parents
+// pushing their child away.
+
+/////////////////////   END NEW   /////////////////////
+
 //
 // Arrow keys control the right hand paddle, W and S control
 // the left hand paddle.
