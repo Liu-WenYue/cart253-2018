@@ -57,18 +57,22 @@ function setup() {
 
   /////////////////////   END NEW   /////////////////////
 
-  // Create a ball
-  ball = new Ball(width/2,height/2,5,5,10,5);
 
   /////////////////////   NEW   /////////////////////
 
+  // To have the paddle images displayed based on their center points.
+  imageMode(CENTER);
+
+  // Create a ball
+  ball = new Ball(width/2,height/2,5,5,65,5);
+
   // Create the right paddle with UP and DOWN as controls.
   // Added rightPaddleImage to display the correct image.
-  rightPaddle = new Paddle(width-10,height/2,10,60,10,DOWN_ARROW,UP_ARROW,rightPaddleImage);
+  rightPaddle = new Paddle(width-40,height/2,35,180,10,DOWN_ARROW,UP_ARROW,rightPaddleImage);
   // Create the left paddle with W and S as controls.
   // Keycodes 83 and 87 are W and S respectively.
   // Added leftPaddleImage to display the correct image.
-  leftPaddle = new Paddle(0,height/2,10,60,10,83,87,leftPaddleImage);
+  leftPaddle = new Paddle(40,height/2,35,180,10,83,87,leftPaddleImage);
 
   /////////////////////   END NEW  /////////////////////
 }
