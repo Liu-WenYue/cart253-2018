@@ -18,7 +18,14 @@ var rightPaddle;
 //
 // Creates the ball and paddles
 function setup() {
-  createCanvas(640,480);
+
+  /////////////////////   NEW   /////////////////////
+
+  // Enlarged the canvas size.
+  createCanvas(880,680);
+
+  /////////////////////   END NEW   /////////////////////
+
   // Create a ball
   ball = new Ball(width/2,height/2,5,5,10,5);
   // Create the right paddle with UP and DOWN as controls
