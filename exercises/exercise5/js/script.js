@@ -136,3 +136,12 @@ function draw() {
   leftPaddle.display();
   rightPaddle.display();
 }
+
+/////////////////////   NEW   /////////////////////
+
+// To have all the sound files to work in Safari browser.
+function mousePressed() {
+  chickenRoarAudio.play();
+}
+
+/////////////////////   END NEW   /////////////////////
