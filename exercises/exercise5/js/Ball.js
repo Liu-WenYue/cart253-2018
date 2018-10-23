@@ -37,7 +37,7 @@ Ball.prototype.update = function () {
   }
 
   /////////////////////   END NEW /////////////////////
-  
+
 }
 
 // isOffScreen()
@@ -95,4 +95,14 @@ Ball.prototype.handleCollision = function(paddle) {
 Ball.prototype.reset = function () {
   this.x = width/2;
   this.y = height/2;
+
+  /////////////////////   NEW   /////////////////////
+
+  // Launch the ball to the right side of the screen and
+  // have a random y velocity that changes the angle of the ball moves.
+  this.vx = -this.vx;
+  this.vy = random(-this.speed,this.speed);
+
+  /////////////////////   END NEW /////////////////////
+
 }
