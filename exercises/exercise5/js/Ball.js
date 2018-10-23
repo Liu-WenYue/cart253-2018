@@ -26,13 +26,18 @@ Ball.prototype.update = function () {
   this.x += this.vx;
   this.y += this.vy;
 
+  /////////////////////   NEW   /////////////////////
+
   // Constrain y position to be on screen
-  this.y = constrain(this.y,0,height-this.size);
+  this.y = constrain(this.y,this.size/2,height-this.size/2);
 
   // Check for touching upper or lower edge and reverse velocity if so
-  if (this.y === 0 || this.y + this.size === height) {
+  if (this.y - this.size/2 === 0 || this.y + this.size/2 === height) {
     this.vy = -this.vy;
   }
+
+  /////////////////////   END NEW /////////////////////
+  
 }
 
 // isOffScreen()
