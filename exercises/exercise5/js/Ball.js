@@ -34,6 +34,16 @@ Ball.prototype.update = function () {
   // Check for touching upper or lower edge and reverse velocity if so
   if (this.y - this.size/2 === 0 || this.y + this.size/2 === height) {
     this.vy = -this.vy;
+
+    /////////////////////   NEW   /////////////////////
+
+    // Play the chicken roar sound effect by rewinding and then playing.
+    // Play the sound effect when it collides with the top and bottom of the wall.
+    chickenRoarAudio.currentTime = 0;
+    chickenRoarAudio.play();
+
+    /////////////////////   END NEW   /////////////////////
+
   }
 
   /////////////////////   END NEW /////////////////////
@@ -125,6 +135,16 @@ Ball.prototype.handleCollision = function(paddle) {
       this.y -= this.vy;
       // Reverse x velocity to bounce
       this.vx = -this.vx;
+
+      /////////////////////   NEW   /////////////////////
+
+      // Play the chicken roar sound effect by rewinding and then playing.
+      // Play the sound effect when it collides with the paddles.
+      chickenRoarAudio.currentTime = 0;
+      chickenRoarAudio.play();
+
+      /////////////////////   END NEW   /////////////////////
+
     }
   }
 }
