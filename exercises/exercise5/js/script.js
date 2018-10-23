@@ -42,6 +42,14 @@ var leftPaddleScore = 0;
 
 /////////////////////   NEW   /////////////////////
 
+// A variable to hold the chicken roar sound we will play on bouncing.
+var chickenRoarAudio;
+
+/////////////////////   END NEW   /////////////////////
+
+
+/////////////////////   NEW   /////////////////////
+
 // preload()
 //
 // Preloads all the images and audios needed in the game.
@@ -50,6 +58,13 @@ function preload() {
   ballImage = loadImage("assets/images/ball.png");
   leftPaddleImage = loadImage("assets/images/leftPaddle.png");
   rightPaddleImage = loadImage("assets/images/rightPaddle.png");
+
+  /////////////////////   NEW   /////////////////////
+
+  chickenRoarAudio = new Audio("assets/sounds/chickenRoar.mp3");
+
+  /////////////////////   END NEW   /////////////////////
+
 }
 
 /////////////////////   END NEW  /////////////////////
