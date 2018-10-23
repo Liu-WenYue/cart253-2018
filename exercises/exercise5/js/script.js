@@ -33,6 +33,15 @@ var rightPaddleImage;
 
 /////////////////////   NEW   /////////////////////
 
+// Variables that store the score for the paddles.
+var rightPaddleScore = 0;
+var leftPaddleScore = 0;
+
+/////////////////////   END NEW /////////////////////
+
+
+/////////////////////   NEW   /////////////////////
+
 // preload()
 //
 // Preloads all the images and audios needed in the game.

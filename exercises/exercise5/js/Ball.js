@@ -46,18 +46,31 @@ Ball.prototype.update = function () {
 // Otherwise it returns false.
 Ball.prototype.isOffScreen = function () {
 
-  /////////////////////   NEW   /////////////////////
+  ///////////////////////   NEW   ////////////////////////
 
   // Check for going off screen and reset if so
-  if (this.x + this.size/2 < 0 || this.x - this.size/2 > width) {
+
+  // If the ball goes off screen at the left hand side,
+  // score for right paddle increase by one and the ball resets.
+  if (this.x + this.size/2 < 0) {
+    rightPaddleScore ++;
     return true;
   }
+
+  // If the ball goes off screen at the right hand side,
+  // score for left paddle increase by one and the ball resets.
+  if (this.x - this.size/2 > width) {
+    leftPaddleScore ++;
+    return true;
+  }
+
+  // If the ball does not go off the screen, the game continues.
   else {
     return false;
   }
 }
 
-  /////////////////////   END NEW /////////////////////
+  ///////////////////////   END NEW   ///////////////////////
 
 // display()
 //
