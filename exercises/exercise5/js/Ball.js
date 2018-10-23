@@ -45,14 +45,19 @@ Ball.prototype.update = function () {
 // Checks if the ball has moved off the screen and, if so, returns true.
 // Otherwise it returns false.
 Ball.prototype.isOffScreen = function () {
+
+  /////////////////////   NEW   /////////////////////
+
   // Check for going off screen and reset if so
-  if (this.x + this.size < 0 || this.x > width) {
+  if (this.x + this.size/2 < 0 || this.x - this.size/2 > width) {
     return true;
   }
   else {
     return false;
   }
 }
+
+  /////////////////////   END NEW /////////////////////
 
 // display()
 //
