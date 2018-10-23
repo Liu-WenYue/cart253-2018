@@ -54,6 +54,18 @@ Ball.prototype.isOffScreen = function () {
   // score for right paddle increase by one and the ball resets.
   if (this.x + this.size/2 < 0) {
     rightPaddleScore ++;
+
+    /////////////////////   NEW   /////////////////////
+
+    // Increases the right paddle's size if the ball goes
+    // off screen at the left hand side of the screen.
+    rightPaddle.increaseSize();
+
+    // Tells us the updated width and height of the right paddle.
+    console.log(rightPaddle.w,rightPaddle.h);
+
+    /////////////////////   END NEW   /////////////////////
+
     return true;
   }
 
@@ -61,6 +73,18 @@ Ball.prototype.isOffScreen = function () {
   // score for left paddle increase by one and the ball resets.
   if (this.x - this.size/2 > width) {
     leftPaddleScore ++;
+
+    /////////////////////   NEW   /////////////////////
+
+    // Increases the left paddle's size if the ball goes
+    // off screen at the right hand side of the screen.
+    leftPaddle.increaseSize();
+
+    // Tells us the updated width and height of the right paddle.
+    console.log(leftPaddle.w,leftPaddle.h);
+
+    /////////////////////   END NEW   /////////////////////
+
     return true;
   }
 
