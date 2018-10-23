@@ -50,6 +50,8 @@ Ball.prototype.update = function () {
 
 }
 
+    /////////////////////   NEW   /////////////////////
+
 // isOffScreen()
 //
 // Checks if the ball has moved off the screen and, if so, returns true.
@@ -72,7 +74,7 @@ Ball.prototype.isOffScreen = function () {
     rightPaddle.increaseSize();
 
     // Tells us the updated width and height of the right paddle.
-    console.log(rightPaddle.w,rightPaddle.h);
+    console.log("right Paddle w: " + rightPaddle.w,"; right Paddle h: " + rightPaddle.h);
 
     /////////////////////   END NEW   /////////////////////
 
@@ -91,7 +93,7 @@ Ball.prototype.isOffScreen = function () {
     leftPaddle.increaseSize();
 
     // Tells us the updated width and height of the right paddle.
-    console.log(leftPaddle.w,leftPaddle.h);
+    console.log("left Paddle w: " + leftPaddle.w,"; left Paddle h: " + leftPaddle.h);
 
     /////////////////////   END NEW   /////////////////////
 
@@ -103,6 +105,8 @@ Ball.prototype.isOffScreen = function () {
     return false;
   }
 }
+  /////////////////////   END NEW   /////////////////////
+
 
   ///////////////////////   END NEW   ///////////////////////
 
