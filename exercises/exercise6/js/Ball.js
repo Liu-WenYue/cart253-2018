@@ -72,7 +72,13 @@ Ball.prototype.isOffScreen = function () {
 //
 // Draw the ball as a rectangle on the screen
 Ball.prototype.display = function () {
-  rect(this.x this.y);
+
+  /////////////////////   NEW   /////////////////////
+
+  // Syntax error, added the missing comma between the two parameters.
+  rect(this.x,this.y);
+
+  /////////////////////   END NEW   /////////////////////
 }
 
 // handleCollision(paddle)
