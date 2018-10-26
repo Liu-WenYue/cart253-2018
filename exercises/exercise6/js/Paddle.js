@@ -91,8 +91,13 @@ Paddle.prototype.update = function() {
 
   /////////////////////   NEW   /////////////////////
 
+  /////////////////////   NEW   /////////////////////
+
   // Syntax error, corrected the misspelled function name constrain.
-  this.y = constrain(this.y,0,hight-this.h);
+  // Syntax error, corrected the misspelled word height.
+  this.y = constrain(this.y,0,height-this.h);
+
+  /////////////////////   END NEW  /////////////////////
 
   /////////////////////   END NEW  /////////////////////
 }
