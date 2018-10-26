@@ -88,8 +88,13 @@ Ball.prototype.display = function () {
 
 /////////////////////   NEW   /////////////////////
 
+/////////////////////   NEW   /////////////////////
+
 // Syntax error, removed the extra opening parenthesis.
-Ball.prototyp.handleCollision = function(paddle) {
+// Syntax error, corrected the misspelled word prototype.
+Ball.prototype.handleCollision = function(paddle) {
+
+/////////////////////   END NEW  /////////////////////
 
 /////////////////////   END NEW  /////////////////////
 
