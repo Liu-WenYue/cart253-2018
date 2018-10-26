@@ -49,6 +49,14 @@ function setup() {
   /////////////////////   END NEW  /////////////////////
 
 
+/////////////////////   NEW   /////////////////////
+
+// Syntax error, added the missing closing curly bracket for setUp function.
+}
+
+/////////////////////   END NEW  /////////////////////
+
+
 // draw()
 //
 // Handles input, updates all the elements, checks for collisions
