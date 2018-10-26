@@ -24,8 +24,13 @@ function Ball(x,y,vx,vy,size,speed) {
 
 /////////////////////   NEW   /////////////////////
 
+/////////////////////   NEW   /////////////////////
+
 // Syntax error, corrected the misspelled word function.
-Ball.prototype.updated = function () {
+// Syntax error, corrected the misspelled word update.
+Ball.prototype.update = function () {
+
+/////////////////////   END NEW  /////////////////////
 
 /////////////////////   END NEW  /////////////////////
 
