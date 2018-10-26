@@ -82,5 +82,11 @@ Paddle.prototype.display = function() {
 
 /////////////////////   END NEW  /////////////////////
 
-  rectangle(this.x,this.y,this.w,this.h);
+
+  /////////////////////   NEW   /////////////////////
+
+  // Syntax error, corrected the misspelled function name rect.
+  rect(this.x,this.y,this.w,this.h);
+
+  /////////////////////   END NEW  /////////////////////
 }
