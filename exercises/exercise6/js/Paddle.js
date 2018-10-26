@@ -50,7 +50,13 @@ Paddle.prototype.handleInput = function() {
 
 /////////////////////   END NEW  /////////////////////
 
-  if (keyDown(upKey)) {
+  /////////////////////   NEW   /////////////////////
+
+  // Syntax error, corrected the misspelled function name keyIsDown.
+  if (keyIsDown(upKey)) {
+
+  /////////////////////   END NEW  /////////////////////
+
     this.vy = -this.speed;
   }
   else if (keyDown(downKey)) {
