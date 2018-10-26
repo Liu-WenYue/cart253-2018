@@ -79,8 +79,13 @@ function draw() {
 
   /////////////////////   NEW   /////////////////////
 
+  /////////////////////   NEW   /////////////////////
+
   // Syntax error, added the missing opening curly bracket for the if-statement.
-  if (ball.isOffTheScreen()) {
+  // Syntax error, corrected the misspelled function name ball.isOffScreen.
+  if (ball.isOffScreen()) {
+
+  /////////////////////   END NEW  /////////////////////
 
   /////////////////////   END NEW  /////////////////////
 
