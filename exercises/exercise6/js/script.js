@@ -58,5 +58,11 @@ function draw() {
 
   ball.display();
   leftPaddle.display();
-  rightPaddle.display(;
+
+  /////////////////////   NEW   /////////////////////
+
+  // Syntax error, added the missing closing parenthesis.
+  rightPaddle.display();
+
+  /////////////////////   END NEW  /////////////////////
 }
