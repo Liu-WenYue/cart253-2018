@@ -52,8 +52,14 @@ Paddle.prototype.handleInput = function() {
 
   /////////////////////   NEW   /////////////////////
 
+  /////////////////////   NEW   /////////////////////
+
   // Syntax error, corrected the misspelled function name keyIsDown.
-  if (keyIsDown(upKey)) {
+  // Syntax error, added the missing this. in front of the variable,
+  // this. is required for the properties in an object-oriented program.
+  if (keyIsDown(this.upKey)) {
+
+  /////////////////////   END NEW  /////////////////////
 
   /////////////////////   END NEW  /////////////////////
 
