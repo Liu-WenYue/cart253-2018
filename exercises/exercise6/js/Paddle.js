@@ -72,8 +72,13 @@ Paddle.prototype.update = function() {
 
 /////////////////////   NEW   /////////////////////
 
+/////////////////////   NEW   /////////////////////
+
 // Syntax error, removed the extra closing parenthesis.
-Paddle.prototype.disploy = function() {
+// Syntax error, corrected the misspelled word display.
+Paddle.prototype.display = function() {
+
+/////////////////////   END NEW  /////////////////////
 
 /////////////////////   END NEW  /////////////////////
 
