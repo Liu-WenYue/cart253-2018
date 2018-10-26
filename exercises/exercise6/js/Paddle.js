@@ -3,9 +3,15 @@
 // A class that defines how a paddle behaves, including the ability
 // to specify the input keys to move it up and down
 
-Paddle constructor
+/////////////////////   NEW   /////////////////////
 
-Sets the properties with the provided arguments or defaults
+// Syntax error, added the missing forward slashs that are needed for commenting.
+// Paddle constructor
+//
+// Sets the properties with the provided arguments or defaults
+
+/////////////////////   END NEW  /////////////////////
+
 function Pladdle(x,y,w,h,speed,downKey,upKey) {
   this.x = x;
   this.y = y;
