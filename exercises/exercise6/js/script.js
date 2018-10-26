@@ -77,7 +77,13 @@ function draw() {
   leftPaddle.update();
   rightPaddle.update();
 
-  if (ball.isOffTheScreen())
+  /////////////////////   NEW   /////////////////////
+
+  // Syntax error, added the missing opening curly bracket for the if-statement.
+  if (ball.isOffTheScreen()) {
+
+  /////////////////////   END NEW  /////////////////////
+
     reset();
   }
 
