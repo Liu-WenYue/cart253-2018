@@ -26,7 +26,14 @@ function Paddle(x,y,w,h,speed,downKey,upKey) {
   this.yv = 0;
   this.w = w;
   this.h = h;
-  this.speed = speeed;
+
+  /////////////////////   NEW   /////////////////////
+
+  // Syntax error, corrected the misspelled word speed.
+  this.speed = speed;
+
+  /////////////////////   END NEW  /////////////////////
+
   this.downKey = downKey;
   this.upKey = upKey;
 }
