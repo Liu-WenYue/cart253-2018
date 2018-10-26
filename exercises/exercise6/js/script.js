@@ -59,7 +59,13 @@ function draw() {
   leftPaddle.handleInput();
   rightPaddle.handleInput();
 
-  ball.update;
+  /////////////////////   NEW   /////////////////////
+
+  // Syntax error, added the missing parenthesis.
+  ball.update();
+
+  /////////////////////   END NEW  /////////////////////
+
   leftPaddle.update();
   rightPaddle.update();
 
