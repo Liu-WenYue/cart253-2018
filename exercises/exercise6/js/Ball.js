@@ -85,7 +85,14 @@ Ball.prototype.display = function () {
 //
 // Check if this ball overlaps the paddle passed as an argument
 // and if so reverse x velocity to bounce
-Ball.prototyp.handleCollision = function((paddle) {
+
+/////////////////////   NEW   /////////////////////
+
+// Syntax error, removed the extra opening parenthesis.
+Ball.prototyp.handleCollision = function(paddle) {
+
+/////////////////////   END NEW  /////////////////////
+
   // Check if the ball overlaps the paddle on x axis
   if (this.x + this.size > paddle.x && this.x < paddle.x + paddle.w) {
     // Check if the ball overlaps the paddle on y axis
