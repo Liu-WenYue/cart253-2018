@@ -12,7 +12,14 @@
 
 /////////////////////   END NEW  /////////////////////
 
-function Pladdle(x,y,w,h,speed,downKey,upKey) {
+
+/////////////////////   NEW   /////////////////////
+
+// Syntax error, corrected the misspelled variable name Paddle.
+function Paddle(x,y,w,h,speed,downKey,upKey) {
+
+/////////////////////   END NEW  /////////////////////
+
   this.x = x;
   this.y = y;
   this.xv = 0;
