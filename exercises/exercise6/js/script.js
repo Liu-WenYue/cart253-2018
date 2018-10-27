@@ -43,8 +43,17 @@ function setup() {
 
   /////////////////////   END NEW  /////////////////////
 
+
+  /////////////////////   NEW   /////////////////////
+
   // Create the right paddle with UP and DOWN as controls
-  rightPaddle = new Paddle(width-10,height/2,10,600,10,UP_ARROW,DOWN_ARROW);
+  // Behavioural error, decreased the value of the paddle's height to make the game more playable,
+  // when the height of the paddle is larger than the canvas height, it will not be able to move.
+  rightPaddle = new Paddle(width-10,height/2,10,60,10,UP_ARROW,DOWN_ARROW);
+
+  /////////////////////   END NEW  /////////////////////
+
+
   // Create the left paddle with W and S as controls
   // Keycodes 83 and 87 are W and S respectively
 
