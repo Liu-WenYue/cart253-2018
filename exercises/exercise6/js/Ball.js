@@ -74,9 +74,16 @@ Ball.prototype.isOffScreen = function () {
 
   /////////////////////   NEW   /////////////////////
 
+  /////////////////////   NEW   /////////////////////
+
   // Syntax error, corrected the misspelled word if.
   // Syntax error, removed the extra plus sign.
-  if (this.x + this.size < 0 && this.x > width) {
+  // Behavioural error, corrected the misused logical operator,
+  // the ball can never goes off screen to the both side at the same time,
+  // so we should use the or logical operator instead of and. 
+  if (this.x + this.size < 0 || this.x > width) {
+
+  /////////////////////   END NEW   /////////////////////
 
   /////////////////////   END NEW   /////////////////////
 
