@@ -41,8 +41,15 @@ Ball.prototype.update = function () {
   // Constrain y position to be on screen
   this.y = constrain(this.y,0,height-this.size);
 
+  /////////////////////   NEW   /////////////////////
+
   // Check for touching upper or lower edge and reverse velocity if so
-  if (this.y = 0 || this.y + this.size === height) {
+  // Syntax error, corrected the misused equal sign, we are not assigning
+  // value to the variable, so we should use === instead of =.
+  if (this.y === 0 || this.y + this.size === height) {
+
+  /////////////////////   END NEW  /////////////////////
+
     this.vy = -this.vy;
   }
 }
