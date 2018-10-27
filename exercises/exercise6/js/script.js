@@ -89,7 +89,13 @@ function draw() {
 
   /////////////////////   END NEW  /////////////////////
 
-    reset();
+
+    /////////////////////   NEW   /////////////////////
+
+    // Behavioural error, corrected the way of calling for object's method.
+    ball.reset();
+
+    /////////////////////   END NEW  /////////////////////
   }
 
   ball.handleCollision(leftPaddle);
