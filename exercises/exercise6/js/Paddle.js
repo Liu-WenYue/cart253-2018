@@ -86,7 +86,15 @@ Paddle.prototype.handleInput = function() {
 
   /////////////////////   END NEW   /////////////////////
 
-    this.vy = -this.speed;
+
+    /////////////////////   NEW   /////////////////////
+
+    // Behavioural error, removed the misused minus sign, when the players are
+    // pressing the downkey, the paddle should gain speed and move towards the
+    // bottom of the screen, so vy has to be positive instead of negative.
+    this.vy = this.speed;
+
+    /////////////////////   END NEW   /////////////////////
   }
 }
 
