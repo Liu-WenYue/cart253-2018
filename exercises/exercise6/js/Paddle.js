@@ -22,8 +22,15 @@ function Paddle(x,y,w,h,speed,downKey,upKey) {
 
   this.x = x;
   this.y = y;
-  this.xv = 0;
-  this.yv = 0;
+
+  /////////////////////   NEW   /////////////////////
+
+  // Syntax error, corrected the misspelled property names vx and vy.
+  this.vx = 0;
+  this.vy = 0;
+
+  /////////////////////   END NEW  /////////////////////
+
   this.w = w;
   this.h = h;
 
