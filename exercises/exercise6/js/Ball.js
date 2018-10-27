@@ -34,8 +34,17 @@ Ball.prototype.update = function () {
 
 /////////////////////   END NEW  /////////////////////
 
+
+  /////////////////////   NEW   /////////////////////
+
   // Update position with velocity
-  this.x = this.vx;
+  // Behavioural error, corrected the misused plus sign,
+  // we need to update the x position by adding the x velocity to it,
+  // not assign the value of the x velocity.
+  this.x += this.vx;
+
+  /////////////////////   END NEW  /////////////////////
+
   this.y += this.vy;
 
   // Constrain y position to be on screen
