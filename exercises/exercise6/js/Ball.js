@@ -87,8 +87,13 @@ Ball.prototype.display = function () {
 
   /////////////////////   NEW   /////////////////////
 
+  /////////////////////   NEW   /////////////////////
+
   // Syntax error, added the missing comma between the two parameters.
-  rect(this.x,this.y);
+  // Behavioural error, added the missing size parameters for the ball.
+  rect(this.x,this.y,this.size,this.size);
+
+  /////////////////////   END NEW   /////////////////////
 
   /////////////////////   END NEW   /////////////////////
 }
