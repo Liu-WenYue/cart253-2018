@@ -96,6 +96,16 @@ Paddle.prototype.handleInput = function() {
 
     /////////////////////   END NEW   /////////////////////
   }
+
+  /////////////////////   NEW   /////////////////////
+
+  // Behavioural error, added the condition for there is no handle input,
+  // the vy should be 0 which means no movement for the paddle.
+  else {
+    this.vy = 0;
+  }
+
+  /////////////////////   END NEW   /////////////////////
 }
 
 // update()
