@@ -137,10 +137,16 @@ Ball.prototype.handleCollision = function(paddle) {
   }
 }
 
+ /////////////////////   NEW   /////////////////////
+
 // reset()
 //
 // Set position back to the middle of the screen
-Ball.prototype.rest = function () {
+// Syntax error, corrected the misspelled method name reset.
+Ball.prototype.reset = function () {
+
+/////////////////////   END NEW   /////////////////////
+
   this.x = width/2;
   this.y = height/2;
 }
