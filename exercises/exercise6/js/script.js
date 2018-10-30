@@ -46,10 +46,17 @@ function setup() {
 
   /////////////////////   NEW   /////////////////////
 
+  /////////////////////   NEW   /////////////////////
+
   // Create the right paddle with UP and DOWN as controls
   // Behavioural error, decreased the value of the paddle's height to make the game more playable,
   // when the height of the paddle is larger than the canvas height, it will not be able to move.
-  rightPaddle = new Paddle(width-10,height/2,10,60,10,UP_ARROW,DOWN_ARROW);
+  // Behavioural error, swapped the position of the down arrow and up arrow parameters,
+  // the parameters order in the paddle's object file will be down key first and then up key,
+  // we need to follow the order when we are creating the paddle in script file.
+  rightPaddle = new Paddle(width-10,height/2,10,60,10,DOWN_ARROW,UP_ARROW);
+
+  /////////////////////   END NEW  /////////////////////
 
   /////////////////////   END NEW  /////////////////////
 
