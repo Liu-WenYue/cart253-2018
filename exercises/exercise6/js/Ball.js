@@ -138,8 +138,16 @@ Ball.prototype.handleCollision = function(paddle) {
       // If so, move ball back to previous position (by subtracting current velocity)
       this.x -= this.vx;
       this.y -= this.vy;
+
+      /////////////////////   NEW   /////////////////////
+
       // Reverse x velocity to bounce
-      this.vx = this.vx;
+      // Behavioural error, added the missing minus sign in front of the this.vx,
+      // if we want to reverse the ball to it's opposite direction, we need to
+      // have the minus sign in front.
+      this.vx = - this.vx;
+
+      /////////////////////   END NEW   /////////////////////
     }
   }
 }
