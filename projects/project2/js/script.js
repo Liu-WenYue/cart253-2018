@@ -91,7 +91,16 @@ function setup() {
 // Handles input, updates all the elements, checks for collisions
 // and displays everything.
 function draw() {
-  background(0);
+  /////////////////////   NEW   /////////////////////
+
+  push(); // saves the current setting.
+  imageMode(CORNERS);
+  // Display the background image.
+  image(backgroundImage,0,0,width,height);
+  pop(); // Restore the setting.
+  // The image mode goes back to center.
+
+  /////////////////////   END NEW   /////////////////////
 
   leftPaddle.handleInput();
   rightPaddle.handleInput();
