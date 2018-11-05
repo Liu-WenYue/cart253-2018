@@ -21,6 +21,17 @@ var ball;
 var leftPaddle;
 var rightPaddle;
 
+/////////////////////   NEW   /////////////////////
+
+// The varibles that store the images of background, ball,
+// left and right paddles.
+var backgroundImage;
+var ballImage;
+var leftPaddleImage;
+var rightPaddleImage;
+
+/////////////////////   END NEW  /////////////////////
+
 // setup()
 //
 // Creates the ball and paddles
