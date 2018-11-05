@@ -39,19 +39,52 @@ Ball.prototype.update = function () {
   /////////////////////   END NEW   /////////////////////
 }
 
+/////////////////////   NEW   /////////////////////
+
 // isOffScreen()
 //
 // Checks if the ball has moved off the screen and, if so, returns true.
 // Otherwise it returns false.
 Ball.prototype.isOffScreen = function () {
   // Check for going off screen and reset if so
-  if (this.x + this.size < 0 || this.x > width) {
+
+  // If the ball goes off screen at the left hand side,
+  // score for right paddle increase by one and the ball resets.
+  if (this.x + this.size/2 < 0) {
+    rightPaddleScore ++;
+
+    // Increases the right paddle's size if the ball goes
+    // off screen at the left hand side of the screen.
+    rightPaddle.increaseSize();
+
+    // Tells us the updated width and height of the right paddle.
+    console.log("right Paddle w: " + rightPaddle.w,"; right Paddle h: " + rightPaddle.h);
+
     return true;
   }
+
+  // If the ball goes off screen at the right hand side,
+  // score for left paddle increase by one and the ball resets.
+  else if (this.x - this.size/2 > width) {
+    leftPaddleScore ++;
+
+    // Increases the left paddle's size if the ball goes
+    // off screen at the right hand side of the screen.
+    leftPaddle.increaseSize();
+
+    // Tells us the updated width and height of the right paddle.
+    console.log("left Paddle w: " + leftPaddle.w,"; left Paddle h: " + leftPaddle.h);
+
+    return true;
+  }
+
+  // If the ball does not go off the screen, the game continues.
   else {
     return false;
   }
 }
+
+/////////////////////   END NEW   /////////////////////
 
 // display()
 //
@@ -79,7 +112,7 @@ Ball.prototype.handleCollision = function(paddle) {
     if (this.y - this.size/2 < paddle.y + paddle.h/2 && this.y + this.size/2 > paddle.y - paddle.h/2) {
 
     /////////////////////   END NEW  /////////////////////
-    
+
       // If so, move ball back to previous position (by subtracting current velocity)
       this.x -= this.vx;
       this.y -= this.vy;
@@ -95,4 +128,13 @@ Ball.prototype.handleCollision = function(paddle) {
 Ball.prototype.reset = function () {
   this.x = width/2;
   this.y = height/2;
+
+  /////////////////////   NEW   /////////////////////
+
+  // Launch the ball to the right side of the screen and
+  // have a random y velocity that changes the angle of the ball moves.
+  this.vx = -this.vx;
+  this.vy = random(-this.speed,this.speed);
+
+  /////////////////////   END NEW /////////////////////
 }

@@ -68,3 +68,17 @@ Paddle.prototype.display = function() {
 
   /////////////////////   END NEW  /////////////////////
 }
+
+/////////////////////   NEW   /////////////////////
+
+// increaseSize()
+//
+// Increases the size of the paddles,
+// if left paddle gains score, the size of the left paddle incrases,
+// if right paddle gains score, the size of the right paddle increases.
+Paddle.prototype.increaseSize = function() {
+    this.w += 0.5;
+    this.h += 3;
+}
+
+/////////////////////   END NEW   /////////////////////
