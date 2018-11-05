@@ -58,8 +58,14 @@ function setup() {
 
   /////////////////////   END NEW   /////////////////////
 
+
+  /////////////////////   NEW   /////////////////////
+
   // Create a ball
-  ball = new Ball(width/2,height/2,5,5,10,5);
+  ball = new Ball(width/2,height/2,5,5,70,5);
+
+  /////////////////////   END NEW  /////////////////////
+
   // Create the right paddle with UP and DOWN as controls
   rightPaddle = new Paddle(width-10,height/2,10,60,10,DOWN_ARROW,UP_ARROW);
   // Create the left paddle with W and S as controls
