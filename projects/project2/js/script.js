@@ -74,11 +74,16 @@ function setup() {
 
   /////////////////////   END NEW  /////////////////////
 
+
+  /////////////////////   NEW   /////////////////////
+
   // Create the right paddle with UP and DOWN as controls
-  rightPaddle = new Paddle(width-10,height/2,10,60,10,DOWN_ARROW,UP_ARROW);
+  rightPaddle = new Paddle(width-30,height/2,30,180,10,DOWN_ARROW,UP_ARROW,rightPaddleImage);
   // Create the left paddle with W and S as controls
   // Keycodes 83 and 87 are W and S respectively
-  leftPaddle = new Paddle(0,height/2,10,60,10,83,87);
+  leftPaddle = new Paddle(30,height/2,30,180,10,83,87,leftPaddleImage);
+
+  /////////////////////   END NEW  /////////////////////
 }
 
 // draw()
