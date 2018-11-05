@@ -1,13 +1,20 @@
+/////////////////////   NEW   /////////////////////
+
 // Basic OO Pong
-// by Pippin Barr
+// by Liu WenYue
 //
-// A primitive implementation of Pong with no scoring system
-// just the ability to play the game with the keyboard.
+// A Pong game with a scoring system, player who first gains
+// 7 points won the game.
 //
 // Arrow keys control the right hand paddle, W and S control
 // the left hand paddle.
 //
 // Written with JavaScript OOP.
+//
+// Background music is from the anime, Fairy Tail, it's called
+// "Happy Theme".
+
+/////////////////////   END NEW   /////////////////////
 
 // Variable to contain the objects representing our ball and paddles
 var ball;
