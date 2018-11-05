@@ -61,6 +61,14 @@ function setup() {
 
   /////////////////////   NEW   /////////////////////
 
+  // This image mode allows images displayed based on their center points.
+  imageMode(CENTER);
+
+  /////////////////////   END NEW   /////////////////////
+
+
+  /////////////////////   NEW   /////////////////////
+
   // Create a ball
   ball = new Ball(width/2,height/2,5,5,70,5);
 
