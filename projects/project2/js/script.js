@@ -112,6 +112,35 @@ function draw() {
 
   /////////////////////   END NEW   /////////////////////
 
+
+  /////////////////////   NEW   /////////////////////
+
+  // Switch statement allows the game to have different states.
+  // The first state will be TITLE, where the game title and instruction is
+  // displayed. After the player pressed the enter key, it goes to the
+  // next state;
+  // The second state will be GAME, where the game is displayed. When either
+  // one of the player gains 7 points, the game ends and it goes to the
+  // next state;
+  // The third state will be WINNER, where the game winner is displayed. The
+  // player have the option to restart the game again (go back to GAME state).
+  switch (state) {
+    case "TITLE":
+    displayTitle();
+    break;
+
+    case "GAME":
+    displayGame();
+    break;
+
+    case "WINNER":
+    displayWinner();
+    break
+  }
+
+  /////////////////////   END NEW   /////////////////////
+
+
   leftPaddle.handleInput();
   rightPaddle.handleInput();
 
