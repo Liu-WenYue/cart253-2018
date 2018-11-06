@@ -64,6 +64,16 @@ Ball.prototype.isOffScreen = function () {
   if (this.x + this.size/2 < 0) {
     rightPaddleScore ++;
 
+    /////////////////////   NEW   /////////////////////
+
+    // For loop that changes the swords' directions to the left paddle
+    // if the left paddle score is 6.
+    for(var i = 0; i < swords.length; i++) {
+      swords[i].direction();
+    }
+
+    /////////////////////   END NEW  /////////////////////
+
     // Increases the right paddle's size if the ball goes
     // off screen at the left hand side of the screen.
     rightPaddle.increaseSize();
@@ -78,6 +88,16 @@ Ball.prototype.isOffScreen = function () {
   // score for left paddle increase by one and the ball resets.
   else if (this.x - this.size/2 > width) {
     leftPaddleScore ++;
+
+    /////////////////////   NEW   /////////////////////
+
+    // For loop that changes the swords' directions to the left paddle
+    // if the left paddle score is 6.
+    for(var i = 0; i < swords.length; i++) {
+      swords[i].direction();
+    }
+
+    /////////////////////   END NEW  /////////////////////
 
     // Increases the left paddle's size if the ball goes
     // off screen at the right hand side of the screen.
