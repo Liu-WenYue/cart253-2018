@@ -167,3 +167,31 @@ function draw() {
   leftPaddle.display();
   rightPaddle.display();
 }
+
+/////////////////////   NEW   /////////////////////
+
+// displayTitle()
+//
+// Displays the game title and controls on the screen.
+function displayTitle() {
+  push();//saves the current style settings.
+  textAlign(CENTER,CENTER);
+  textSize(38);
+  fill(255);
+  stroke(255);
+  // Display the game name.
+  text("PONG GAME",width/2,4*height/9);
+  textSize(24);
+  // Display the instructions for the controls.
+  text("Press Enter to Start\nUse w & s AND up & down arrows for Control",width/2,3*height/5);
+  pop();//restores these settings.
+
+  // Check whether the ENTER was pressed to start the game...
+  if (keyIsPressed && keyCode === 13) {
+    // ... if it was, change the state to "GAME" so the switch statement in draw()
+    // will display the game instead
+    state = "GAME";
+  }
+}
+
+/////////////////////   END NEW  /////////////////////
