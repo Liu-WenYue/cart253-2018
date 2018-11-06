@@ -34,6 +34,17 @@ Ball.prototype.update = function () {
   // Check for touching upper or lower edge and reverse velocity if so
   if (this.y - this.size/2 === 0 || this.y + this.size/2 === height) {
     this.vy = -this.vy;
+
+    /////////////////////   NEW   /////////////////////
+
+    // Play the collision sound effect by rewinding and then playing.
+    // Play the collision sound effect when it collides with the top
+    // and bottom of the wall.
+    collisionAudio.currentTime = 0;
+    collisionAudio.play();
+
+    /////////////////////   END NEW   /////////////////////
+
   }
 
   /////////////////////   END NEW   /////////////////////
@@ -118,6 +129,16 @@ Ball.prototype.handleCollision = function(paddle) {
       this.y -= this.vy;
       // Reverse x velocity to bounce
       this.vx = -this.vx;
+
+      /////////////////////   NEW   /////////////////////
+
+      // Play the collision sound effect by rewinding and then playing.
+      // Play the collision sound effect when it collides with the paddles.
+      collisionAudio.currentTime = 0;
+      collisionAudio.play();
+
+      /////////////////////   END NEW   /////////////////////
+
     }
   }
 }

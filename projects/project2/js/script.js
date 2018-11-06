@@ -66,6 +66,14 @@ var happyThemeAudio;
 
 /////////////////////   NEW   /////////////////////
 
+// Variable that stores collision sound effect.
+var collisionAudio;
+
+/////////////////////   END NEW   /////////////////////
+
+
+/////////////////////   NEW   /////////////////////
+
 // preload()
 //
 // Preloads all the images and audios needed in the game.
@@ -79,6 +87,14 @@ function preload() {
 
   // Preload the background music.
   happyThemeAudio = new Audio("assets/sounds/happyTheme.mp3");
+
+  /////////////////////   END NEW  /////////////////////
+
+
+  /////////////////////   NEW   /////////////////////
+
+  // Preload the collision sound effect.
+  collisionAudio = new Audio("assets/sounds/collision.mp3");
 
   /////////////////////   END NEW  /////////////////////
 }
