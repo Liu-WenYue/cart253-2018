@@ -323,6 +323,17 @@ function displayGame() {
 
   /////////////////////   END NEW  /////////////////////
 
+
+  /////////////////////   NEW   /////////////////////
+
+  // Check for the sword and paddle collision.
+  for(var i = 0; i < swords.length; i++) {
+    swords[i].handleCollision(leftPaddle);
+    swords[i].handleCollision(rightPaddle);
+  }
+
+  /////////////////////   END NEW  /////////////////////
+
   // If either of the paddle gains 7 points, the game ends.
   // so the state variable will go to WINNER and make the switch statement
   // call displayWinner().

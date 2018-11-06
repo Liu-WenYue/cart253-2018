@@ -82,3 +82,18 @@ Paddle.prototype.increaseSize = function() {
 }
 
 /////////////////////   END NEW   /////////////////////
+
+
+/////////////////////   NEW   /////////////////////
+
+// reduceSize()
+//
+// Reduces the size of the paddles,
+// if left paddle overlaps the sword, the size of the left paddle decreases,
+// if right paddle overlaps the sword, the size of the right paddle decreases,.
+Paddle.prototype.reduceSize = function() {
+    this.w -= 2.5;
+    this.h -= 15;
+}
+
+/////////////////////   END NEW   /////////////////////

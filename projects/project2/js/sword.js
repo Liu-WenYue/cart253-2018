@@ -32,6 +32,13 @@ function Sword(x,y,vx,vy,w,h,speed) {
   this.angle = 0;
 
   /////////////////////   END NEW  /////////////////////
+
+  /////////////////////   NEW   /////////////////////
+
+  // This variable is to check whether the sword is harmful or not.
+  this.harmful = true;
+
+  /////////////////////   END NEW  /////////////////////
 }
 
 /////////////////////   END NEW  /////////////////////
@@ -78,6 +85,13 @@ Sword.prototype.display = function () {
 // Choose the launch direction for the sword.
 Sword.prototype.direction = function () {
   /////////////////////   NEW   /////////////////////
+
+  // Have the sword harmful before it is launched.
+  this.harmful = true;
+
+  /////////////////////   END NEW  /////////////////////
+
+  /////////////////////   NEW   /////////////////////
   /////////////////////   NEW   /////////////////////
   // If the paddle is about to win(gained 6 points),
   // there will be swords launch towards it.
@@ -99,4 +113,32 @@ Sword.prototype.direction = function () {
 }
 /////////////////////   END NEW   /////////////////////
 /////////////////////   END NEW   /////////////////////
+/////////////////////   END NEW   /////////////////////
+
+
+/////////////////////   NEW   /////////////////////
+
+// handleCollision(paddle)
+//
+// Check if this sword overlaps the paddle passed as an argument
+// and if so reverse the paddle's controls and clear the score of the paddle.
+Sword.prototype.handleCollision = function(paddle) {
+  // If the sword is not harmful, have it just return.
+  if(this.harmful === false) {
+    return;
+  }
+  // Check if the sword overlaps the paddle on x axis
+  if (this.x - this.w/2 < paddle.x + paddle.w/2 && this.x + this.w/2 > paddle.x - paddle.w/2) {
+   // Check if the sword overlaps the paddle on y axis
+   if (this.y - this.h/2 < paddle.y + paddle.h/2 && this.y + this.h/2 > paddle.y - paddle.h/2) {
+     // Reduces the paddle's size
+     paddle.reduceSize();
+
+     // Make the sword not harmful again after reduced the paddle size,
+     // so the sword only reduce the paddle size once.
+     this.harmful = false;
+   }
+  }
+}
+
 /////////////////////   END NEW   /////////////////////
