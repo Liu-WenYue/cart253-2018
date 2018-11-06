@@ -206,10 +206,10 @@ function draw() {
     displayWinner();
 
     /////////////////////   NEW   /////////////////////
-
-    // Happy theme audio starts play after the player pressed ENTER.
+    /////////////////////   NEW   /////////////////////
+    // Happy theme audio pauses when the state is WINNER.
     happyThemeAudio.pause();
-
+    /////////////////////   END NEW   /////////////////////
     /////////////////////   END NEW   /////////////////////
 
     break
