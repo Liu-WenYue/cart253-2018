@@ -192,7 +192,7 @@ function setup() {
   // so they are showing when they are not called.
   // Have random width and height for the swords to have a variation.
   for(var i = 0; i < numOfSwords; i++) {
-    swords.push(new Sword(width/2,height+60,7,7,random(60,75),random(20,35),5));
+    swords.push(new Sword(width/2,height+60,7,7,random(60,75),random(20,35),7));
   }
   /////////////////////   END NEW  /////////////////////
   /////////////////////   END NEW  /////////////////////
