@@ -44,6 +44,14 @@ var leftPaddleScore = 0;
 
 /////////////////////   NEW   /////////////////////
 
+// Tracking the current state of the program (title screen to begin)
+var state = "TITLE";
+
+/////////////////////   END NEW   /////////////////////
+
+
+/////////////////////   NEW   /////////////////////
+
 // preload()
 //
 // Preloads all the images and audios needed in the game.
