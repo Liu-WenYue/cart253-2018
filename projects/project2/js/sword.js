@@ -4,16 +4,26 @@
 // paddles ability.
 
 /////////////////////   NEW   /////////////////////
-
+/////////////////////   NEW   /////////////////////
 // Sword constructor
 //
 // Sets the properties with the provided arguments
-function Sword(x,y,vx,vy,size,speed) {
+function Sword(x,y,vx,vy,w,h,speed) {
+
+/////////////////////   END NEW  /////////////////////
+
   this.x = x;
   this.y = y;
   this.vx = vx;
   this.vy = vy;
-  this.size = size;
+
+  /////////////////////   NEW   /////////////////////
+
+  this.w = w;
+  this.h = h;
+
+  /////////////////////   END NEW  /////////////////////
+
   this.speed = speed;
 }
 
@@ -35,15 +45,15 @@ Sword.prototype.update = function () {
 
 
 /////////////////////   NEW   /////////////////////
-
+/////////////////////   NEW   /////////////////////
 // display()
 //
 // Display the sword image on the screen.
 Sword.prototype.display = function () {
   // Display the ball image at its x and y positions and in its size.
-  image(swordImage,this.x,this.y,this.size,this.size);
+  image(swordImage,this.x,this.y,this.w,this.h);
 }
-
+/////////////////////   END NEW  /////////////////////
 /////////////////////   END NEW  /////////////////////
 
 
