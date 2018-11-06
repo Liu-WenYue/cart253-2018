@@ -212,3 +212,50 @@ function displayGame() {
 }
 
 /////////////////////   END NEW  /////////////////////
+
+
+/////////////////////   NEW   /////////////////////
+
+// displayWinner()
+//
+// Displays the winner texts and if the player wish to restart the game,
+// set the variable state back to GAME.
+function displayWinner() {
+  // Sets the color, alignment and size of the text.
+  textAlign(CENTER,CENTER);
+  textSize(38);
+  fill(255);
+  stroke(255);
+
+  // Conditions of the right paddle win the game.
+  if(rightPaddleScore === 7) {
+    // When the right paddle win the game, display the following text.
+    text("Right.Prince got the Princess!",width/2,4*height/9);
+    textSize(24);
+    text("Press Space to Restart the Game",width/2,3*height/5);
+  }
+
+  // Conditions of the left paddle win the game.
+  if(leftPaddleScore === 7) {
+    // When the left paddle win the game, display the following text.
+    text("Left.Prince got the Princess!",width/2,4*height/9);
+    textSize(24);
+    text("Press Space to Restart the Game",width/2,3*height/5);
+  }
+
+  // Check whether the spacebar was pressed to restart the game...
+  if (keyIsPressed && keyCode === 32) {
+    // ... if it was, change the state to "GAME" so the switch statement in draw()
+    // will display the game again.
+
+    // Reset the scores back to 0.
+    leftPaddleScore = 0;
+    rightPaddleScore = 0;
+
+    // ... if it was, change the state to "GAME" so the switch statement in draw()
+    // will display the game again.
+    state = "GAME";
+  }
+}
+
+/////////////////////   END NEW  /////////////////////
