@@ -147,25 +147,6 @@ function draw() {
   }
 
   /////////////////////   END NEW   /////////////////////
-
-
-  leftPaddle.handleInput();
-  rightPaddle.handleInput();
-
-  ball.update();
-  leftPaddle.update();
-  rightPaddle.update();
-
-  if (ball.isOffScreen()) {
-    ball.reset();
-  }
-
-  ball.handleCollision(leftPaddle);
-  ball.handleCollision(rightPaddle);
-
-  ball.display();
-  leftPaddle.display();
-  rightPaddle.display();
 }
 
 /////////////////////   NEW   /////////////////////
@@ -191,6 +172,42 @@ function displayTitle() {
     // ... if it was, change the state to "GAME" so the switch statement in draw()
     // will display the game instead
     state = "GAME";
+  }
+}
+
+/////////////////////   END NEW  /////////////////////
+
+
+/////////////////////   NEW   /////////////////////
+
+// displayGame()
+//
+// This function includes handleInput, moves the elements, updates the elements,
+// check if the ball is off screen, check for the collosions, display the elements.
+function displayGame() {
+  leftPaddle.handleInput();
+  rightPaddle.handleInput();
+
+  ball.update();
+  leftPaddle.update();
+  rightPaddle.update();
+
+  if (ball.isOffScreen()) {
+    ball.reset();
+  }
+
+  ball.handleCollision(leftPaddle);
+  ball.handleCollision(rightPaddle);
+
+  ball.display();
+  leftPaddle.display();
+  rightPaddle.display();
+
+  // If either of the paddle gains 7 points, the game ends.
+  // so the state variable will go to WINNER and make the switch statement
+  // call displayWinner().
+  if (rightPaddleScore ===7 || leftPaddleScore ===7) {
+    state = "WINNER";
   }
 }
 
