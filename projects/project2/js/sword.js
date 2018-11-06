@@ -45,3 +45,22 @@ Sword.prototype.display = function () {
 }
 
 /////////////////////   END NEW  /////////////////////
+
+
+/////////////////////   NEW   /////////////////////
+
+// direction()
+//
+// Choose the launch direction for the sword.
+Sword.prototype.direction = function () {
+  // If the paddle is about to win(gained 6 points),
+  // there will be swords launch towards it.
+  if(rightPaddleScore === 6) {
+    this.vx = this.speed;
+  }
+  if(leftPaddleScore === 6) {
+    this.vx = -this.speed;
+  }
+}
+
+/////////////////////   END NEW   /////////////////////
