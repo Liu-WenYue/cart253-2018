@@ -25,6 +25,13 @@ function Sword(x,y,vx,vy,w,h,speed) {
   /////////////////////   END NEW  /////////////////////
 
   this.speed = speed;
+
+  /////////////////////   NEW   /////////////////////
+
+  // Angle is to decide which angle is the sword drew.
+  this.angle = 0;
+
+  /////////////////////   END NEW  /////////////////////
 }
 
 /////////////////////   END NEW  /////////////////////
@@ -45,13 +52,21 @@ Sword.prototype.update = function () {
 
 /////////////////////   NEW   /////////////////////
 /////////////////////   NEW   /////////////////////
+/////////////////////   NEW   /////////////////////
 // display()
 //
 // Display the sword image on the screen.
 Sword.prototype.display = function () {
-  // Display the ball image at its x and y positions and in its size.
-  image(swordImage,this.x,this.y,this.w,this.h);
+  push();
+  // Translate the origin to the center of the sword.
+  translate(this.x,this.y);
+  // Rotate the sword based on the angle.
+  rotate(radians(this.angle));
+  // Display the ball image at the origin and in its size.
+  image(swordImage,0,0,this.w,this.h);
+  pop();
 }
+/////////////////////   END NEW  /////////////////////
 /////////////////////   END NEW  /////////////////////
 /////////////////////   END NEW  /////////////////////
 
@@ -63,21 +78,25 @@ Sword.prototype.display = function () {
 // Choose the launch direction for the sword.
 Sword.prototype.direction = function () {
   /////////////////////   NEW   /////////////////////
-
+  /////////////////////   NEW   /////////////////////
   // If the paddle is about to win(gained 6 points),
   // there will be swords launch towards it.
   if(rightPaddleScore === 6) {
+    // The image is still facing the right.
+    this.angle = (0);
     this.x = width/2;
     this.y = random(40,height-40);
     this.vx = this.speed;
   }
   if(leftPaddleScore === 6) {
-
-    rotate(radians(180));
+    // Rotate the image by 180 degree, so the sword is launched
+    // to the left and facing the left at the same time.
+    this.angle = (180);
     this.x = width/2;
     this.y = random(40,height-40);
     this.vx = -this.speed;
   }
 }
+/////////////////////   END NEW   /////////////////////
 /////////////////////   END NEW   /////////////////////
 /////////////////////   END NEW   /////////////////////
