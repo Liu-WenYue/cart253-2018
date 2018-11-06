@@ -18,3 +18,17 @@ function Sword(x,y,vx,vy,size,speed) {
 }
 
 /////////////////////   END NEW  /////////////////////
+
+
+/////////////////////   NEW   /////////////////////
+
+// update()
+//
+// Moves according to velocity.
+Sword.prototype.update = function () {
+  // Update position with velocity
+  this.x += this.vx;
+  this.y += this.vy;
+}
+
+/////////////////////   END NEW   /////////////////////
