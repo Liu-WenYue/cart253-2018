@@ -41,6 +41,14 @@ var rightPaddleImage;
 
 /////////////////////   NEW   /////////////////////
 
+// The varible that stores the image of sword.
+var swordImage;
+
+/////////////////////   END NEW  /////////////////////
+
+
+/////////////////////   NEW   /////////////////////
+
 // Variables that store the score for the paddles.
 var rightPaddleScore = 0;
 var leftPaddleScore = 0;
@@ -90,6 +98,14 @@ function preload() {
   ballImage = loadImage("assets/images/ball.png");
   leftPaddleImage = loadImage("assets/images/leftPaddle.png");
   rightPaddleImage = loadImage("assets/images/rightPaddle.png");
+
+  /////////////////////   NEW   /////////////////////
+
+  // Preloads the sword image.
+  swordImage = loadImage("assets/images/sword.png");
+
+  /////////////////////   END NEW  /////////////////////
+
 
   /////////////////////   NEW   /////////////////////
 
