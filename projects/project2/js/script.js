@@ -27,6 +27,21 @@ var ball;
 var leftPaddle;
 var rightPaddle;
 
+
+/////////////////////   NEW   /////////////////////
+
+// Variable to contain the objects representing swords.
+var sword;
+
+// Creates an array for swords.
+var swords = [];
+
+// This varaible stores the number of swords we want to create.
+var numOfSwords = 3;
+
+/////////////////////   END NEW  /////////////////////
+
+
 /////////////////////   NEW   /////////////////////
 
 // The varibles that store the images of background, ball,
@@ -171,6 +186,16 @@ function setup() {
   leftPaddle = new Paddle(30,height/2,30,180,10,83,87,leftPaddleImage);
 
   /////////////////////   END NEW  /////////////////////
+
+
+  /////////////////////   NEW   /////////////////////
+
+  // Create the swords.
+  for(var i = 0; i < numOfSwords; i++) {
+    swords.push(new Sword(width/2,random(30,height-30),7,7,random(30,60),5));
+  }
+
+  /////////////////////   END NEW  /////////////////////
 }
 
 // draw()
@@ -287,6 +312,16 @@ function displayGame() {
   ball.display();
   leftPaddle.display();
   rightPaddle.display();
+
+  // /////////////////////   NEW   /////////////////////
+  //
+  // // Create the swords.
+  // for(var i = 0; i < numOfSwords; i++) {
+  //   swords[i].update;
+  //   swords[i].display;
+  // }
+  //
+  // /////////////////////   END NEW  /////////////////////
 
   // If either of the paddle gains 7 points, the game ends.
   // so the state variable will go to WINNER and make the switch statement
