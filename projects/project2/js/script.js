@@ -52,6 +52,14 @@ var state = "TITLE";
 
 /////////////////////   NEW   /////////////////////
 
+// Variables that store background music.
+var happyThemeAudio;
+
+/////////////////////   END NEW   /////////////////////
+
+
+/////////////////////   NEW   /////////////////////
+
 // preload()
 //
 // Preloads all the images and audios needed in the game.
@@ -60,6 +68,13 @@ function preload() {
   ballImage = loadImage("assets/images/ball.png");
   leftPaddleImage = loadImage("assets/images/leftPaddle.png");
   rightPaddleImage = loadImage("assets/images/rightPaddle.png");
+
+  /////////////////////   NEW   /////////////////////
+
+  // Preload the background music.
+  happyThemeAudio = new Audio("assets/sounds/happyTheme.mp3");
+
+  /////////////////////   END NEW  /////////////////////
 }
 
 /////////////////////   END NEW  /////////////////////
@@ -139,10 +154,26 @@ function draw() {
 
     case "GAME":
     displayGame();
+
+    /////////////////////   NEW   /////////////////////
+
+    // Happy theme audio starts play after the player pressed ENTER.
+    happyThemeAudio.play();
+
+    /////////////////////   END NEW   /////////////////////
+
     break;
 
     case "WINNER":
     displayWinner();
+
+    /////////////////////   NEW   /////////////////////
+
+    // Happy theme audio starts play after the player pressed ENTER.
+    happyThemeAudio.pause();
+
+    /////////////////////   END NEW   /////////////////////
+
     break
   }
 
