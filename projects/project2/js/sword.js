@@ -38,7 +38,6 @@ function Sword(x,y,vx,vy,w,h,speed) {
 Sword.prototype.update = function () {
   // Update position with velocity
   this.x += this.vx;
-  this.y += this.vy;
 }
 
 /////////////////////   END NEW   /////////////////////
