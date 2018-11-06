@@ -32,3 +32,16 @@ Sword.prototype.update = function () {
 }
 
 /////////////////////   END NEW   /////////////////////
+
+
+/////////////////////   NEW   /////////////////////
+
+// display()
+//
+// Display the sword image on the screen.
+Sword.prototype.display = function () {
+  // Display the ball image at its x and y positions and in its size.
+  image(swordImage,this.x,this.y,this.size,this.size);
+}
+
+/////////////////////   END NEW  /////////////////////
