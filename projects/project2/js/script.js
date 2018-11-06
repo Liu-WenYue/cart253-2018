@@ -74,6 +74,14 @@ var collisionAudio;
 
 /////////////////////   NEW   /////////////////////
 
+// Variable that stores winning sound effect.
+var winningAudio;
+
+/////////////////////   END NEW   /////////////////////
+
+
+/////////////////////   NEW   /////////////////////
+
 // preload()
 //
 // Preloads all the images and audios needed in the game.
@@ -95,6 +103,14 @@ function preload() {
 
   // Preload the collision sound effect.
   collisionAudio = new Audio("assets/sounds/collision.mp3");
+
+  /////////////////////   END NEW  /////////////////////
+
+
+  /////////////////////   NEW   /////////////////////
+
+  // Preload the winning sound effect.
+  winningAudio = new Audio("assets/sounds/winning.mp3");
 
   /////////////////////   END NEW  /////////////////////
 }
@@ -261,6 +277,15 @@ function displayGame() {
   // call displayWinner().
   if (rightPaddleScore ===7 || leftPaddleScore ===7) {
     state = "WINNER";
+
+    /////////////////////   NEW   /////////////////////
+
+    // Winning audio starts play when the either one of the player
+    // win the game, and it only plays once.
+    winningAudio.play();
+
+    /////////////////////   END NEW   /////////////////////
+
   }
 }
 
