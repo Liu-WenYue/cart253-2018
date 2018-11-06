@@ -14,6 +14,12 @@
 // Background music is from the anime, Fairy Tail, it's called
 // "Happy Theme".
 
+//////////////////   NEW   //////////////////
+
+// Sound effects are from SoundWhich website.
+
+/////////////////   END NEW   //////////////////
+
 /////////////////////   END NEW   /////////////////////
 
 // Variable to contain the objects representing our ball and paddles
