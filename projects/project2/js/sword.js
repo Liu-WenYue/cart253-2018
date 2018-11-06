@@ -63,14 +63,22 @@ Sword.prototype.display = function () {
 //
 // Choose the launch direction for the sword.
 Sword.prototype.direction = function () {
+  /////////////////////   NEW   /////////////////////
+
   // If the paddle is about to win(gained 6 points),
   // there will be swords launch towards it.
   if(rightPaddleScore === 6) {
+    this.x = width/2;
+    this.y = random(40,height-40);
     this.vx = this.speed;
   }
   if(leftPaddleScore === 6) {
+
+    rotate(radians(180));
+    this.x = width/2;
+    this.y = random(40,height-40);
     this.vx = -this.speed;
   }
 }
-
+/////////////////////   END NEW   /////////////////////
 /////////////////////   END NEW   /////////////////////
