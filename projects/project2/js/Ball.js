@@ -66,6 +66,15 @@ Ball.prototype.isOffScreen = function () {
 
     /////////////////////   NEW   /////////////////////
 
+    // Check if the right paddle gains score,
+    // if yes, have the mushroom pops up at the right side of the screen.
+    mushroom.popUp();
+
+    /////////////////////   END NEW  /////////////////////
+
+
+    /////////////////////   NEW   /////////////////////
+
     // For loop that changes the swords' directions to the left paddle
     // if the left paddle score is 6.
     for(var i = 0; i < swords.length; i++) {
@@ -88,6 +97,15 @@ Ball.prototype.isOffScreen = function () {
   // score for left paddle increase by one and the ball resets.
   else if (this.x - this.size/2 > width) {
     leftPaddleScore ++;
+
+    /////////////////////   NEW   /////////////////////
+
+    // Check if the left paddle gains score,
+    // if yes, have the mushroom pops up at the left side of the screen.
+    mushroom.popUp();
+
+    /////////////////////   END NEW  /////////////////////
+
 
     /////////////////////   NEW   /////////////////////
 
