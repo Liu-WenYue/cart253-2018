@@ -61,6 +61,14 @@ var swordImage;
 
 /////////////////////   NEW   /////////////////////
 
+// The varible that stores the image of mushroom.
+var mushroomImage;
+
+/////////////////////   END NEW  /////////////////////
+
+
+/////////////////////   NEW   /////////////////////
+
 // Variables that store the score for the paddles.
 var rightPaddleScore = 0;
 var leftPaddleScore = 0;
@@ -115,6 +123,14 @@ function preload() {
 
   // Preloads the sword image.
   swordImage = loadImage("assets/images/sword.png");
+
+  /////////////////////   END NEW  /////////////////////
+
+
+  /////////////////////   NEW   /////////////////////
+
+  // Preloads the mushroom image.
+  mushroomImage = loadImage("assets/images/mushroom.png");
 
   /////////////////////   END NEW  /////////////////////
 
