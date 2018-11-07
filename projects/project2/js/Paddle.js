@@ -21,6 +21,16 @@ function Paddle(x,y,w,h,speed,downKey,upKey,paddleImage) {
 
   // To load different paddle images on each side.
   this.paddleImage = paddleImage;
+
+  /////////////////////   NEW   /////////////////////
+
+  // These two variables contains the original values of the paddle's position and size.
+  this.startX = x;
+  this.startY = y;
+  this.startW = w;
+  this.startH = h;
+
+  /////////////////////   END NEW  /////////////////////
 }
 
 /////////////////////   END NEW  /////////////////////
@@ -94,6 +104,21 @@ Paddle.prototype.increaseSize = function() {
 Paddle.prototype.reduceSize = function() {
     this.w -= 2.5;
     this.h -= 15;
+}
+
+/////////////////////   END NEW   /////////////////////
+
+
+/////////////////////   NEW   /////////////////////
+
+// reset()
+//
+// Resets the position and size of the paddles
+Paddle.prototype.reset = function() {
+    this.x = this.startX;
+    this.y = this.startY;
+    this.w = this.startW;
+    this.h = this.startH;
 }
 
 /////////////////////   END NEW   /////////////////////

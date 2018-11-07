@@ -392,6 +392,14 @@ function displayWinner() {
     leftPaddleScore = 0;
     rightPaddleScore = 0;
 
+    /////////////////////   NEW   /////////////////////
+
+    // Calling the function that reset the paddles' position and size.
+    leftPaddle.reset();
+    rightPaddle.reset();
+
+    /////////////////////   END NEW  /////////////////////
+
     // ... if it was, change the state to "GAME" so the switch statement in draw()
     // will display the game again.
     state = "GAME";
