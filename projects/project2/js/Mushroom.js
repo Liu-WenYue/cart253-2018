@@ -18,3 +18,15 @@ function Mushroom(x,y,vx,vy,size,speed) {
 }
 
 /////////////////////   END NEW  /////////////////////
+
+
+/////////////////////   NEW   /////////////////////
+
+// display()
+//
+// Display the mushroom image on the screen.
+Mushroom.prototype.display = function () {
+  image(mushroomImage,this.x,this.y,this.size,this.size);
+}
+
+/////////////////////   END NEW  /////////////////////
