@@ -41,6 +41,14 @@ var numOfSwords = 3;
 
 /////////////////////   NEW   /////////////////////
 
+// Variable that stores the mushroom.
+var mushroom;
+
+/////////////////////   END NEW  /////////////////////
+
+
+/////////////////////   NEW   /////////////////////
+
 // The varibles that store the images of background, ball,
 // left and right paddles.
 var backgroundImage;
@@ -212,6 +220,15 @@ function setup() {
   }
   /////////////////////   END NEW  /////////////////////
   /////////////////////   END NEW  /////////////////////
+
+  /////////////////////   NEW   /////////////////////
+
+  // Create the mushroom.
+  // Set the initial location of the mushroom off screen.
+  // set the mushroom size to be random between 40 to 80.
+  mushroom = new Mushroom(width/2,height+60,0,0,random(40,80),0);
+
+  /////////////////////   END NEW  /////////////////////
 }
 
 // draw()
@@ -356,6 +373,15 @@ function displayGame() {
   }
 
   /////////////////////   END NEW  /////////////////////
+
+
+  /////////////////////   NEW   /////////////////////
+
+  // Display the mushroom.
+  mushroom.display();
+
+  /////////////////////   END NEW  /////////////////////
+
 
   // If either of the paddle gains 7 points, the game ends.
   // so the state variable will go to WINNER and make the switch statement
