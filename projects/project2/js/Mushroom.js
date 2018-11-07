@@ -81,10 +81,10 @@ Mushroom.prototype.ballCollision = function() {
   if (this.x - this.size/2 < ball.x + ball.size/2 && this.x + this.size/2 > ball.x - ball.size/2) {
     // Check if the mushroom overlaps the ball on y axis
     if (this.y - this.size/2 < ball.y + ball.size/2 && this.y + this.size/2 > ball.y - ball.size/2) {
-      // Increases the ball speed.
-      ball.increaseSpeed();
       // Have the mushroom disappears on the screen.
       mushroom.disappear();
+      // Increases the ball speed.
+      ball.increaseSpeed();
    }
   }
 }
