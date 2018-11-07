@@ -14,6 +14,14 @@ function Ball(x,y,vx,vy,size,speed) {
   this.vy = vy;
   this.size = size;
   this.speed = speed;
+
+  /////////////////////   NEW   /////////////////////
+
+  // These two variables contains the original values of the paddle's velocity.
+  this.startVX = vx;
+  this.startVY = vy;
+
+  /////////////////////   END NEW   /////////////////////
 }
 
 // update()
@@ -207,6 +215,19 @@ Ball.prototype.reset = function () {
 Ball.prototype.increaseSpeed = function () {
   this.vx += 3;
   this.vy += 3;
+}
+
+/////////////////////   END NEW  /////////////////////
+
+
+/////////////////////   NEW   /////////////////////
+
+// restart()
+//
+// When the game is restart, the ball will go to it's initial velocities.
+Ball.prototype.restart = function () {
+  this.vx = this.startVX;
+  this.vy = this.startVY;
 }
 
 /////////////////////   END NEW  /////////////////////

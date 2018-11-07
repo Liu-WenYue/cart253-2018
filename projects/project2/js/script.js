@@ -457,6 +457,14 @@ function displayWinner() {
 
     /////////////////////   END NEW  /////////////////////
 
+
+    /////////////////////   NEW   /////////////////////
+
+    // Calling the function that restart the ball's speed from the intial one.
+    ball.restart();
+
+    /////////////////////   END NEW  /////////////////////
+
     // ... if it was, change the state to "GAME" so the switch statement in draw()
     // will display the game again.
     state = "GAME";
