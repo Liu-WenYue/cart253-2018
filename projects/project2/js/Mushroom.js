@@ -68,3 +68,39 @@ Mushroom.prototype.popUp = function () {
 }
 
 /////////////////////   END NEW  /////////////////////
+
+
+/////////////////////   NEW   /////////////////////
+
+// ballCollision()
+//
+// Check if this mushroom overlaps the ball passed as an argument
+// and if so increases the ball size and speed.
+Mushroom.prototype.ballCollision = function() {
+  // Check if the mushroom overlaps the ball on x axis
+  if (this.x - this.size/2 < ball.x + ball.size/2 && this.x + this.size/2 > ball.x - ball.size/2) {
+    // Check if the mushroom overlaps the ball on y axis
+    if (this.y - this.size/2 < ball.y + ball.size/2 && this.y + this.size/2 > ball.y - ball.size/2) {
+      // Increases the ball speed.
+      ball.increaseSpeed();
+      // Have the mushroom disappears on the screen.
+      mushroom.disappear();
+   }
+  }
+}
+
+/////////////////////   END NEW   /////////////////////
+
+
+/////////////////////   NEW   /////////////////////
+
+// disappear()
+//
+// Have the mushroom disappears.
+Mushroom.prototype.disappear = function() {
+  // After the ball hit the mushroom, the mushroom disappears (goes off screen).
+  this.x = this.startX;
+  this.y = this.startY;
+}
+
+/////////////////////   END NEW   /////////////////////

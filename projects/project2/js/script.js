@@ -383,6 +383,14 @@ function displayGame() {
   /////////////////////   END NEW  /////////////////////
 
 
+  /////////////////////   NEW   /////////////////////
+
+  // Check if the mushroom collides with the ball.
+  mushroom.ballCollision();
+
+  /////////////////////   END NEW  /////////////////////
+
+
   // If either of the paddle gains 7 points, the game ends.
   // so the state variable will go to WINNER and make the switch statement
   // call displayWinner().
