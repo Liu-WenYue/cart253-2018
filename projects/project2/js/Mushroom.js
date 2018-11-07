@@ -49,13 +49,13 @@ Mushroom.prototype.display = function () {
 Mushroom.prototype.popUp = function () {
   // If the right paddle gains point,
   // a mushroom will appear at the right side of the screen.
-  if(rightPaddleScore ++) {
+  if(rightPaddleScore > 0) {
     this.x = random(2*width/3, 8*width/9);
     this.y = random(40,height-40);
   }
   // If the left paddle gains point,
   // a mushroom will appear at the left side of the screen.
-  else if(leftPaddleScore ++) {
+  else if(leftPaddleScore > 0) {
     this.x = random(width/9, width/3);
     this.y = random(40,height-40);
   }
