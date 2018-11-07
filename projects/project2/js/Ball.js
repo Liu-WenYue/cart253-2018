@@ -208,15 +208,16 @@ Ball.prototype.reset = function () {
 
 
 /////////////////////   NEW   /////////////////////
-
+/////////////////////   NEW   /////////////////////
 // increaseSpeed()
 //
 // Increases the speed of the ball.
 Ball.prototype.increaseSpeed = function () {
-  this.vx += 3;
-  this.vy += 3;
+  this.vx = this.speed;
+  this.vy = this.speed;
+  this.speed += 3;
 }
-
+/////////////////////   END NEW  /////////////////////
 /////////////////////   END NEW  /////////////////////
 
 
