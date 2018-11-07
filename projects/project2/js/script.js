@@ -465,6 +465,17 @@ function displayWinner() {
 
     /////////////////////   END NEW  /////////////////////
 
+
+    /////////////////////   NEW   /////////////////////
+
+    // Calling the function that reset the sword.
+    for(var i = 0; i < swords.length; i++) {
+      swords[i].reset();
+    }
+
+    /////////////////////   END NEW  /////////////////////
+
+
     // ... if it was, change the state to "GAME" so the switch statement in draw()
     // will display the game again.
     state = "GAME";

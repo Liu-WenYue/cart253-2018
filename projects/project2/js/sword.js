@@ -39,6 +39,15 @@ function Sword(x,y,vx,vy,w,h,speed) {
   this.harmful = true;
 
   /////////////////////   END NEW  /////////////////////
+
+  /////////////////////   NEW   /////////////////////
+
+  // These two variables contains the original values of the paddle's position and size.
+  this.startX = x;
+  this.startY = y;
+
+  /////////////////////   END NEW  /////////////////////
+
 }
 
 /////////////////////   END NEW  /////////////////////
@@ -139,6 +148,19 @@ Sword.prototype.handleCollision = function(paddle) {
      this.harmful = false;
    }
   }
+}
+
+/////////////////////   END NEW   /////////////////////
+
+
+/////////////////////   NEW   /////////////////////
+
+// reset()
+//
+// Resets the position and size of the paddles
+Sword.prototype.reset = function() {
+    this.x = this.startX;
+    this.y = this.startY;
 }
 
 /////////////////////   END NEW   /////////////////////
