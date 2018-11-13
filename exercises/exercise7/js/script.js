@@ -49,6 +49,8 @@ var chakraPetchFont;
 var playerImage; // The variable that stores the player image.
 var player; // The variable that stores the player.
 
+var targetImage; // The variable that stores the target image.
+var target; // The variable that stores the target.
 
 // preload()
 //
@@ -57,6 +59,7 @@ function preload() {
   backgroundImage = loadImage("assets/images/background.png");
   chakraPetchFont = loadFont("assets/font/chakrapetch_bold.ttf");
   playerImage = loadImage("assets/images/player.png");
+  targetImage = loadImage("assets/images/target.png");
 }
 
 
@@ -71,6 +74,9 @@ function setup() {
 
   // Create the player at its starting position.
   player = new Player(330,330,60,RIGHT_ARROW,LEFT_ARROW,UP_ARROW,DOWN_ARROW);
+
+  // Create the target at its starting position.
+  target = new Target(870,330,60,9);
 }
 
 
@@ -154,6 +160,7 @@ function displayTitle() {
 // and it also checks when player found his partner.
 function displayGame() {
   player.displayAndUpdate();
+  target.display();
 }
 
 

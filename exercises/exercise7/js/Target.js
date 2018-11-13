@@ -12,3 +12,12 @@ function Target(x,y,size,health) {
   this.size = size;
   this.health = health; // The health value for the target.
 }
+
+
+// display()
+//
+// Displays the target image on the screen.
+Target.prototype.display = function() {
+  // Display the target image on screen based on its given propoerties.
+  image(targetImage,this.x,this.y,this.size,this.size);
+}
