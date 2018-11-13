@@ -51,7 +51,10 @@ function preload() {
 // Description of setup
 
 function setup() {
-
+  // Sets the canvas size for the game.
+  createCanvas(1200,720);
+  // Sets the image mode to center.
+  imageMode(CENTER);
 }
 
 
