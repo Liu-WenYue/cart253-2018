@@ -46,13 +46,17 @@ var backgroundImage;
 // The variable that stores the Chakra petch font.
 var chakraPetchFont;
 
+var playerImage; // The variable that stores the player image.
+var player; // The variable that stores the player.
+
 
 // preload()
 //
 // Preloads all the images and audios that will be used in this game.
 function preload() {
   backgroundImage = loadImage("assets/images/background.png");
-  chakraPetchFont = loadFont("assets/font/chakrapetch_bold.ttf")
+  chakraPetchFont = loadFont("assets/font/chakrapetch_bold.ttf");
+  playerImage = loadImage("assets/images/player.png");
 }
 
 
@@ -64,6 +68,9 @@ function setup() {
   createCanvas(1200,720);
   // Sets the image mode to center.
   imageMode(CENTER);
+
+  // Create the player at its starting position.
+  player = new Player(330,330,60,RIGHT_ARROW,LEFT_ARROW,UP_ARROW,DOWN_ARROW);
 }
 
 
