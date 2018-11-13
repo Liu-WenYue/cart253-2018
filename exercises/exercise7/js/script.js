@@ -145,3 +145,21 @@ function displayTitle() {
     state = "GAME";
   }
 }
+
+
+// displayGame()
+//
+// Displays the game.
+// This function includes the elements displaying, handle input and update,
+// and it also checks when player found his partner.
+function displayGame() {
+  player.displayAndUpdate();
+}
+
+
+// keyPressed()
+//
+// This function is to call the player's keyPressed function.
+function keyPressed() {
+  player.keyPressed();
+}
