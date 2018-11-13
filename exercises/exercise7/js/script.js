@@ -63,5 +63,31 @@ function setup() {
 // Description of draw()
 
 function draw() {
+  // Switch statement that allows the game to have different states.
+  // For the first state, the title, game instructions and start game
+  // instruction will be displayed. Once the player pressed the enter key,
+  // it goes to the next state;
+  // The second state will be GAME, where the game is displayed. When the
+  // player found his partner, the game ends and go to the NEXTSTAGE state.
+  // If the partner disappeared, the GAMEOVER state is displayed and there
+  // will an option to restart the stage again (go back to GAME state).
+  switch (state) {
+    case "TITLE":
+    displayTitle();
+    break;
+
+    case "GAME":
+    displayGame();
+    break;
+
+    case "GAMEOVER":
+    displayGameOver();
+    break;
+
+    // These state will show when the rest of the stages are ready.
+    // case "NEXTSTAGE":
+    // displayNextStage();
+    // break;
+  }
 
 }
