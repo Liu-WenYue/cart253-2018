@@ -37,12 +37,15 @@ The player will be able to move with the arrow keys.
 ****************************************************************************/
 
 
+// The variable that stores the backgound image.
+var backgroundImage;
+
+
 // preload()
 //
-// Description of preload
-
+// Preloads all the images and audios that will be used in this game.
 function preload() {
-
+  backgroundImage = loadImage("assets/images/background.png");
 }
 
 
@@ -63,6 +66,13 @@ function setup() {
 // Description of draw()
 
 function draw() {
+  push(); // saves the current setting.
+  imageMode(CORNERS);
+  // Display the background image.
+  image(backgroundImage,0,0,width,height);
+  pop(); // Restore the setting.
+  // The image mode goes back to center.
+
   // Switch statement that allows the game to have different states.
   // For the first state, the title, game instructions and start game
   // instruction will be displayed. Once the player pressed the enter key,
