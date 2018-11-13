@@ -76,7 +76,7 @@ function setup() {
   player = new Player(330,330,60,RIGHT_ARROW,LEFT_ARROW,UP_ARROW,DOWN_ARROW);
 
   // Create the target at its starting position.
-  target = new Target(870,330,60,9);
+  target = new Target(870,330,60,255);
 }
 
 
