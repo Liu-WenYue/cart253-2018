@@ -51,8 +51,7 @@ function preload() {
 
 // setup()
 //
-// Description of setup
-
+// Set up the canvas and image mode, creates elements needed.
 function setup() {
   // Sets the canvas size for the game.
   createCanvas(1200,720);
@@ -63,8 +62,8 @@ function setup() {
 
 // draw()
 //
-// Description of draw()
-
+// Handles player input, updates all the elements, checks for collisions
+// and displays elements.
 function draw() {
   push(); // saves the current setting.
   imageMode(CORNERS);
