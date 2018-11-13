@@ -43,12 +43,16 @@ var state = "TITLE";
 // The variable that stores the backgound image.
 var backgroundImage;
 
+// The variable that stores the Chakra petch font.
+var chakraPetchFont;
+
 
 // preload()
 //
 // Preloads all the images and audios that will be used in this game.
 function preload() {
   backgroundImage = loadImage("assets/images/background.png");
+  chakraPetchFont = loadFont("assets/font/chakrapetch_bold.ttf")
 }
 
 
@@ -121,6 +125,7 @@ function displayTitle() {
   textSize(62);
   fill(70);
   stroke(70);
+  textFont(chakraPetchFont);
   text("SEEK",width/2,4*height/9); // Display the game name.
   textSize(34);
   // Display the instructions for the controls and start game.
