@@ -168,11 +168,11 @@ function displayTitle() {
   text("SEEK",width/2,4*height/9); // Display the game name.
   textSize(34);
   // Display the instructions for the controls and start game.
-  text("Press Enter to Start\nUse arrow keys for Control",width/2,3*height/5);
+  text("Click anywhere to Start\nUse arrow keys for Control",width/2,3*height/5);
 
-  // Check whether the ENTER was pressed to start the game.
-  if (keyIsPressed && keyCode === 13) {
-    // if ENTER is pressed, change the state to "GAME" so the switch
+  // Check whether the mouse was pressed to start the game.
+  if (mouseIsPressed) {
+    // if mouse is pressed, change the state to "GAME" so the switch
     // statement in draw() will display the game instead.
     state = "GAME";
   }
@@ -288,4 +288,12 @@ function displayInstruction() {
 // This function is to call the player's keyPressed function.
 function keyPressed() {
   player.keyPressed();
+}
+
+
+// mousePressed()
+//
+// To have all the sound files to work in Safari browser.
+function mousePressed() {
+  backgroundMusic.play();
 }
