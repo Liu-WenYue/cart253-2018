@@ -60,6 +60,8 @@ var targetImage; // The variable that stores the target image.
 var target; // The variable that stores the target.
 
 var backgroundMusic; // The variable that stores the background music.
+var levelupAudio; // The variable that stores the levelup sound effect.
+var gameoverAudio; // The variable that stores the gameover sound effect.
 
 
 // preload()
@@ -71,6 +73,8 @@ function preload() {
   playerImage = loadImage("assets/images/player.png");
   targetImage = loadImage("assets/images/target.png");
   backgroundMusic = new Audio("assets/sounds/backgroundmusic.m4a");
+  levelupAudio = new Audio("assets/sounds/level_up.mp3");
+  gameoverAudio = new Audio("assets/sounds/gameover.mp3");
 }
 
 
@@ -190,6 +194,9 @@ function displayGame() {
   // of the game will become GAMEOVER and the switch statement will
   // call displayWinner function.
   if (target.health < 1) {
+    // gameover sound effect starts play when the player lose the game,
+    // and it only plays once.
+    gameoverAudio.play();
     state = "GAMEOVER";
   }
 
@@ -199,6 +206,9 @@ function displayGame() {
   // I have to use player.x + player.displacementX because I used displacement
   // value to update my player's x position.
   if ((player.x + player.displacementX) + player.size/2 > target.x - target.size/2) {
+    // levelup sound effect starts play when the player win the game,
+    // and it only plays once.
+    levelupAudio.play();
     state = "WINNER";
   }
 }
