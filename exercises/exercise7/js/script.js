@@ -167,6 +167,8 @@ function displayTitle() {
 function displayGame() {
   player.displayAndUpdate();
   target.display();
+  
+  displayInstruction();
 
   // If the target health is 0, the player loses the game and the state
   // of the game will become GAMEOVER and the switch statement will
@@ -236,6 +238,21 @@ function displayWinner() {
   stroke(70);
   textFont(chakraPetchFont);
   text("Stage Cleared",width/2,4*height/9);
+}
+
+
+// displayInstruction()
+//
+// Displays the game instruction on screen.
+function displayInstruction() {
+  push();//saves the current style settings.
+  textAlign(CENTER,CENTER);
+  textSize(32);
+  fill(70);
+  stroke(70);
+  textFont(chakraPetchFont);
+  text("Reach to your partner!\nRemember to reach her before she disappears.",width/2,7*height/9);
+  pop();//restores these settings.
 }
 
 
