@@ -178,7 +178,9 @@ function displayGame() {
   // If player reached at the target (overlap with the target),
   // the state variable will go to WINNER and the switch statement will
   // call displayWinner function.
-  if (player.size + player.size/2 > target.x - target.size/2) {
+  // I have to use player.x + player.displacementX because I used displacement
+  // value to update my player's x position.
+  if ((player.x + player.displacementX) + player.size/2 > target.x - target.size/2) {
     state = "WINNER";
   }
 }
@@ -214,6 +216,26 @@ function displayGameOver() {
 
     state = "GAME";
   }
+}
+
+
+// displayWinner()
+//
+// Displays the winner page.
+function displayWinner() {
+  push();//saves the current style settings.
+  noStroke(); // There will be no outline strokes on the elements.
+  fill(255,255,255,220); // Have a transparent white fill color.
+  rectMode(CENTER); // Set the rectMode to center.
+  rect(width/2,height/2, width, height); // Draws the rectangle that covers the screen.
+  pop();//restores these settings.
+
+  textAlign(CENTER,CENTER);
+  textSize(62);
+  fill(70);
+  stroke(70);
+  textFont(chakraPetchFont);
+  text("Stage Cleared",width/2,4*height/9);
 }
 
 
