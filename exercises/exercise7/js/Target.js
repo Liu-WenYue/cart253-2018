@@ -11,6 +11,7 @@ function Target(x,y,size,health) {
   this.y = y;
   this.size = size;
   this.health = health; // The health value for the target.
+  this.startHealth = health; // The starting health for target.
 }
 
 
@@ -34,4 +35,13 @@ Target.prototype.lossHealth  = function() {
     // target losses all the health if the player move more than 9 times.
     this.health -= (255/9);
   }
+}
+
+
+// reset()
+//
+// Resets the target's health back to its starting number.
+Target.prototype.reset = function() {
+  // Reset the health of health.
+  this.health = this.startHealth;
 }
