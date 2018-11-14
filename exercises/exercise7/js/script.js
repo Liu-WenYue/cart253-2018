@@ -23,6 +23,9 @@ the health lost of the partner for three moves, the items will be “candy”,
 For the final stage, there will not be any obstacles, but the player and the
 partner will both loss health as the player moves.
 
+Moreover, for all the stages, I will be adding more props to make the scene
+more lively.
+
 
 In this first prototype, I will be doing the first stage of the game. The
 main purpose of this first prototype is to get the art style, basic functions
@@ -33,6 +36,10 @@ not be any obstacles yet. During the game, there will be some text instructions,
 and there will also be starting page and game over page.
 
 The player will be able to move with the arrow keys.
+
+The sound effects used in this game are from soundwhich.com;
+The background music is from a game called Legend of Zelda, and the song is called
+A link to the past.
 
 ****************************************************************************/
 
