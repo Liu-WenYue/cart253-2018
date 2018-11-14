@@ -56,6 +56,11 @@ Player.prototype.keyPressed = function() {
 // Displays the player image on the screen and updates its position as the
 // displacement X and Y changes.
 Player.prototype.displayAndUpdate = function() {
+  // To constrain the displacement values of the player.
+  // The player should not walk on the grass.
+  this.displacementX = constrain(this.displacementX, -this.size, 9 * this.size);
+  this.displacementY = constrain(this.displacementY, -this.size, this.size);
+
   // Display the player image on screen based on its given propoerties.
   image(playerImage,this.x + this.displacementX,this.y + this.displacementY,this.size,this.size);
 }
