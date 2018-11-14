@@ -100,6 +100,8 @@ function draw() {
   // player found his partner, the game ends and go to the NEXTSTAGE state.
   // If the partner disappeared, the GAMEOVER state is displayed and there
   // will an option to restart the stage again (go back to GAME state).
+  // As there are no next stage for now, I add a state called WINNER that
+  // displays screen when the player cleared the stage.
   switch (state) {
     case "TITLE":
     displayTitle();
@@ -107,6 +109,10 @@ function draw() {
 
     case "GAME":
     displayGame();
+    break;
+
+    case "WINNER":
+    displayWinner();
     break;
 
     case "GAMEOVER":
@@ -161,6 +167,20 @@ function displayTitle() {
 function displayGame() {
   player.displayAndUpdate();
   target.display();
+
+  // If the target health is 0, the player loses the game and the state
+  // of the game will become GAMEOVER and the switch statement will
+  // call displayWinner function.
+  if (target.health < 1) {
+    state = "GAMEOVER";
+  }
+
+  // If player reached at the target (overlap with the target),
+  // the state variable will go to WINNER and the switch statement will
+  // call displayWinner function.
+  if (player.size + player.size/2 > target.x - target.size/2) {
+    state = "WINNER";
+  }
 }
 
 
