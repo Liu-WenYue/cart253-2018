@@ -200,9 +200,9 @@ function displayGameOver() {
   textSize(62);
   fill(255);
   textFont(chakraPetchFont);
-  text("You lost your partner!",width/2,4*height/9); // Display the game name.
+  text("You lost your partner!",width/2,4*height/9); // Display game over.
   textSize(34);
-  // Display the instructions for the controls and start game.
+  // Display the instructions for restarting the game.
   text("Press Space to Restart the Stage",width/2,3*height/5);
 
   // Check whether the spacebar was pressed to restart the game.
