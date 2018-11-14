@@ -47,7 +47,7 @@ A link to the past.
 // Tracking the current state of the program (title screen to begin).
 var state = "TITLE";
 
-// The variable that stores the backgound image.
+// The variable that stores the background image.
 var backgroundImage;
 
 // The variable that stores the Chakra petch font.
