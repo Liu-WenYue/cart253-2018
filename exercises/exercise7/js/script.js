@@ -209,6 +209,7 @@ function displayGame() {
     // levelup sound effect starts play when the player win the game,
     // and it only plays once.
     levelupAudio.play();
+    gameoverAudio.pause(); // To stop the sound effect for game over.
     state = "WINNER";
   }
 }
