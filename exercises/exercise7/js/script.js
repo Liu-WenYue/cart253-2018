@@ -59,6 +59,9 @@ var player; // The variable that stores the player.
 var targetImage; // The variable that stores the target image.
 var target; // The variable that stores the target.
 
+var backgroundMusic; // The variable that stores the background music.
+
+
 // preload()
 //
 // Preloads all the images and audios that will be used in this game.
@@ -67,6 +70,7 @@ function preload() {
   chakraPetchFont = loadFont("assets/font/chakrapetch_bold.ttf");
   playerImage = loadImage("assets/images/player.png");
   targetImage = loadImage("assets/images/target.png");
+  backgroundMusic = new Audio("assets/sounds/backgroundmusic.m4a");
 }
 
 
@@ -116,14 +120,19 @@ function draw() {
 
     case "GAME":
     displayGame();
+    backgroundMusic.play(); // Have the background music play when game starts.
     break;
 
     case "WINNER":
     displayWinner();
+    backgroundMusic.pause(); // Pause the background music if they win.
+    backgroundMusic.currentTime = 0; // Restart the music from the start.
     break;
 
     case "GAMEOVER":
     displayGameOver();
+    backgroundMusic.pause(); // Pause the background music if they lose.
+    backgroundMusic.currentTime = 0; // Restart the music from the start.
     break;
 
     // These state will show when the rest of the stages are ready.
