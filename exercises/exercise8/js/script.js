@@ -38,6 +38,10 @@ The player will be able to move with the arrow keys.
 
 ******************/
 
+// Tracking the current state of the program (title screen to begin).
+var state = "TITLE";
+
+
 // preload()
 //
 // Description of preload
