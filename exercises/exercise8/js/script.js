@@ -60,8 +60,41 @@ function setup() {
 
 // draw()
 //
-// Description of draw()
-
+// Display background, creates switch statement, Handles player input, updates all the elements, checks for collisions
+// and displays elements.
 function draw() {
+  // Switch statement that allows the game to have different states.
+  // For this second prototype, there will be a starting page that includes
+  // title of the game, game instructions and start game instruction will
+  // be displayed. Once the player pressed the enter key, it goes to the
+  // next state;
+  // The second state will be GAME, where the game will be displayed. When
+  // the player found his partner, the game ends and go to the NEXTSTAGE state.
+  // If the partner disappeared or the player touched the toy car, the GAMEOVER
+  // state will be displayed and there will be an option to restart the stage
+  // again (go back to GAME state).
+  // As there are no next stage for now, I add a state called WINNER that
+  // displays screen when the player cleared the stage.
+  switch (state) {
+    case "TITLE":
+    displayTitle();
+    break;
 
+    case "GAME":
+    displayGame();
+    break;
+
+    case "WINNER":
+    displayWinner();
+    break;
+
+    case "GAMEOVER":
+    displayGameOver();
+    break;
+
+    // These state will show when the rest of the stages are ready.
+    // case "NEXTSTAGE":
+    // displayNextStage();
+    // break;
+  }
 }
