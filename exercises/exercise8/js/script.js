@@ -102,3 +102,32 @@ function draw() {
     // break;
   }
 }
+
+// displayTitle()
+//
+// Displays the starting page of the game, that includes game title,
+// game instructions and start game instruction.
+function displayTitle() {
+  push();//saves the current style settings.
+  noStroke(); // There will be no outline strokes on the elements.
+  fill(255,255,255,220); // Have a transparent white fill color.
+  rectMode(CENTER); // Set the rectMode to center.
+  rect(width/2,height/2, width, height); // Draws the rectangle that covers the screen.
+  pop();//restores these settings.
+
+  textAlign(CENTER,CENTER);
+  textSize(62);
+  fill(70);
+  stroke(70);
+  text("SEEK",width/2,4*height/9); // Display the game name.
+  textSize(34);
+  // Display the instructions for the controls and start game.
+  text("Click anywhere to Start\nUse arrow keys for Control",width/2,3*height/5);
+
+  // Check whether the mouse was pressed to start the game.
+  if (mouseIsPressed) {
+    // if mouse is pressed, change the state to "GAME" so the switch
+    // statement in draw() will display the game instead.
+    state = "GAME";
+  }
+}
