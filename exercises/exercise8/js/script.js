@@ -41,13 +41,15 @@ The player will be able to move with the arrow keys.
 // Tracking the current state of the program (title screen to begin).
 var state = "TITLE";
 
+// The variable that stores the Chakra petch font.
+var chakraPetchFont;
+
 
 // preload()
 //
-// Description of preload
-
+// Preloads all the fonts, images and audios that will be used in this game.
 function preload() {
-
+  chakraPetchFont = loadFont("assets/fonts/chakrapetch_bold.ttf");
 }
 
 
@@ -119,6 +121,7 @@ function displayTitle() {
   textSize(62);
   fill(70);
   stroke(70);
+  textFont(chakraPetchFont);
   text("SEEK",width/2,4*height/9); // Display the game name.
   textSize(34);
   // Display the instructions for the controls and start game.
