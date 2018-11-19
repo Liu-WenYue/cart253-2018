@@ -134,3 +134,11 @@ function displayTitle() {
     state = "GAME";
   }
 }
+
+
+// keyPressed()
+//
+// This function is to call the player's keyPressed function.
+function keyPressed() {
+  player.keyPressed();
+}
