@@ -61,4 +61,7 @@ Candy.prototype.handleCollision = function() {
 Candy.prototype.reset = function() {
   // Reset the health of candy.
   this.health = this.startHealth;
+  // Reset the candy to useful again, so if the player restart the game,
+  // the candys functions as well.
+  this.useful = true;
 }
