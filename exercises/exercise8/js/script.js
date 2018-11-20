@@ -24,15 +24,19 @@ but the player and the partner will both loss health as the player moves.
 Moreover, for all the stages, I will be adding more props to make the scene
 more lively.
 
-In this second prototype, I will doing the second stage of the game. The main
-purpose of this second prototype is to make the additional items works in the
-game,  refine the style of the assets used in the game.  The second stage of
-the game will have the characters in their teenage time and the background is
-in spring. The map for this stage is definitely harder than the first stage.
+In this second prototype, I will doing the second stage of the game. This
+stage will have the characters in their teenage time when the characters
+are still in their school uniform and the background is in spring. The map
+for this stage is definitely harder than the first stage.
+
 There will be “toys” on the way to prevent the player from reaching to his
-partner, if the player moved onto the “toy”, gameover will be triggered; there
-are also “candys”, if the player moved onto the “candy”, they can move three
-moved without losing their partner’s health.
+partner, if the player moved onto the “toy”, the state will go to GAMEOVER
+and display Gameover; there are also “candys”, if the player moved onto the
+“candy”, their partner will gain three units of health.
+
+The main purpose of this second prototype is to make the additional items
+function as I wanted, refine the style of the assets used in the game and
+constrain the player to move only on the floor.  
 
 The player will be able to move with the arrow keys.
 
