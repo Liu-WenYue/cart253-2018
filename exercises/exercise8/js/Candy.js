@@ -53,3 +53,12 @@ Candy.prototype.handleCollision = function() {
     }
   }
 }
+
+
+// reset()
+//
+// Resets the candy's health back to its starting number.
+Candy.prototype.reset = function() {
+  // Reset the health of candy.
+  this.health = this.startHealth;
+}
