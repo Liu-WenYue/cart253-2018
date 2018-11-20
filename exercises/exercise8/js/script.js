@@ -180,9 +180,10 @@ function displayGame() {
   player.displayAndUpdate();
   target.display();
 
-  // Display candys.
+  // Display candys, check handle collisions for the candy.
   for(var i = 0; i < candys.length; i++) {
     candys[i].display();
+    candys[i].handleCollision();
   }
 }
 
