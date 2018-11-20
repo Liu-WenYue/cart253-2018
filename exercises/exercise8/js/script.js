@@ -53,6 +53,8 @@ var player; // The variable that stores the player.
 var targetImage; // The variable that stores the target image.
 var target; // The variable that stores the target.
 
+var candyImage; // The variable that stores the candy image.
+
 
 // preload()
 //
@@ -62,6 +64,7 @@ function preload() {
   backgroundImage = loadImage("assets/images/bg.png");
   playerImage = loadImage("assets/images/player.png");
   targetImage = loadImage("assets/images/target.png");
+  candyImage = loadImage("assets/images/candy.png");
 }
 
 
