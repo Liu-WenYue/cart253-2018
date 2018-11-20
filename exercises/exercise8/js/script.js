@@ -57,6 +57,7 @@ var candyImage; // The variable that stores the candy image.
 var candys = []; // Creates an array for candys.
 
 var carImage; // The variable that stores the car image.
+var cars = []; // Creates an array for cars.
 
 
 // preload()
@@ -92,6 +93,13 @@ function setup() {
   candys.push(new Candy(570,210,60,255));
   candys.push(new Candy(870,210,60,255));
   candys.push(new Candy(630,570,60,255));
+
+  // Create the cars at their required starting positions.
+  cars.push(new Car(450,150,60,255));
+  cars.push(new Car(570,150,60,255));
+  cars.push(new Car(510,210,60,255));
+  cars.push(new Car(450,270,60,255));
+  cars.push(new Car(570,270,60,255));
 }
 
 
@@ -187,6 +195,11 @@ function displayGame() {
   for(var i = 0; i < candys.length; i++) {
     candys[i].display();
     candys[i].handleCollision();
+  }
+
+  // Display cars.
+  for(var i = 0; i < cars.length; i++) {
+    cars[i].display();
   }
 
   // If the target health is 0, the player loses the game and the state
