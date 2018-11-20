@@ -50,6 +50,8 @@ var backgroundImage;
 var playerImage; // The variable that stores the player image.
 var player; // The variable that stores the player.
 
+var targetImage; // The variable that stores the target image.
+
 
 // preload()
 //
@@ -58,6 +60,7 @@ function preload() {
   chakraPetchFont = loadFont("assets/fonts/chakrapetch_bold.ttf");
   backgroundImage = loadImage("assets/images/bg.png");
   playerImage = loadImage("assets/images/player.png");
+  targetImage = loadImage("assets/images/target.png");
 }
 
 
