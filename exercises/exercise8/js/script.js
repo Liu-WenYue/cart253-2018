@@ -310,9 +310,15 @@ function displayWinner() {
 
 // keyPressed()
 //
-// This function is to call the player's keyPressed function.
+// This function is to call the player's keyPressed function and car's
+// keyPressed function.
 function keyPressed() {
   player.keyPressed();
+
+  // Car keyPressed function is called and cars are displayed.
+  for(var i = 0; i < cars.length; i++) {
+    cars[i].keyPressed();
+  }
 }
 
 
