@@ -25,3 +25,15 @@ Target.prototype.display = function() {
   image(targetImage,this.x,this.y,this.size,this.size);
   pop();
 }
+
+
+// lossHealth()
+//
+// Losses target's health for every move done by the player.
+Target.prototype.lossHealth  = function() {
+  // If any of the arrow keys is pressed, the target losses health.
+  if (keyIsPressed && (keyCode === player.upKey || keyCode === player.downKey || keyCode === player.leftKey || keyCode === player.rightKey)) {
+    // target losses all the health if the player move more than 9 times.
+    this.health -= (255/11);
+  }
+}
