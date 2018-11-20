@@ -67,6 +67,8 @@ var backgroundMusic; // The variable that stores the background music.
 var levelupAudio; // The variable that stores the levelup sound effect.
 var gameoverAudio; // The variable that stores the gameover sound effect.
 
+var mapImage; // The variable that stores the map image.
+
 
 // preload()
 //
@@ -81,6 +83,7 @@ function preload() {
   backgroundMusic = new Audio("assets/sounds/backgroundmusic.m4a");
   levelupAudio = new Audio("assets/sounds/level_up.mp3");
   gameoverAudio = new Audio("assets/sounds/gameover.mp3");
+  mapImage = loadImage("assets/images/map.png");
 }
 
 
@@ -111,6 +114,9 @@ function setup() {
   cars.push(new Car(510,210,60,255));
   cars.push(new Car(450,270,60,255));
   cars.push(new Car(570,270,60,255));
+
+  // Load the pixels in the map image.
+  mapImage.loadPixels();
 }
 
 
@@ -121,6 +127,7 @@ function setup() {
 function draw() {
   push(); // saves the current setting.
   imageMode(CORNERS);
+  image(mapImage,0,0,width,height);
   // Display the background image.
   image(backgroundImage,0,0,width,height);
   pop(); // Restore the setting.
@@ -231,8 +238,8 @@ function displayGame() {
   // If player reached at the target (overlap with the target),
   // the state variable will go to WINNER and the switch statement will
   // call displayWinner function.
-  if ((player.x + player.displacementX) + player.size/2 > target.x - target.size/2 && (player.x + player.displacementX) - player.size/2 < target.x + target.size/2) {
-    if ((player.y + player.displacementY) - player.size/2 < target.y + player.size/2 && (player.y + player.displacementY) + player.size/2 > target.y - target.size/2) {
+  if (player.x + player.size/2 > target.x - target.size/2 && player.x - player.size/2 < target.x + target.size/2) {
+    if (player.y - player.size/2 < target.y + player.size/2 && player.y + player.size/2 > target.y - target.size/2) {
       // levelup sound effect starts play when the player win the game,
       // and it only plays once.
       levelupAudio.play();

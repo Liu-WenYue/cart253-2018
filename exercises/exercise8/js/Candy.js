@@ -39,9 +39,9 @@ Candy.prototype.handleCollision = function() {
   }
 
   // Check if the player overlaps with the candy on x axis
-  if (this.x - this.size/2 < (player.x + player.displacementX) + player.size/2 && this.x + this.size/2 > (player.x + player.displacementX) - player.size/2) {
+  if (this.x - this.size/2 < player.x + player.size/2 && this.x + this.size/2 > player.x - player.size/2) {
     // Check if the player overlaps the candy on y axis
-    if (this.y - this.size/2 < (player.y + player.displacementY) + player.size/2 && this.y + this.size/2 > (player.y + player.displacementY) - player.size/2) {
+    if (this.y - this.size/2 < player.y + player.size/2 && this.y + this.size/2 > player.y - player.size/2) {
       // Sets the candy's health to zero (have the candy disappears).
       this.health = 0;
       // Add three units of health lose for target.
