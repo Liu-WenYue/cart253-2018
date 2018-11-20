@@ -47,3 +47,13 @@ Player.prototype.keyPressed = function() {
     this.displacementX += this.size;
   }
 }
+
+
+// displayAndUpdate()
+//
+// Displays the player image on the screen and updates its position as the
+// displacement X and Y changes.
+Player.prototype.displayAndUpdate = function() {
+  // Display the player image on screen based on its given propoerties.
+  image(playerImage,this.x + this.displacementX,this.y + this.displacementY,this.size,this.size);
+}
