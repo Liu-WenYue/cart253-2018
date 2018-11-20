@@ -46,6 +46,8 @@ Player.prototype.keyPressed = function() {
   if (keyCode === this.rightKey) {
     this.displacementX += this.size;
   }
+  // Checks the condition for target to loss health.
+  target.lossHealth();
 }
 
 
