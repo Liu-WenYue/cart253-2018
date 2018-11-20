@@ -59,3 +59,13 @@ Player.prototype.displayAndUpdate = function() {
   // Display the player image on screen based on its given propoerties.
   image(playerImage,this.x + this.displacementX,this.y + this.displacementY,this.size,this.size);
 }
+
+
+// reset()
+//
+// Resets the player's position back to its starting position.
+Player.prototype.reset = function() {
+  // Reset the displacement values back to the original.
+  this.displacementX = 0;
+  this.displacementY = 0;
+}
