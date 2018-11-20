@@ -48,6 +48,7 @@ var chakraPetchFont;
 var backgroundImage;
 
 var playerImage; // The variable that stores the player image.
+var player; // The variable that stores the player.
 
 
 // preload()
@@ -68,6 +69,9 @@ function setup() {
   createCanvas(1200,720);
   // Sets the image mode to center.
   imageMode(CENTER);
+
+  // Create the player at its starting position.
+  player = new Player(270,510,60,RIGHT_ARROW,LEFT_ARROW,UP_ARROW,DOWN_ARROW);
 }
 
 
@@ -147,6 +151,16 @@ function displayTitle() {
     // statement in draw() will display the game instead.
     state = "GAME";
   }
+}
+
+
+// displayGame()
+//
+// Displays the game.
+// This function includes the elements displaying, handle input and update,
+// and it also checks when player found his partner.
+function displayGame() {
+  player.displayAndUpdate();
 }
 
 
