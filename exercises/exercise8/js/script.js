@@ -59,6 +59,10 @@ var candys = []; // Creates an array for candys.
 var carImage; // The variable that stores the car image.
 var cars = []; // Creates an array for cars.
 
+var backgroundMusic; // The variable that stores the background music.
+var levelupAudio; // The variable that stores the levelup sound effect.
+var gameoverAudio; // The variable that stores the gameover sound effect.
+
 
 // preload()
 //
@@ -70,6 +74,9 @@ function preload() {
   targetImage = loadImage("assets/images/target.png");
   candyImage = loadImage("assets/images/candy.png");
   carImage = loadImage("assets/images/car.png");
+  backgroundMusic = new Audio("assets/sounds/backgroundmusic.m4a");
+  levelupAudio = new Audio("assets/sounds/level_up.mp3");
+  gameoverAudio = new Audio("assets/sounds/gameover.mp3");
 }
 
 
@@ -134,14 +141,19 @@ function draw() {
 
     case "GAME":
     displayGame();
+    backgroundMusic.play(); // Have the background music play when game starts.
     break;
 
     case "WINNER":
     displayWinner();
+    backgroundMusic.pause(); // Pause the background music if they win.
+    backgroundMusic.currentTime = 0; // Restart the music from the start.
     break;
 
     case "GAMEOVER":
     displayGameOver();
+    backgroundMusic.pause(); // Pause the background music if they lose.
+    backgroundMusic.currentTime = 0; // Restart the music from the start.
     break;
 
     // These state will show when the rest of the stages are ready.
@@ -206,6 +218,9 @@ function displayGame() {
   // of the game will become GAMEOVER and the switch statement will
   // call displayGameOver function.
   if (target.health < 1) {
+    // gameover sound effect starts play when the player lose the game,
+    // and it only plays once.
+    gameoverAudio.play();
     state = "GAMEOVER";
   }
 
@@ -214,6 +229,10 @@ function displayGame() {
   // call displayWinner function.
   if ((player.x + player.displacementX) + player.size/2 > target.x - target.size/2 && (player.x + player.displacementX) - player.size/2 < target.x + target.size/2) {
     if ((player.y + player.displacementY) - player.size/2 < target.y + player.size/2 && (player.y + player.displacementY) + player.size/2 > target.y - target.size/2) {
+      // levelup sound effect starts play when the player win the game,
+      // and it only plays once.
+      levelupAudio.play();
+      gameoverAudio.pause(); // To stop the sound effect for game over.
       state = "WINNER";
     }
   }
