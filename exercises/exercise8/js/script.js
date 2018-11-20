@@ -36,6 +36,10 @@ moved without losing their partner’s health.
 
 The player will be able to move with the arrow keys.
 
+The sound effects used in this game are from soundwhich.com;
+The background music is from a game called Legend of Zelda: A link to the
+past, the song is called the Select Screen.
+
 ******************/
 
 // Tracking the current state of the program (title screen to begin).
