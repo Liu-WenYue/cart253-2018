@@ -185,6 +185,36 @@ function displayGame() {
     candys[i].display();
     candys[i].handleCollision();
   }
+
+  // If the target health is 0, the player loses the game and the state
+  // of the game will become GAMEOVER and the switch statement will
+  // call displayGameOver function.
+  if (target.health < 1) {
+    state = "GAMEOVER";
+  }
+}
+
+
+// displayGameOver()
+//
+// Displays the game over on screen, there will also be a restart instructions
+// on the screen.
+function displayGameOver() {
+  push();//saves the current style settings.
+  noStroke(); // There will be no outline strokes on the elements.
+  fill(0,0,0,220); // Have a transparent white fill color.
+  rectMode(CENTER); // Set the rectMode to center.
+  rect(width/2,height/2, width, height); // Draws the rectangle that covers the screen.
+  pop();//restores these settings.
+
+  textAlign(CENTER,CENTER);
+  textSize(62);
+  fill(255);
+  textFont(chakraPetchFont);
+  text("You lost your partner!",width/2,4*height/9); // Display game over.
+  textSize(34);
+  // Display the instructions for restarting the game.
+  text("Press Space to Restart the Stage",width/2,3*height/5);
 }
 
 
