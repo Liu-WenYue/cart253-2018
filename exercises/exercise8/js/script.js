@@ -51,6 +51,7 @@ var playerImage; // The variable that stores the player image.
 var player; // The variable that stores the player.
 
 var targetImage; // The variable that stores the target image.
+var target; // The variable that stores the target.
 
 
 // preload()
@@ -75,6 +76,9 @@ function setup() {
 
   // Create the player at its starting position.
   player = new Player(270,510,60,RIGHT_ARROW,LEFT_ARROW,UP_ARROW,DOWN_ARROW);
+
+  // Create the target at its starting position.
+  target = new Target(930,390,60,255);
 }
 
 
@@ -164,6 +168,7 @@ function displayTitle() {
 // and it also checks when player found his partner.
 function displayGame() {
   player.displayAndUpdate();
+  target.display();
 }
 
 
