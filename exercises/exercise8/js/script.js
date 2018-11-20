@@ -56,6 +56,8 @@ var target; // The variable that stores the target.
 var candyImage; // The variable that stores the candy image.
 var candys = []; // Creates an array for candys.
 
+var carImage; // The variable that stores the car image.
+
 
 // preload()
 //
@@ -66,6 +68,7 @@ function preload() {
   playerImage = loadImage("assets/images/player.png");
   targetImage = loadImage("assets/images/target.png");
   candyImage = loadImage("assets/images/candy.png");
+  carImage = loadImage("assets/images/car.png");
 }
 
 
@@ -236,7 +239,7 @@ function displayGameOver() {
     for(var i = 0; i < candys.length; i++) {
       candys[i].reset();
     }
-    
+
     state = "GAME";
   }
 }

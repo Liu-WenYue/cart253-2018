@@ -6,7 +6,7 @@
 // Car constructor
 //
 // Sets the properties with the provided arguments for Car.
-function Car(x,y,size) {
+function Car(x,y,size,health) {
   this.x = x;
   this.y = y;
   this.size = size;
