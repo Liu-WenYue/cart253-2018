@@ -37,3 +37,12 @@ Target.prototype.lossHealth  = function() {
     this.health -= (255/11);
   }
 }
+
+
+// reset()
+//
+// Resets the target's health back to its starting number.
+Target.prototype.reset = function() {
+  // Reset the health of health.
+  this.health = this.startHealth;
+}
