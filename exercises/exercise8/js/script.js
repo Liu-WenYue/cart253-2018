@@ -44,12 +44,16 @@ var state = "TITLE";
 // The variable that stores the Chakra petch font.
 var chakraPetchFont;
 
+// The variable that stores the background image.
+var backgroundImage;
+
 
 // preload()
 //
 // Preloads all the fonts, images and audios that will be used in this game.
 function preload() {
   chakraPetchFont = loadFont("assets/fonts/chakrapetch_bold.ttf");
+  backgroundImage = loadImage("assets/images/bg.png");
 }
 
 
@@ -69,6 +73,13 @@ function setup() {
 // Display background, creates switch statement, Handles player input, updates all the elements, checks for collisions
 // and displays elements.
 function draw() {
+  push(); // saves the current setting.
+  imageMode(CORNERS);
+  // Display the background image.
+  image(backgroundImage,0,0,width,height);
+  pop(); // Restore the setting.
+  // The image mode goes back to center.
+
   // Switch statement that allows the game to have different states.
   // For this second prototype, there will be a starting page that includes
   // title of the game, game instructions and start game instruction will
