@@ -54,6 +54,7 @@ var targetImage; // The variable that stores the target image.
 var target; // The variable that stores the target.
 
 var candyImage; // The variable that stores the candy image.
+var candys = []; // Creates an array for candys.
 
 
 // preload()
@@ -82,6 +83,12 @@ function setup() {
 
   // Create the target at its starting position.
   target = new Target(930,390,60,255);
+
+  // Create the candys at their required starting positions.
+  candys.push(new Candy(270,390,60,255));
+  candys.push(new Candy(570,210,60,255));
+  candys.push(new Candy(870,210,60,255));
+  candys.push(new Candy(630,570,60,255));
 }
 
 
@@ -172,6 +179,11 @@ function displayTitle() {
 function displayGame() {
   player.displayAndUpdate();
   target.display();
+
+  // Display candys.
+  for(var i = 0; i < candys.length; i++) {
+    candys[i].display();
+  }
 }
 
 
