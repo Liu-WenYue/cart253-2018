@@ -13,3 +13,15 @@ function Target(x,y,size,health) {
   this.health = health; // The health value for the target.
   this.startHealth = health; // The starting health for target.
 }
+
+
+// display()
+//
+// Displays the target image on the screen.
+Target.prototype.display = function() {
+  push();
+  tint(255, this.health); // Handle the transparency of the target.
+  // Display the target image on screen based on its given propoerties.
+  image(targetImage,this.x,this.y,this.size,this.size);
+  pop();
+}
