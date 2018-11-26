@@ -20,3 +20,35 @@ function Player(x,y,size,rightKey,leftKey,upKey,downKey,image) {
   this.downKey = downKey;
   this.image = image;
 }
+
+
+// keyPressed()
+//
+// Checks if the arrow keys are pressed.
+Player.prototype.keyPressed = function() {
+  // Sets the next position of the player to its starting position.
+  this.nextX = this.x;
+  this.nextY = this.y;
+
+  // If the upkey is pressed, the player will move up by one unit of its
+  // Y displacement, which is the player's size.
+  if (keyCode === this.upKey) {
+    this.nextY -= this.size;
+  }
+  // If the downkey is pressed, the player will move down by one unit of its
+  // Y displacement, which is the player's size.
+  if (keyCode === this.downKey) {
+    this.nextY += this.size;
+  }
+
+  // If the leftkey is pressed, the player will move to the left by one
+  // unit of its Y displacement, which is the player's size.
+  if (keyCode === this.leftKey) {
+    this.nextX -= this.size;
+  }
+  // If the rightkey is pressed, the player will move to the right by one
+  // unit of its Y displacement, which is the player's size.
+  if (keyCode === this.rightKey) {
+    this.nextX += this.size;
+  }
+}
