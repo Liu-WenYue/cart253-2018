@@ -288,6 +288,17 @@ function displayGameOver() {
   textSize(34);
   // Display the instructions for restarting the game.
   text("Press Space to Restart the Stage",width/2,3*height/5);
+
+  // Check whether the spacebar was pressed to restart the game.
+  if (keyIsPressed && keyCode === 32) {
+    // if it was, change the state to "GAME" so the switch statement in
+    // draw() will display the game again.
+    // Reset player and target.
+    player1.reset();
+    target1.reset();
+
+    state = "STAGE1";
+  }
 }
 
 
