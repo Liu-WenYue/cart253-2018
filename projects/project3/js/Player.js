@@ -52,3 +52,12 @@ Player.prototype.keyPressed = function() {
     this.nextX += this.size;
   }
 }
+
+
+// display()
+//
+// Displays the player image on the screen.
+Player.prototype.display = function() {
+  // Display the player image on screen based on its given propoerties.
+  image(this.image,this.x,this.y,this.size,this.size);
+}
