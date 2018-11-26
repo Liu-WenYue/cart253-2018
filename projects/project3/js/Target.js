@@ -38,4 +38,18 @@ Target.prototype.lossHealth  = function() {
     // target losses all the health if the player move more than 9 times.
     this.health -= (255/this.numOfMoveToWin);
   }
+  
+  else if (keyIsPressed && (keyCode === player2.upKey || keyCode === player2.downKey || keyCode === player2.leftKey || keyCode === player2.rightKey)) {
+    // target losses all the health if the player move more than 9 times.
+    this.health -= (255/this.numOfMoveToWin);
+  }
+}
+
+
+// reset()
+//
+// Resets the target's health back to its starting number.
+Target.prototype.reset = function() {
+  // Reset the health of health.
+  this.health = this.startHealth;
 }

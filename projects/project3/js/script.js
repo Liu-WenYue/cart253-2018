@@ -103,11 +103,13 @@ function setup() {
   // Sets the image mode to center.
   imageMode(CENTER);
 
-  // Create the player1 at its starting position.
+  // Create the players at its starting position.
   player1 = new Player(330,330,60,RIGHT_ARROW,LEFT_ARROW,UP_ARROW,DOWN_ARROW,player1Image,map1Image);
+  player2 = new Player(270,510,60,RIGHT_ARROW,LEFT_ARROW,UP_ARROW,DOWN_ARROW,player2Image,map2Image);
 
-  // Create the target1 at its starting position.
+  // Create the targets at its starting position.
   target1 = new Target(870,330,60,255,target1Image,9);
+  target2 = new Target(930,390,60,255,target2Image,11);
 
   // Load the pixels in the map images.
   map1Image.loadPixels();
@@ -198,6 +200,8 @@ function displayTitle() {
 function displayStage1() {
   push(); // saves the current setting.
   imageMode(CORNERS);
+  // Display the map at the back.
+  image(map1Image,0,0,width,height);
   // Display the background image.
   image(bg1Image,0,0,width,height);
   pop(); // Restore the setting.
@@ -221,6 +225,44 @@ function displayStage1() {
   if (player1.x + player1.size/2 > target1.x - target1.size/2 && player1.x - player1.size/2 < target1.x + target1.size/2) {
     if (player1.y - player1.size/2 < target1.y + player1.size/2 && player1.y + player1.size/2 > target1.y - target1.size/2) {
       state = "STAGE2";
+    }
+  }
+}
+
+
+// displayStage2()
+//
+// Displays the Stage2.
+// This function includes the elements displaying, handle input and update,
+// and it also checks when player found his partner for stage 2.
+function displayStage2() {
+  push(); // saves the current setting.
+  imageMode(CORNERS);
+  // Display the map at the back.
+  image(map2Image,0,0,width,height);
+  // Display the background image.
+  image(bg2Image,0,0,width,height);
+  pop(); // Restore the setting.
+  // The image mode goes back to center.
+
+  player2.reset();
+  target2.reset();
+  player2.display();
+  target2.display();
+
+  // If the target health is 0, the player loses the game and the state
+  // of the game will become GAMEOVER and the switch statement will
+  // call displayGameOver function.
+  if (target2.health < 1) {
+    state = "GAMEOVER";
+  }
+
+  // If player reached at the target (overlap with the target),
+  // the state variable will go to STAGE2 and the switch statement will
+  // call displayStage2 function.
+  if (player2.x + player2.size/2 > target2.x - target2.size/2 && player2.x - player2.size/2 < target2.x + target2.size/2) {
+    if (player2.y - player2.size/2 < target2.y + player2.size/2 && player2.y + player2.size/2 > target2.y - target2.size/2) {
+      state = "STAGE3";
     }
   }
 }
