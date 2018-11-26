@@ -45,3 +45,15 @@ Car.prototype.keyPressed = function() {
     this.harmful = false;
   }
 }
+
+
+// reset()
+//
+// Resets the cars' health and its harmfulness back to its starting states.
+Car.prototype.reset = function() {
+  // Reset the health of car.
+  this.health = this.startHealth;
+  // Reset the cars to harmful again, so if the player restart the game,
+  // the cars function as well.
+  this.harmful = true;
+}
