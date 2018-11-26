@@ -104,7 +104,7 @@ function setup() {
   imageMode(CENTER);
 
   // Create the player1 at its starting position.
-  player1 = new Player(330,330,60,RIGHT_ARROW,LEFT_ARROW,UP_ARROW,DOWN_ARROW,player1Image);
+  player1 = new Player(330,330,60,RIGHT_ARROW,LEFT_ARROW,UP_ARROW,DOWN_ARROW,player1Image,map1Image);
 
   // Create the target1 at its starting position.
   target1 = new Target(870,330,60,255,target1Image);
