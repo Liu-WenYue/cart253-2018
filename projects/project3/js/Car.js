@@ -14,3 +14,14 @@ function Car(x,y,size,health) {
   this.startHealth = health; // The starting health for car.
   this.harmful = true; // Sets the starting state of the car.
 }
+
+// display()
+//
+// Displays the car image on the screen.
+Car.prototype.display = function() {
+  push();
+  tint(255, this.health); // Handle the transparency of the car.
+  // Display the car image on screen based on its given propoerties.
+  image(carImage,this.x,this.y,this.size,this.size);
+  pop();
+}
