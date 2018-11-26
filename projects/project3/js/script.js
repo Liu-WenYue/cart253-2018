@@ -54,6 +54,13 @@ var bg3Image;
 var bg4Image;
 var bg5Image;
 
+// Variables that contain the game map.
+var map1Image;
+var map2Image;
+var map3Image;
+var map4Image;
+var map5Image;
+
 
 // preload()
 //
@@ -78,6 +85,12 @@ function preload() {
   bg3Image = loadImage("assets/images/bg3.png");
   bg4Image = loadImage("assets/images/bg4.png");
   bg5Image = loadImage("assets/images/bg5.png");
+
+  map1Image = loadImage("assets/images/map1.png");
+  map2Image = loadImage("assets/images/map2.png");
+  map3Image = loadImage("assets/images/map3.png");
+  map4Image = loadImage("assets/images/map4.png");
+  map5Image = loadImage("assets/images/map5.png");
 }
 
 
@@ -95,6 +108,13 @@ function setup() {
 
   // Create the target1 at its starting position.
   target1 = new Target(870,330,60,255,target1Image);
+
+  // Load the pixels in the map images.
+  map1Image.loadPixels();
+  map2Image.loadPixels();
+  map3Image.loadPixels();
+  map4Image.loadPixels();
+  map5Image.loadPixels();
 }
 
 
