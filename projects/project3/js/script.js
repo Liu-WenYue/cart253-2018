@@ -354,4 +354,9 @@ function displayInstruction() {
 // keyPressed function.
 function keyPressed() {
   player1.keyPressed();
+
+  // Car keyPressed function is called and cars are displayed.
+  for(var i = 0; i < cars.length; i++) {
+    cars[i].keyPressed();
+  }
 }
