@@ -40,6 +40,13 @@ var target3Image;
 var target4Image;
 var target5Image;
 
+// Variables that contains the players.
+var taregt1;
+var taregt2;
+var taregt3;
+var taregt4;
+var taregt5;
+
 
 // preload()
 //
@@ -72,6 +79,9 @@ function setup() {
 
   // Create the player1 at its starting position.
   player1 = new Player(330,330,60,RIGHT_ARROW,LEFT_ARROW,UP_ARROW,DOWN_ARROW,player1Image);
+
+  // Create the target1 at its starting position.
+  target1 = new Target(870,330,60,255,target1Image);
 }
 
 
@@ -154,6 +164,7 @@ function displayTitle() {
 // and it also checks when player found his partner for stage 1.
 function displayStage1() {
   player1.display();
+  target1.display();
 }
 
 
