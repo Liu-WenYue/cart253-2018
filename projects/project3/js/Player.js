@@ -53,6 +53,9 @@ Player.prototype.keyPressed = function() {
     this.nextX += this.size;
   }
 
+  // Checks the condition for target to loss health.
+  target1.lossHealth();
+
   // The variable that contains the color of the next position of the player.
   var pixel = color(this.mapImage.get(this.nextX, this.nextY));
   // The variable that used to check the color.
