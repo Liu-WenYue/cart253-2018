@@ -205,6 +205,22 @@ function displayStage1() {
 
   player1.display();
   target1.display();
+
+  displayInstruction();
+}
+
+
+// displayInstruction()
+//
+// Displays the game instruction on screen.
+function displayInstruction() {
+  push();//saves the current style settings.
+  textAlign(CENTER,CENTER);
+  textSize(36);
+  fill(255);
+  textFont(chakraPetchFont);
+  text("Reach to your partner before she disappears!",width/2,7*height/9);
+  pop();//restores these settings.
 }
 
 
