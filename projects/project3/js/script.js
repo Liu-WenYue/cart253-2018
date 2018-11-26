@@ -14,6 +14,10 @@ The player have the ability to move in all four directions using arrow keys.
 ****************************************************************************/
 
 
+// Tracking the current state of the program (title screen to begin).
+var state = "TITLE";
+
+
 // preload()
 //
 // Description of preload
