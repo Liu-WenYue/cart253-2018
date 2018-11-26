@@ -61,6 +61,9 @@ var map3Image;
 var map4Image;
 var map5Image;
 
+var candyImage; // The variable that stores the candy image.
+var candys = []; // Creates an array for candys.
+
 
 // preload()
 //
@@ -91,6 +94,8 @@ function preload() {
   map3Image = loadImage("assets/images/map3.png");
   map4Image = loadImage("assets/images/map4.png");
   map5Image = loadImage("assets/images/map5.png");
+
+  candyImage = loadImage("assets/images/candy.png");
 }
 
 

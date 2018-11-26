@@ -14,3 +14,14 @@ function Candy(x,y,size,health) {
   this.startHealth = health; // The starting health for candy.
   this.useful = true; // To check whether the candy is useful or not.
 }
+
+// display()
+//
+// Displays the candy image on the screen.
+Candy.prototype.display = function() {
+  push();
+  tint(255, this.health); // Handle the transparency of the candy.
+  // Display the candy image on screen based on its given propoerties.
+  image(candyImage,this.x,this.y,this.size,this.size);
+  pop();
+}
