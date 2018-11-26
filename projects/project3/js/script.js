@@ -37,5 +37,38 @@ function setup() {
 //
 // Description of draw()
 function draw() {
+  // Switch statement that allows the game to have different states.
+  switch (state) {
+    case "TITLE":
+    displayTitle();
+    break;
 
+    case "STAGE1":
+    displayStage1();
+    break;
+
+    case "STAGE2":
+    displayStage2();
+    break;
+
+    case "STAGE3":
+    displayStage3();
+    break;
+
+    case "STAGE4":
+    displayStage4();
+    break;
+
+    case "STAGE5":
+    displayStage5();
+    break;
+
+    case "WIN":
+    displayWinner();
+    break;
+
+    case "GAMEOVER":
+    displayGameOver();
+    break;
+  }
 }
