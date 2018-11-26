@@ -19,12 +19,31 @@ var state = "TITLE";
 
 var chakraPetchFont; // The variable that stores the Chakra petch font.
 
+// Variables that contains the player images for different stages.
+var player1Image;
+var player2Image;
+var player3Image;
+var player4Image;
+var player5Image;
+
+// Variables that contains the players.
+var player1;
+var player2;
+var player3;
+var player4;
+var player5;
+
 
 // preload()
 //
 // Preloads all the images and audios that will be used in this game.
 function preload() {
   chakraPetchFont = loadFont("assets/font/chakrapetch_bold.ttf");
+  player1Image = loadImage("assets/images/player1.png");
+  player2Image = loadImage("assets/images/player2.png");
+  player3Image = loadImage("assets/images/player3.png");
+  player4Image = loadImage("assets/images/player4.png");
+  player5Image = loadImage("assets/images/player5.png");
 }
 
 
