@@ -47,6 +47,13 @@ var taregt3;
 var taregt4;
 var taregt5;
 
+// Variables that contain the background images.
+var bg1Image;
+var bg2Image;
+var bg3Image;
+var bg4Image;
+var bg5Image;
+
 
 // preload()
 //
@@ -65,6 +72,12 @@ function preload() {
   target3Image = loadImage("assets/images/target3.png");
   target4Image = loadImage("assets/images/target4.png");
   target5Image = loadImage("assets/images/target5.png");
+
+  bg1Image = loadImage("assets/images/bg1.png");
+  bg2Image = loadImage("assets/images/bg2.png");
+  bg3Image = loadImage("assets/images/bg3.png");
+  bg4Image = loadImage("assets/images/bg4.png");
+  bg5Image = loadImage("assets/images/bg5.png");
 }
 
 
@@ -163,6 +176,13 @@ function displayTitle() {
 // This function includes the elements displaying, handle input and update,
 // and it also checks when player found his partner for stage 1.
 function displayStage1() {
+  push(); // saves the current setting.
+  imageMode(CORNERS);
+  // Display the background image.
+  image(bg1Image,0,0,width,height);
+  pop(); // Restore the setting.
+  // The image mode goes back to center.
+
   player1.display();
   target1.display();
 }
