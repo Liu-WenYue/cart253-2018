@@ -264,6 +264,7 @@ function displayStage2() {
   // Display candys, check handle collisions for the candy.
   for(var i = 0; i < candys.length; i++) {
     candys[i].display();
+    candys[i].handleCollision();
   }
 
   // If the target health is 0, the player loses the game and the state
