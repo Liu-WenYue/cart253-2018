@@ -277,6 +277,11 @@ function displayStage2() {
     candys[i].handleCollision();
   }
 
+  // Display cars.
+  for(var i = 0; i < cars.length; i++) {
+    cars[i].display();
+  }
+
   // If the target health is 0, the player loses the game and the state
   // of the game will become GAMEOVER and the switch statement will
   // call displayGameOver function.
