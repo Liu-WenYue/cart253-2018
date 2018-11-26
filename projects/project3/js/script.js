@@ -55,6 +55,9 @@ function setup() {
   createCanvas(1200,720);
   // Sets the image mode to center.
   imageMode(CENTER);
+
+  // Create the player1 at its starting position.
+  player1 = new Player(330,330,60,RIGHT_ARROW,LEFT_ARROW,UP_ARROW,DOWN_ARROW,player1Image);
 }
 
 
@@ -127,6 +130,16 @@ function displayTitle() {
     // statement in draw() will display the stage 1 instead.
     state = "STAGE1";
   }
+}
+
+
+// displayStage1()
+//
+// Displays the Stage1.
+// This function includes the elements displaying, handle input and update,
+// and it also checks when player found his partner for stage 1.
+function displayStage1() {
+  player1.display();
 }
 
 
