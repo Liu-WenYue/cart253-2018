@@ -33,17 +33,31 @@ var player3;
 var player4;
 var player5;
 
+// Variables that contains the player images for different stages.
+var target1Image;
+var target2Image;
+var target3Image;
+var target4Image;
+var target5Image;
+
 
 // preload()
 //
 // Preloads all the images and audios that will be used in this game.
 function preload() {
   chakraPetchFont = loadFont("assets/font/chakrapetch_bold.ttf");
+
   player1Image = loadImage("assets/images/player1.png");
   player2Image = loadImage("assets/images/player2.png");
   player3Image = loadImage("assets/images/player3.png");
   player4Image = loadImage("assets/images/player4.png");
   player5Image = loadImage("assets/images/player5.png");
+
+  target1Image = loadImage("assets/images/target1.png");
+  target2Image = loadImage("assets/images/target2.png");
+  target3Image = loadImage("assets/images/target3.png");
+  target4Image = loadImage("assets/images/target4.png");
+  target5Image = loadImage("assets/images/target5.png");
 }
 
 
