@@ -122,6 +122,12 @@ function setup() {
   map3Image.loadPixels();
   map4Image.loadPixels();
   map5Image.loadPixels();
+
+  // Create the candys at their required starting positions.
+  candys.push(new Candy(270,390,60,255));
+  candys.push(new Candy(570,210,60,255));
+  candys.push(new Candy(870,210,60,255));
+  candys.push(new Candy(630,570,60,255));
 }
 
 
@@ -254,6 +260,11 @@ function displayStage2() {
   target2.reset();
   player2.display();
   target2.display();
+
+  // Display candys, check handle collisions for the candy.
+  for(var i = 0; i < candys.length; i++) {
+    candys[i].display();
+  }
 
   // If the target health is 0, the player loses the game and the state
   // of the game will become GAMEOVER and the switch statement will
