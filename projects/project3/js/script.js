@@ -193,5 +193,5 @@ function displayStage1() {
 // This function is to call the player's keyPressed function and car's
 // keyPressed function.
 function keyPressed() {
-  player.keyPressed();
+  player1.keyPressed();
 }
