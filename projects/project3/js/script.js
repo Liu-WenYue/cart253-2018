@@ -67,6 +67,8 @@ var carImage; // The variable that stores the car image.
 var cars = []; // Creates an array for cars.
 var girlImage; // The variable that stores the girl image.
 var girls = []; // Creates an array for girls.
+var ringImage; // The variable that stores the ring image.
+var ring; // Creates ring.
 
 
 // preload()
@@ -102,6 +104,7 @@ function preload() {
   candyImage = loadImage("assets/images/candy.png");
   carImage = loadImage("assets/images/car.png");
   girlImage = loadImage("assets/images/girl.png");
+  ringImage = loadImage("assets/images/ring.png");
 }
 
 
