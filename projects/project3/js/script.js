@@ -448,5 +448,9 @@ function keyPressed() {
     }
 
     break;
+
+    case "STAGE3":
+    player3.keyPressed();
+    break;
   }
 }
