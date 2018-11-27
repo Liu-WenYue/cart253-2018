@@ -134,7 +134,7 @@ function setup() {
   player1 = new Player(330,330,60,RIGHT_ARROW,LEFT_ARROW,UP_ARROW,DOWN_ARROW,player1Image,map1Image);
   player2 = new Player(270,510,60,RIGHT_ARROW,LEFT_ARROW,UP_ARROW,DOWN_ARROW,player2Image,map2Image);
   player3 = new Player(210,270,60,RIGHT_ARROW,LEFT_ARROW,UP_ARROW,DOWN_ARROW,player3Image,map3Image);
-  player4 = new Player(270,400,60,RIGHT_ARROW,LEFT_ARROW,UP_ARROW,DOWN_ARROW,player4Image,map4Image);
+  player4 = new Player(270,390,60,RIGHT_ARROW,LEFT_ARROW,UP_ARROW,DOWN_ARROW,player4Image,map4Image);
 
   // Load the pixels in the map images.
   map1Image.loadPixels();
@@ -392,6 +392,9 @@ function displayStage4() {
   image(bg4Image,0,0,width,height);
   pop(); // Restore the setting.
   // The image mode goes back to center.
+
+  player4.display();
+  target4.display();
 
   // If the target health is 0, the player loses the game and the state
   // of the game will become GAMEOVER and the switch statement will
