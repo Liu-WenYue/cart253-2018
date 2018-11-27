@@ -153,6 +153,13 @@ function setup() {
   cars.push(new Car(510,210,60,255));
   cars.push(new Car(450,270,60,255));
   cars.push(new Car(570,270,60,255));
+
+  // Create the girls at their required starting positions.
+  girls.push(new Girl(450,450,60,255));
+  girls.push(new Girl(570,450,60,255));
+  girls.push(new Girl(510,510,60,255));
+  girls.push(new Girl(450,570,60,255));
+  girls.push(new Girl(570,570,60,255));
 }
 
 
@@ -336,6 +343,11 @@ function displayStage3() {
 
   player3.display();
   target3.display();
+
+  // Display girls.
+  for(var i = 0; i < girls.length; i++) {
+    girls[i].display();
+  }
 
   // If the target health is 0, the player loses the game and the state
   // of the game will become GAMEOVER and the switch statement will
