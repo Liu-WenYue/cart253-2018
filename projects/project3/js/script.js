@@ -451,6 +451,12 @@ function keyPressed() {
 
     case "STAGE3":
     player3.keyPressed();
+
+    // Girl keyPressed function is called and girls are displayed.
+    for(var i = 0; i < girls.length; i++) {
+      girls[i].keyPressed();
+    }
+
     break;
   }
 }
