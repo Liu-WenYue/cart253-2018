@@ -340,11 +340,18 @@ function displayGameOver() {
   if (keyIsPressed && keyCode === 32) {
     // if it was, change the state to "GAME" so the switch statement in
     // draw() will display the game again.
-    // Reset player and target.
+    // Reset players, targets and items.
     player1.reset();
     target1.reset();
     player2.reset();
     target2.reset();
+    for(var i = 0; i < candys.length; i++) {
+      candys[i].reset();
+    }
+
+    for(var i = 0; i < cars.length; i++) {
+      cars[i].reset();
+    }
 
     state = lastState;
   }
