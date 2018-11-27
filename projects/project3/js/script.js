@@ -429,12 +429,12 @@ function keyPressed() {
 
     case "STAGE2":
     player2.keyPressed();
+
+    // Car keyPressed function is called and cars are displayed.
+    for(var i = 0; i < cars.length; i++) {
+      cars[i].keyPressed();
+    }
+
     break;
-  }
-
-
-  // Car keyPressed function is called and cars are displayed.
-  for(var i = 0; i < cars.length; i++) {
-    cars[i].keyPressed();
   }
 }
