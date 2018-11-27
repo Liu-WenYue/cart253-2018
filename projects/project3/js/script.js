@@ -16,6 +16,7 @@ The player have the ability to move in all four directions using arrow keys.
 
 // Tracking the current state of the program (title screen to begin).
 var state = "TITLE";
+var lastState; // The variable that checks the lastState.
 
 var chakraPetchFont; // The variable that stores the Chakra petch font.
 
@@ -249,6 +250,7 @@ function displayStage1() {
   // of the game will become GAMEOVER and the switch statement will
   // call displayGameOver function.
   if (target1.health < 1) {
+    lastState = state;
     state = "GAMEOVER";
   }
 
@@ -257,6 +259,8 @@ function displayStage1() {
   // call displayStage2 function.
   if (player1.x + player1.size/2 > target1.x - target1.size/2 && player1.x - player1.size/2 < target1.x + target1.size/2) {
     if (player1.y - player1.size/2 < target1.y + player1.size/2 && player1.y + player1.size/2 > target1.y - target1.size/2) {
+      player2.reset();
+      target2.reset();
       state = "STAGE2";
     }
   }
@@ -278,8 +282,6 @@ function displayStage2() {
   pop(); // Restore the setting.
   // The image mode goes back to center.
 
-  player2.reset();
-  target2.reset();
   player2.display();
   target2.display();
 
@@ -298,6 +300,7 @@ function displayStage2() {
   // of the game will become GAMEOVER and the switch statement will
   // call displayGameOver function.
   if (target2.health < 1) {
+    lastState = state;
     state = "GAMEOVER";
   }
 
@@ -340,8 +343,10 @@ function displayGameOver() {
     // Reset player and target.
     player1.reset();
     target1.reset();
+    player2.reset();
+    target2.reset();
 
-    state = "STAGE1";
+    state = lastState;
   }
 }
 
@@ -365,7 +370,16 @@ function displayInstruction() {
 // This function is to call the player's keyPressed function and car's
 // keyPressed function.
 function keyPressed() {
-  player1.keyPressed();
+  switch (state) {
+    case "STAGE1":
+    player1.keyPressed();
+    break;
+
+    case "STAGE2":
+    player2.keyPressed();
+    break;
+  }
+
 
   // Car keyPressed function is called and cars are displayed.
   for(var i = 0; i < cars.length; i++) {
