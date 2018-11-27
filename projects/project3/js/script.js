@@ -160,6 +160,9 @@ function setup() {
   girls.push(new Girl(510,510,60,255));
   girls.push(new Girl(450,570,60,255));
   girls.push(new Girl(570,570,60,255));
+
+  // Create the ring at its required starting position.
+  ring = new Ring(570,630,60,255);
 }
 
 
@@ -343,6 +346,9 @@ function displayStage3() {
 
   player3.display();
   target3.display();
+  
+  ring.display();
+  ring.handleCollision();
 
   // Display girls.
   for(var i = 0; i < girls.length; i++) {
