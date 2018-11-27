@@ -124,15 +124,16 @@ function setup() {
   // Sets the image mode to center.
   imageMode(CENTER);
 
-  // Create the players at its starting position.
-  player1 = new Player(330,330,60,RIGHT_ARROW,LEFT_ARROW,UP_ARROW,DOWN_ARROW,player1Image,map1Image);
-  player2 = new Player(270,510,60,RIGHT_ARROW,LEFT_ARROW,UP_ARROW,DOWN_ARROW,player2Image,map2Image);
-  player3 = new Player(210,270,60,RIGHT_ARROW,LEFT_ARROW,UP_ARROW,DOWN_ARROW,player3Image,map3Image)
-
   // Create the targets at its starting position.
   target1 = new Target(870,330,60,255,target1Image,9);
   target2 = new Target(930,390,60,255,target2Image,11);
   target3 = new Target(930,330,60,255,target3Image,15);
+
+  // Create the players at its starting position.
+  player1 = new Player(330,330,60,RIGHT_ARROW,LEFT_ARROW,UP_ARROW,DOWN_ARROW,player1Image,map1Image);
+  player2 = new Player(270,510,60,RIGHT_ARROW,LEFT_ARROW,UP_ARROW,DOWN_ARROW,player2Image,map2Image);
+  player3 = new Player(210,270,60,RIGHT_ARROW,LEFT_ARROW,UP_ARROW,DOWN_ARROW,player3Image,map3Image);
+
 
   // Load the pixels in the map images.
   map1Image.loadPixels();
@@ -321,8 +322,8 @@ function displayStage2() {
   // call displayStage2 function.
   if (player2.x + player2.size/2 > target2.x - target2.size/2 && player2.x - player2.size/2 < target2.x + target2.size/2) {
     if (player2.y - player2.size/2 < target2.y + player2.size/2 && player2.y + player2.size/2 > target2.y - target2.size/2) {
-      player2.reset();
-      target2.reset();
+      player3.reset();
+      target3.reset();
       state = "STAGE3";
     }
   }
@@ -346,7 +347,7 @@ function displayStage3() {
 
   player3.display();
   target3.display();
-  
+
   ring.display();
   ring.handleCollision();
 

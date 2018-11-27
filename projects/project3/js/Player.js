@@ -56,6 +56,7 @@ Player.prototype.keyPressed = function() {
   // Checks the condition for target to loss health.
   target1.lossHealth();
   target2.lossHealth();
+  target3.lossHealth();
 
   // The variable that contains the color of the next position of the player.
   var pixel = color(this.mapImage.get(this.nextX, this.nextY));
@@ -66,9 +67,6 @@ Player.prototype.keyPressed = function() {
   if (red(path) === red(pixel) && green(path) === green(pixel) && blue(path) === blue(pixel))  {
     this.x = this.nextX;
     this.y = this.nextY;
-
-    console.log(this.x, this.nextX)
-    console.log(pixel);
   }
 }
 
@@ -79,6 +77,7 @@ Player.prototype.keyPressed = function() {
 Player.prototype.display = function() {
   // Display the player image on screen based on its given propoerties.
   image(this.image,this.x,this.y,this.size,this.size);
+
 }
 
 
