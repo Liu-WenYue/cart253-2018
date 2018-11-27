@@ -127,10 +127,12 @@ function setup() {
   // Create the players at its starting position.
   player1 = new Player(330,330,60,RIGHT_ARROW,LEFT_ARROW,UP_ARROW,DOWN_ARROW,player1Image,map1Image);
   player2 = new Player(270,510,60,RIGHT_ARROW,LEFT_ARROW,UP_ARROW,DOWN_ARROW,player2Image,map2Image);
+  player3 = new Player(210,270,60,RIGHT_ARROW,LEFT_ARROW,UP_ARROW,DOWN_ARROW,player3Image,map3Image)
 
   // Create the targets at its starting position.
   target1 = new Target(870,330,60,255,target1Image,9);
   target2 = new Target(930,390,60,255,target2Image,11);
+  target3 = new Target(930,330,60,255,target3Image,15);
 
   // Load the pixels in the map images.
   map1Image.loadPixels();
@@ -309,7 +311,48 @@ function displayStage2() {
   // call displayStage2 function.
   if (player2.x + player2.size/2 > target2.x - target2.size/2 && player2.x - player2.size/2 < target2.x + target2.size/2) {
     if (player2.y - player2.size/2 < target2.y + player2.size/2 && player2.y + player2.size/2 > target2.y - target2.size/2) {
+      player2.reset();
+      target2.reset();
       state = "STAGE3";
+    }
+  }
+}
+
+
+// displayStage3()
+//
+// Displays the Stage3.
+// This function includes the elements displaying, handle input and update,
+// and it also checks when player found his partner for stage 3.
+function displayStage3() {
+  push(); // saves the current setting.
+  imageMode(CORNERS);
+  // Display the map at the back.
+  image(map3Image,0,0,width,height);
+  // Display the background image.
+  image(bg3Image,0,0,width,height);
+  pop(); // Restore the setting.
+  // The image mode goes back to center.
+
+  player3.display();
+  target3.display();
+
+  // If the target health is 0, the player loses the game and the state
+  // of the game will become GAMEOVER and the switch statement will
+  // call displayGameOver function.
+  if (target3.health < 1) {
+    lastState = state;
+    state = "GAMEOVER";
+  }
+
+  // If player reached at the target (overlap with the target),
+  // the state variable will go to STAGE3 and the switch statement will
+  // call displayStage3 function.
+  if (player3.x + player3.size/2 > target3.x - target3.size/2 && player3.x - player3.size/2 < target3.x + target3.size/2) {
+    if (player3.y - player3.size/2 < target3.y + player3.size/2 && player3.y + player3.size/2 > target3.y - target3.size/2) {
+      player4.reset();
+      target4.reset();
+      state = "STAGE4";
     }
   }
 }
@@ -352,6 +395,8 @@ function displayGameOver() {
     for(var i = 0; i < cars.length; i++) {
       cars[i].reset();
     }
+    player3.reset();
+    target3.reset();
 
     state = lastState;
   }
