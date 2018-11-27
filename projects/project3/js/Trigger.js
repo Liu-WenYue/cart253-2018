@@ -14,3 +14,15 @@ function Trigger(x,y,size,health) {
   this.startHealth = health; // The starting health for trigger.
   this.harmful = true; // Sets the starting state of the trigger.
 }
+
+
+// display()
+//
+// Displays the trigger image on the screen.
+Trigger.prototype.display = function() {
+  push();
+  tint(255, this.health); // Handle the transparency of the trigger.
+  // Display the trigger image on screen based on its given propoerties.
+  image(triggerImage,this.x,this.y,this.size,this.size);
+  pop();
+}
