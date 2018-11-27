@@ -165,6 +165,13 @@ function setup() {
 
   // Create the ring at its required starting position.
   ring = new Ring(570,630,60,255);
+
+  // Create the triggers at their required starting positions.
+  triggers.push(new Trigger(630,450,60,255));
+  triggers.push(new Trigger(750,450,60,255));
+  triggers.push(new Trigger(690,510,60,255));
+  triggers.push(new Trigger(630,570,60,255));
+  triggers.push(new Trigger(750,570,60,255));
 }
 
 
@@ -395,6 +402,11 @@ function displayStage4() {
 
   player4.display();
   target4.display();
+
+  // Display triggers.
+  for(var i = 0; i < triggers.length; i++) {
+    triggers[i].display();
+  }
 
   // If the target health is 0, the player loses the game and the state
   // of the game will become GAMEOVER and the switch statement will
