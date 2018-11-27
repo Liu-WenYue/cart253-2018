@@ -12,7 +12,7 @@ function Car(x,y,size,health) {
   this.size = size;
   this.health = health; // The health value for car.
   this.startHealth = health; // The starting health for car.
-  this.harmful = true; // Sets the starting state of the car.
+  this.harmful = false; // Sets the starting state of the car.
 }
 
 // display()
@@ -36,7 +36,6 @@ Car.prototype.keyPressed = function() {
     // ...sets the health of the car to full opacity and set it to harmful.
     this.health = 255;
     this.harmful = true;
-    // return;
   }
   // If any of the arrow key is pressed again...
   else if (keyIsPressed && (keyCode === player2.upKey || keyCode === player2.downKey || keyCode === player2.leftKey || keyCode === player2.rightKey)) {
