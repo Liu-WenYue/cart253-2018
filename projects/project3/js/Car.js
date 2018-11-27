@@ -12,7 +12,7 @@ function Car(x,y,size,health) {
   this.size = size;
   this.health = health; // The health value for car.
   this.startHealth = health; // The starting health for car.
-  this.harmful = false; // Sets the starting state of the car.
+  this.harmful = true; // Sets the starting state of the car.
 }
 
 // display()
