@@ -520,5 +520,9 @@ function keyPressed() {
     }
 
     break;
+
+    case "STAGE4":
+    player4.keyPressed();
+    break;
   }
 }
