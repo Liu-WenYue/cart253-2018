@@ -35,17 +35,22 @@ Target.prototype.display = function() {
 Target.prototype.lossHealth  = function() {
   // If any of the arrow keys is pressed, the target losses health.
   if (keyIsPressed && (keyCode === player1.upKey || keyCode === player1.downKey || keyCode === player1.leftKey || keyCode === player1.rightKey)) {
-    // target losses all the health if the player move more than 9 times.
+    // target losses all the health if the player move more than numOfMoveToWin.
     this.health -= (255/this.numOfMoveToWin);
   }
 
   else if (keyIsPressed && (keyCode === player2.upKey || keyCode === player2.downKey || keyCode === player2.leftKey || keyCode === player2.rightKey)) {
-    // target losses all the health if the player move more than 9 times.
+    // target losses all the health if the player move more than numOfMoveToWin.
     this.health -= (255/this.numOfMoveToWin);
   }
 
   else if (keyIsPressed && (keyCode === player3.upKey || keyCode === player3.downKey || keyCode === player3.leftKey || keyCode === player3.rightKey)) {
-    // target losses all the health if the player move more than 9 times.
+    // target losses all the health if the player move more than numOfMoveToWin.
+    this.health -= (255/this.numOfMoveToWin);
+  }
+  
+  else if (keyIsPressed && (keyCode === player4.upKey || keyCode === player4.downKey || keyCode === player4.leftKey || keyCode === player4.rightKey)) {
+    // target losses all the health if the player move more than numOfMoveToWin.
     this.health -= (255/this.numOfMoveToWin);
   }
 }

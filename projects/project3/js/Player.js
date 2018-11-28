@@ -57,6 +57,7 @@ Player.prototype.keyPressed = function() {
   target1.lossHealth();
   target2.lossHealth();
   target3.lossHealth();
+  target4.lossHealth();
 
   // The variable that contains the color of the next position of the player.
   var pixel = color(this.mapImage.get(this.nextX, this.nextY));
