@@ -129,12 +129,14 @@ function setup() {
   target2 = new Target(930,390,60,255,target2Image,11);
   target3 = new Target(930,330,60,255,target3Image,15);
   target4 = new Target(930,390,60,255,target4Image,14);
+  target5 = new Target(1050,570,60,255,target5Image,11);
 
   // Create the players at its starting position.
   player1 = new Player(330,330,60,RIGHT_ARROW,LEFT_ARROW,UP_ARROW,DOWN_ARROW,player1Image,map1Image);
   player2 = new Player(270,510,60,RIGHT_ARROW,LEFT_ARROW,UP_ARROW,DOWN_ARROW,player2Image,map2Image);
   player3 = new Player(210,270,60,RIGHT_ARROW,LEFT_ARROW,UP_ARROW,DOWN_ARROW,player3Image,map3Image);
   player4 = new Player(270,390,60,RIGHT_ARROW,LEFT_ARROW,UP_ARROW,DOWN_ARROW,player4Image,map4Image);
+  player5 = new Player(210,210,60,RIGHT_ARROW,LEFT_ARROW,UP_ARROW,DOWN_ARROW,player5Image,map5Image);
 
   // Load the pixels in the map images.
   map1Image.loadPixels();
@@ -455,6 +457,9 @@ function displayStage5() {
   pop(); // Restore the setting.
   // The image mode goes back to center.
 
+  player5.display();
+  target5.display();
+
   // If the target health is 0, the player loses the game and the state
   // of the game will become GAMEOVER and the switch statement will
   // call displayGameOver function.
@@ -588,6 +593,10 @@ function keyPressed() {
       triggers[i].keyPressed();
     }
 
+    break;
+
+    case "STAGE5":
+    player5.keyPressed();
     break;
   }
 }
