@@ -172,6 +172,11 @@ function setup() {
   triggers.push(new Trigger(690,510,60,255));
   triggers.push(new Trigger(630,570,60,255));
   triggers.push(new Trigger(750,570,60,255));
+
+  // Create the letters at their required starting positions.
+  letters.push(new Letter(330,150,60,255));
+  letters.push(new Letter(330,570,60,255));
+  letters.push(new Letter(990,150,60,255));
 }
 
 
@@ -406,6 +411,11 @@ function displayStage4() {
   // Display triggers.
   for(var i = 0; i < triggers.length; i++) {
     triggers[i].display();
+  }
+
+  // Display letters.
+  for(var i = 0; i < letters.length; i++) {
+    letters[i].display();
   }
 
   // If the target health is 0, the player loses the game and the state
