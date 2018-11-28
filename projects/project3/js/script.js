@@ -331,8 +331,8 @@ function displayStage2() {
   }
 
   // If player reached at the target (overlap with the target),
-  // the state variable will go to STAGE2 and the switch statement will
-  // call displayStage2 function.
+  // the state variable will go to STAGE3 and the switch statement will
+  // call displayStage3 function.
   if (player2.x + player2.size/2 > target2.x - target2.size/2 && player2.x - player2.size/2 < target2.x + target2.size/2) {
     if (player2.y - player2.size/2 < target2.y + player2.size/2 && player2.y + player2.size/2 > target2.y - target2.size/2) {
       player3.reset();
@@ -378,8 +378,8 @@ function displayStage3() {
   }
 
   // If player reached at the target (overlap with the target),
-  // the state variable will go to STAGE3 and the switch statement will
-  // call displayStage3 function.
+  // the state variable will go to STAGE4 and the switch statement will
+  // call displayStage4 function.
   if (player3.x + player3.size/2 > target3.x - target3.size/2 && player3.x - player3.size/2 < target3.x + target3.size/2) {
     if (player3.y - player3.size/2 < target3.y + player3.size/2 && player3.y + player3.size/2 > target3.y - target3.size/2) {
       player4.reset();
@@ -428,13 +428,47 @@ function displayStage4() {
   }
 
   // If player reached at the target (overlap with the target),
-  // the state variable will go to STAGE4 and the switch statement will
-  // call displayStage4 function.
+  // the state variable will go to STAGE5 and the switch statement will
+  // call displayStage5 function.
   if (player4.x + player4.size/2 > target4.x - target4.size/2 && player4.x - player4.size/2 < target4.x + target4.size/2) {
     if (player4.y - player4.size/2 < target4.y + player4.size/2 && player4.y + player4.size/2 > target4.y - target4.size/2) {
       player5.reset();
       target5.reset();
       state = "STAGE5";
+    }
+  }
+}
+
+
+// displayStage5()
+//
+// Displays the Stage5.
+// This function includes the elements displaying, handle input and update,
+// and it also checks when player found his partner for stage 5.
+function displayStage5() {
+  push(); // saves the current setting.
+  imageMode(CORNERS);
+  // Display the map at the back.
+  image(map5Image,0,0,width,height);
+  // Display the background image.
+  image(bg5Image,0,0,width,height);
+  pop(); // Restore the setting.
+  // The image mode goes back to center.
+
+  // If the target health is 0, the player loses the game and the state
+  // of the game will become GAMEOVER and the switch statement will
+  // call displayGameOver function.
+  if (target5.health < 1) {
+    lastState = state;
+    state = "GAMEOVER";
+  }
+
+  // If player reached at the target (overlap with the target),
+  // the state variable will go to WIN and the switch statement will
+  // call displayWinner function.
+  if (player5.x + player5.size/2 > target5.x - target5.size/2 && player5.x - player5.size/2 < target5.x + target5.size/2) {
+    if (player5.y - player5.size/2 < target5.y + player5.size/2 && player5.y + player5.size/2 > target5.y - target5.size/2) {
+      state = "WIN";
     }
   }
 }
