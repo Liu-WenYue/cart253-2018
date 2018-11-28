@@ -46,3 +46,15 @@ Girl.prototype.keyPressed = function() {
     this.harmful = false;
   }
 }
+
+
+// reset()
+//
+// Resets the girls' health and its harmfulness back to its starting states.
+Girl.prototype.reset = function() {
+  // Reset the health of girl.
+  this.health = this.startHealth;
+  // Reset the girls to harmful again, so if the player restart the game,
+  // the girls function as well.
+  this.harmful = true;
+}

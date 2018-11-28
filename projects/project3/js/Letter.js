@@ -33,7 +33,7 @@ Letter.prototype.display = function() {
 // Check if this letter overlaps with the player passed as an argument
 // and if so stops health lose of target for three rounds and make letter disappers.
 Letter.prototype.handleCollision = function() {
-  // If the candy is not useful anymore, have it just return.
+  // If the letter is not useful anymore, have it just return.
   if(this.useful === false) {
     return;
   }
@@ -45,11 +45,23 @@ Letter.prototype.handleCollision = function() {
       // Sets the letter's health to zero (have the letter disappears).
       this.health = 0;
       // Add three units of health lose for target.
-      target4.health += 3*(255/11);
+      target4.health += 3*(255/14);
 
       // Make the letter not useful after reduced the health,
       // so the letter only function once.
       this.useful = false;
     }
   }
+}
+
+
+// reset()
+//
+// Resets the letters' health and its harmfulness back to its starting states.
+Letter.prototype.reset = function() {
+  // Reset the health of letter.
+  this.health = this.startHealth;
+  // Reset the letters to harmful again, so if the player restart the game,
+  // the letters function as well.
+  this.useful = true;
 }

@@ -54,3 +54,15 @@ Ring.prototype.handleCollision = function() {
     }
   }
 }
+
+
+// reset()
+//
+// Resets the ring's health back to its starting number.
+Ring.prototype.reset = function() {
+  // Reset the health of ring.
+  this.health = this.startHealth;
+  // Reset the ring to useful again, so if the player restart the game,
+  // the ring functions as well.
+  this.useful = true;
+}

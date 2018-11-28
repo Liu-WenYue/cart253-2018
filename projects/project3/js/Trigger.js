@@ -46,3 +46,15 @@ Trigger.prototype.keyPressed = function() {
     this.harmful = false;
   }
 }
+
+
+// reset()
+//
+// Resets the triggers' health and its harmfulness back to its starting states.
+Trigger.prototype.reset = function() {
+  // Reset the health of trigger.
+  this.health = this.startHealth;
+  // Reset the trigger to harmful again, so if the player restart the game,
+  // the triggers function as well.
+  this.harmful = true;
+}

@@ -480,8 +480,22 @@ function displayGameOver() {
     player3.reset();
     target3.reset();
 
+    for(var i = 0; i < girls.length; i++) {
+      girls[i].reset();
+    }
+
+    ring.reset();
+
     player4.reset();
     target4.reset();
+
+    for(var i = 0; i < triggers.length; i++) {
+      triggers[i].reset();
+    }
+
+    for(var i = 0; i < letters.length; i++) {
+      letters[i].reset();
+    }
 
     state = lastState;
   }

@@ -48,7 +48,7 @@ Target.prototype.lossHealth  = function() {
     // target losses all the health if the player move more than numOfMoveToWin.
     this.health -= (255/this.numOfMoveToWin);
   }
-  
+
   else if (keyIsPressed && (keyCode === player4.upKey || keyCode === player4.downKey || keyCode === player4.leftKey || keyCode === player4.rightKey)) {
     // target losses all the health if the player move more than numOfMoveToWin.
     this.health -= (255/this.numOfMoveToWin);
