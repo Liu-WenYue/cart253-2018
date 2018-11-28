@@ -416,6 +416,7 @@ function displayStage4() {
   // Display letters.
   for(var i = 0; i < letters.length; i++) {
     letters[i].display();
+    letters[i].handleCollision();
   }
 
   // If the target health is 0, the player loses the game and the state
