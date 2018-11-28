@@ -565,6 +565,7 @@ function keyPressed() {
     player1.keyPressed();
     break;
 
+
     case "STAGE2":
     player2.keyPressed();
 
@@ -572,8 +573,8 @@ function keyPressed() {
     for(var i = 0; i < cars.length; i++) {
       cars[i].keyPressed();
     }
-
     break;
+
 
     case "STAGE3":
     player3.keyPressed();
@@ -582,8 +583,8 @@ function keyPressed() {
     for(var i = 0; i < girls.length; i++) {
       girls[i].keyPressed();
     }
-
     break;
+
 
     case "STAGE4":
     player4.keyPressed();
@@ -592,8 +593,8 @@ function keyPressed() {
     for(var i = 0; i < triggers.length; i++) {
       triggers[i].keyPressed();
     }
-
     break;
+
 
     case "STAGE5":
     player5.keyPressed();
