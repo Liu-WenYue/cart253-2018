@@ -523,6 +523,12 @@ function keyPressed() {
 
     case "STAGE4":
     player4.keyPressed();
+
+    // Trigger keyPressed function is called and triggers are displayed.
+    for(var i = 0; i < triggers.length; i++) {
+      triggers[i].keyPressed();
+    }
+
     break;
   }
 }

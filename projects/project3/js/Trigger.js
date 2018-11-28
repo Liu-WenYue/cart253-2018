@@ -26,3 +26,23 @@ Trigger.prototype.display = function() {
   image(triggerImage,this.x,this.y,this.size,this.size);
   pop();
 }
+
+
+// keyPressed()
+//
+// Checks if any of the arrow key is pressed.
+// Have the triggers show in alternative rounds.
+Trigger.prototype.keyPressed = function() {
+  // If any of the arrow key is pressed and trigger is not harmful...
+  if (keyIsPressed && (keyCode === player4.upKey || keyCode === player4.downKey || keyCode === player4.leftKey || keyCode === player4.rightKey) && this.harmful === false) {
+    // ...sets the health of the trigger to full opacity and set it to harmful.
+    this.health = 255;
+    this.harmful = true;
+  }
+  // If any of the arrow key is pressed again...
+  else if (keyIsPressed && (keyCode === player4.upKey || keyCode === player4.downKey || keyCode === player4.leftKey || keyCode === player4.rightKey)) {
+    // ...sets the triggers to disappear (zero opacity) and set it to not harmful again.
+    this.health = 0;
+    this.harmful = false;
+  }
+}
