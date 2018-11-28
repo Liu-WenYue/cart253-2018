@@ -125,18 +125,18 @@ function setup() {
   imageMode(CENTER);
 
   // Create the targets at its starting position.
-  target1 = new Target(870,330,60,255,target1Image,9);
-  target2 = new Target(930,390,60,255,target2Image,11);
-  target3 = new Target(930,330,60,255,target3Image,15);
-  target4 = new Target(930,390,60,255,target4Image,14);
-  target5 = new Target(1050,570,60,255,target5Image,11);
+  target1 = new Target(870,330,60,255,RIGHT_ARROW,LEFT_ARROW,UP_ARROW,DOWN_ARROW,target1Image,9);
+  target2 = new Target(930,390,60,255,RIGHT_ARROW,LEFT_ARROW,UP_ARROW,DOWN_ARROW,target2Image,11);
+  target3 = new Target(930,330,60,255,RIGHT_ARROW,LEFT_ARROW,UP_ARROW,DOWN_ARROW,target3Image,15);
+  target4 = new Target(930,390,60,255,RIGHT_ARROW,LEFT_ARROW,UP_ARROW,DOWN_ARROW,target4Image,14);
+  target5 = new Target(1050,570,60,255,RIGHT_ARROW,LEFT_ARROW,UP_ARROW,DOWN_ARROW,target5Image,11);
 
   // Create the players at its starting position.
-  player1 = new Player(330,330,60,RIGHT_ARROW,LEFT_ARROW,UP_ARROW,DOWN_ARROW,player1Image,map1Image);
-  player2 = new Player(270,510,60,RIGHT_ARROW,LEFT_ARROW,UP_ARROW,DOWN_ARROW,player2Image,map2Image);
-  player3 = new Player(210,270,60,RIGHT_ARROW,LEFT_ARROW,UP_ARROW,DOWN_ARROW,player3Image,map3Image);
-  player4 = new Player(270,390,60,RIGHT_ARROW,LEFT_ARROW,UP_ARROW,DOWN_ARROW,player4Image,map4Image);
-  player5 = new Player(210,210,60,RIGHT_ARROW,LEFT_ARROW,UP_ARROW,DOWN_ARROW,player5Image,map5Image);
+  player1 = new Player(330,330,60,RIGHT_ARROW,LEFT_ARROW,UP_ARROW,DOWN_ARROW,player1Image,map1Image,255,9);
+  player2 = new Player(270,510,60,RIGHT_ARROW,LEFT_ARROW,UP_ARROW,DOWN_ARROW,player2Image,map2Image,255,11);
+  player3 = new Player(210,270,60,RIGHT_ARROW,LEFT_ARROW,UP_ARROW,DOWN_ARROW,player3Image,map3Image,255,15);
+  player4 = new Player(270,390,60,RIGHT_ARROW,LEFT_ARROW,UP_ARROW,DOWN_ARROW,player4Image,map4Image,255,14);
+  player5 = new Player(210,210,60,RIGHT_ARROW,LEFT_ARROW,UP_ARROW,DOWN_ARROW,player5Image,map5Image,255,11);
 
   // Load the pixels in the map images.
   map1Image.loadPixels();
@@ -536,6 +536,9 @@ function displayGameOver() {
       letters[i].reset();
     }
 
+    player5.reset();
+    target5.reset();
+
     state = lastState;
   }
 }
@@ -598,6 +601,7 @@ function keyPressed() {
 
     case "STAGE5":
     player5.keyPressed();
+    target5.keyPressed();
     break;
   }
 }

@@ -6,7 +6,7 @@
 // Player constructor
 //
 // Sets the properties with the provided arguments for Player.
-function Player(x,y,size,rightKey,leftKey,upKey,downKey,image,mapImage) {
+function Player(x,y,size,rightKey,leftKey,upKey,downKey,image,mapImage,health,numOfMoveToWin) {
   this.x = x;
   this.y = y;
   this.nextX = this.x; // The next X position for player.
@@ -20,6 +20,9 @@ function Player(x,y,size,rightKey,leftKey,upKey,downKey,image,mapImage) {
   this.downKey = downKey;
   this.image = image;
   this.mapImage = mapImage;
+  this.health = health; // The health value for the target.
+  this.startHealth = health; // The starting health for target.
+  this.numOfMoveToWin = numOfMoveToWin;
 }
 
 
@@ -58,6 +61,7 @@ Player.prototype.keyPressed = function() {
   target2.lossHealth();
   target3.lossHealth();
   target4.lossHealth();
+  target5.lossHealth();
 
   // The variable that contains the color of the next position of the player.
   var pixel = color(this.mapImage.get(this.nextX, this.nextY));
@@ -76,9 +80,23 @@ Player.prototype.keyPressed = function() {
 //
 // Displays the player image on the screen.
 Player.prototype.display = function() {
+  push();
+  tint(255, this.health); // Handle the transparency of the player.
   // Display the player image on screen based on its given propoerties.
   image(this.image,this.x,this.y,this.size,this.size);
+  pop();
+}
 
+
+// lossHealth()
+//
+// Losses player's health for every move done by the player.
+Player.prototype.lossHealth  = function() {
+  // If any of the arrow keys is pressed, the target losses health.
+  if (keyIsPressed && (keyCode === player5.upKey || keyCode === player5.downKey || keyCode === player5.leftKey || keyCode === player5.rightKey)) {
+    // Player losses all the health if it moved more than the number of moves to win.
+    this.health -= (255/this.numOfMoveToWin);
+  }
 }
 
 
@@ -91,4 +109,7 @@ Player.prototype.reset = function() {
   this.y = this.startY;
   this.nextX = this.startX;
   this.nextY = this.startY;
+
+  // Reset the health of health.
+  this.health = this.startHealth;
 }
