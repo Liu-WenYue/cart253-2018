@@ -44,7 +44,7 @@ Candy.prototype.handleCollision = function() {
       // Sets the candy's health to zero (have the candy disappears).
       this.health = 0;
       // Add three units of health lose for target.
-      target2.health += 3*(255/11);
+      target2.health += 3*(255/9);
 
       // Make the candy not useful after reduced the health,
       // so the candy only function once.

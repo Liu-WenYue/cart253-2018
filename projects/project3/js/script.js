@@ -142,15 +142,15 @@ function setup() {
 
   // Create the targets at its starting position.
   target1 = new Target(870,330,60,255,RIGHT_ARROW,LEFT_ARROW,UP_ARROW,DOWN_ARROW,target1Image,9);
-  target2 = new Target(930,390,60,255,RIGHT_ARROW,LEFT_ARROW,UP_ARROW,DOWN_ARROW,target2Image,11);
-  target3 = new Target(930,330,60,255,RIGHT_ARROW,LEFT_ARROW,UP_ARROW,DOWN_ARROW,target3Image,15);
+  target2 = new Target(930,390,60,255,RIGHT_ARROW,LEFT_ARROW,UP_ARROW,DOWN_ARROW,target2Image,10);
+  target3 = new Target(930,330,60,255,RIGHT_ARROW,LEFT_ARROW,UP_ARROW,DOWN_ARROW,target3Image,14);
   target4 = new Target(930,390,60,255,RIGHT_ARROW,LEFT_ARROW,UP_ARROW,DOWN_ARROW,target4Image,14);
   target5 = new Target(1050,570,60,255,RIGHT_ARROW,LEFT_ARROW,UP_ARROW,DOWN_ARROW,target5Image,11);
 
   // Create the players at its starting position.
   player1 = new Player(330,330,60,RIGHT_ARROW,LEFT_ARROW,UP_ARROW,DOWN_ARROW,player1Image,map1Image,255,9);
-  player2 = new Player(270,510,60,RIGHT_ARROW,LEFT_ARROW,UP_ARROW,DOWN_ARROW,player2Image,map2Image,255,11);
-  player3 = new Player(210,270,60,RIGHT_ARROW,LEFT_ARROW,UP_ARROW,DOWN_ARROW,player3Image,map3Image,255,15);
+  player2 = new Player(270,510,60,RIGHT_ARROW,LEFT_ARROW,UP_ARROW,DOWN_ARROW,player2Image,map2Image,255,10);
+  player3 = new Player(210,270,60,RIGHT_ARROW,LEFT_ARROW,UP_ARROW,DOWN_ARROW,player3Image,map3Image,255,14);
   player4 = new Player(270,390,60,RIGHT_ARROW,LEFT_ARROW,UP_ARROW,DOWN_ARROW,player4Image,map4Image,255,14);
   player5 = new Player(210,210,60,RIGHT_ARROW,LEFT_ARROW,UP_ARROW,DOWN_ARROW,player5Image,map5Image,255,11);
 
@@ -624,21 +624,11 @@ function keyPressed() {
 
     case "STAGE3":
     player3.keyPressed();
-
-    // Girl keyPressed function is called and girls are displayed.
-    for(var i = 0; i < girls.length; i++) {
-      girls[i].keyPressed();
-    }
     break;
 
 
     case "STAGE4":
     player4.keyPressed();
-
-    // Trigger keyPressed function is called and triggers are displayed.
-    for(var i = 0; i < triggers.length; i++) {
-      triggers[i].keyPressed();
-    }
     break;
 
 

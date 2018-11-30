@@ -75,6 +75,17 @@ Player.prototype.keyPressed = function() {
     for(var i = 0; i < cars.length; i++) {
       cars[i].keyPressed();
     }
+
+    // Have girls show and disappear only if player is moved.
+    for(var i = 0; i < girls.length; i++) {
+      girls[i].keyPressed();
+    }
+
+    // Have triggers show and disappear only if player is moved.
+    for(var i = 0; i < triggers.length; i++) {
+      triggers[i].keyPressed();
+    }
+
   }
 }
 
