@@ -11,6 +11,10 @@ lifetime.
 
 The player have the ability to move in all four directions using arrow keys.
 
+The sound effects used in this game are from soundwhich.com;
+The background music is from a game called Legend of Zelda: A link to the
+past, the song is called the Select Screen.
+
 ****************************************************************************/
 
 
