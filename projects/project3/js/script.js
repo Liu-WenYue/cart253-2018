@@ -75,6 +75,8 @@ var triggers = []; // Creates an array for triggers.
 var letterImage; // The variable that stores the letter image.
 var letters = []; // Creates an array for letters.
 
+var endingAnimation; // The variable that stores the ending screen animation.
+
 
 // preload()
 //
@@ -112,6 +114,8 @@ function preload() {
   ringImage = loadImage("assets/images/ring.png");
   triggerImage = loadImage("assets/images/trigger.png");
   letterImage = loadImage("assets/images/letter.png");
+
+  endingAnimation = loadAnimation("assets/images/end/end001.png", "assets/images/end/end023.png");
 }
 
 
@@ -476,6 +480,16 @@ function displayStage5() {
       state = "WIN";
     }
   }
+}
+
+
+// displayWinner()
+//
+// Displays the ending screen when player cleared all the stages.
+function displayWinner() {
+  endingAnimation.play(); // Plays the ending animation.
+  animation(endingAnimation, 600, 360); // Have the ending animation in the center.
+  endingAnimation.looping = false; // Have the animation only play once.
 }
 
 
