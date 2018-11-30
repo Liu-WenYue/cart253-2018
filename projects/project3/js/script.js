@@ -77,6 +77,10 @@ var letters = []; // Creates an array for letters.
 
 var endingAnimation; // The variable that stores the ending screen animation.
 
+var backgroundMusic; // The variables that store the background musics.
+var levelupAudio; // The variable that stores the levelup sound effect.
+var gameoverAudio; // The variable that stores the gameover sound effect.
+
 
 // preload()
 //
@@ -115,7 +119,11 @@ function preload() {
   triggerImage = loadImage("assets/images/trigger.png");
   letterImage = loadImage("assets/images/letter.png");
 
-  endingAnimation = loadAnimation("assets/images/end/end001.png", "assets/images/end/end023.png");
+  endingAnimation = loadAnimation("assets/images/end/end001.png", "assets/images/end/end020.png");
+
+  backgroundMusic = new Audio("assets/sounds/backgroundmusic.m4a");
+  levelupAudio = new Audio("assets/sounds/level_up.mp3");
+  gameoverAudio = new Audio("assets/sounds/gameover.mp3");
 }
 
 
@@ -198,30 +206,39 @@ function draw() {
 
     case "STAGE1":
     displayStage1();
+    backgroundMusic.play(); // Have the background music play when game starts.
     break;
 
     case "STAGE2":
     displayStage2();
+    backgroundMusic.play(); // Have the background music play when game starts.
     break;
 
     case "STAGE3":
     displayStage3();
+    backgroundMusic.play(); // Have the background music play when game starts.
     break;
 
     case "STAGE4":
     displayStage4();
+    backgroundMusic.play(); // Have the background music play when game starts.
     break;
 
     case "STAGE5":
     displayStage5();
+    backgroundMusic.play(); // Have the background music play when game starts.
     break;
 
     case "WIN":
     displayWinner();
+    backgroundMusic.pause(); // Pause the background music if they lose.
+    backgroundMusic.currentTime = 0; // Restart the music from the start.
     break;
 
     case "GAMEOVER":
     displayGameOver();
+    backgroundMusic.pause(); // Pause the background music if they lose.
+    backgroundMusic.currentTime = 0; // Restart the music from the start.
     break;
   }
 }
@@ -282,6 +299,7 @@ function displayStage1() {
   // of the game will become GAMEOVER and the switch statement will
   // call displayGameOver function.
   if (target1.health < 1) {
+    gameoverAudio.play();
     lastState = state;
     state = "GAMEOVER";
   }
@@ -293,6 +311,8 @@ function displayStage1() {
     if (player1.y - player1.size/2 < target1.y + player1.size/2 && player1.y + player1.size/2 > target1.y - target1.size/2) {
       player2.reset();
       target2.reset();
+      levelupAudio.play();
+      gameoverAudio.pause(); // To stop the sound effect for game over.
       state = "STAGE2";
     }
   }
@@ -332,6 +352,7 @@ function displayStage2() {
   // of the game will become GAMEOVER and the switch statement will
   // call displayGameOver function.
   if (target2.health < 1) {
+    gameoverAudio.play();
     lastState = state;
     state = "GAMEOVER";
   }
@@ -343,6 +364,8 @@ function displayStage2() {
     if (player2.y - player2.size/2 < target2.y + player2.size/2 && player2.y + player2.size/2 > target2.y - target2.size/2) {
       player3.reset();
       target3.reset();
+      levelupAudio.play();
+      gameoverAudio.pause(); // To stop the sound effect for game over.
       state = "STAGE3";
     }
   }
@@ -379,6 +402,7 @@ function displayStage3() {
   // of the game will become GAMEOVER and the switch statement will
   // call displayGameOver function.
   if (target3.health < 1) {
+    gameoverAudio.play();
     lastState = state;
     state = "GAMEOVER";
   }
@@ -390,6 +414,8 @@ function displayStage3() {
     if (player3.y - player3.size/2 < target3.y + player3.size/2 && player3.y + player3.size/2 > target3.y - target3.size/2) {
       player4.reset();
       target4.reset();
+      levelupAudio.play();
+      gameoverAudio.pause(); // To stop the sound effect for game over.
       state = "STAGE4";
     }
   }
@@ -429,6 +455,7 @@ function displayStage4() {
   // of the game will become GAMEOVER and the switch statement will
   // call displayGameOver function.
   if (target4.health < 1) {
+    gameoverAudio.play();
     lastState = state;
     state = "GAMEOVER";
   }
@@ -440,6 +467,8 @@ function displayStage4() {
     if (player4.y - player4.size/2 < target4.y + player4.size/2 && player4.y + player4.size/2 > target4.y - target4.size/2) {
       player5.reset();
       target5.reset();
+      levelupAudio.play();
+      gameoverAudio.pause(); // To stop the sound effect for game over.
       state = "STAGE5";
     }
   }
@@ -468,6 +497,7 @@ function displayStage5() {
   // of the game will become GAMEOVER and the switch statement will
   // call displayGameOver function.
   if (target5.health < 1) {
+    gameoverAudio.play();
     lastState = state;
     state = "GAMEOVER";
   }
@@ -477,6 +507,8 @@ function displayStage5() {
   // call displayWinner function.
   if (player5.x + player5.size/2 > target5.x - target5.size/2 && player5.x - player5.size/2 < target5.x + target5.size/2) {
     if (player5.y - player5.size/2 < target5.y + player5.size/2 && player5.y + player5.size/2 > target5.y - target5.size/2) {
+      levelupAudio.play();
+      gameoverAudio.pause(); // To stop the sound effect for game over.
       state = "WIN";
     }
   }
