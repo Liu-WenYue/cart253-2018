@@ -56,13 +56,6 @@ Player.prototype.keyPressed = function() {
     this.nextX += this.size;
   }
 
-  // Checks the condition for target to loss health.
-  target1.lossHealth();
-  target2.lossHealth();
-  target3.lossHealth();
-  target4.lossHealth();
-  target5.lossHealth();
-
   // The variable that contains the color of the next position of the player.
   var pixel = color(this.mapImage.get(this.nextX, this.nextY));
   // The variable that used to check the color.
@@ -72,6 +65,16 @@ Player.prototype.keyPressed = function() {
   if (red(path) === red(pixel) && green(path) === green(pixel) && blue(path) === blue(pixel))  {
     this.x = this.nextX;
     this.y = this.nextY;
+    target1.lossHealth(); // Loss targets' health if player moved.
+    target2.lossHealth();
+    target3.lossHealth();
+    target4.lossHealth();
+    target5.lossHealth();
+
+    // Have cars show and disappear only if player is moved.
+    for(var i = 0; i < cars.length; i++) {
+      cars[i].keyPressed();
+    }
   }
 }
 

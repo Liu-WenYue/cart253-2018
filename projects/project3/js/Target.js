@@ -20,6 +20,8 @@ function Target(x,y,size,health,rightKey,leftKey,upKey,downKey,image,numOfMoveTo
   this.downKey = downKey;
   this.image = image;
   this.numOfMoveToWin = numOfMoveToWin;
+  this.startX = this.x;
+  this.startY = this.y;
 }
 
 
@@ -54,9 +56,6 @@ Target.prototype.keyPressed = function() {
     this.nextX -= this.size;
   }
 
-  // Checks if player 5 losses health.
-  player5.lossHealth();
-
   // The variable that contains the color of the next position of the target.
   var pixel = color(map5Image.get(this.nextX, this.nextY));
   // The variable that used to check the color.
@@ -66,6 +65,7 @@ Target.prototype.keyPressed = function() {
   if (red(path) === red(pixel) && green(path) === green(pixel) && blue(path) === blue(pixel))  {
     this.x = this.nextX;
     this.y = this.nextY;
+    player5.lossHealth();
   }
 }
 
@@ -122,8 +122,8 @@ Target.prototype.reset = function() {
   this.health = this.startHealth;
 
   // Reset the displacement values back to the original.
-  // this.x = this.startX;
-  // this.y = this.startY;
-  // this.nextX = this.startX;
-  // this.nextY = this.startY;
+  this.x = this.startX;
+  this.y = this.startY;
+  this.nextX = this.startX;
+  this.nextY = this.startY;
 }

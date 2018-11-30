@@ -511,8 +511,6 @@ function displayStage5() {
   // call displayWinner function.
   if (player5.x + player5.size/2 > target5.x - target5.size/2 && player5.x - player5.size/2 < target5.x + target5.size/2) {
     if (player5.y - player5.size/2 < target5.y + player5.size/2 && player5.y + player5.size/2 > target5.y - target5.size/2) {
-      levelupAudio.play();
-      gameoverAudio.pause(); // To stop the sound effect for game over.
       state = "WIN";
     }
   }
@@ -621,11 +619,6 @@ function keyPressed() {
 
     case "STAGE2":
     player2.keyPressed();
-
-    // Car keyPressed function is called and cars are displayed.
-    for(var i = 0; i < cars.length; i++) {
-      cars[i].keyPressed();
-    }
     break;
 
 
