@@ -655,3 +655,11 @@ function keyPressed() {
     break;
   }
 }
+
+
+// mousePressed()
+//
+// To have all the sound files to work in Safari browser.
+function mousePressed() {
+  backgroundMusic.play();
+}
