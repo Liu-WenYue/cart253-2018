@@ -123,7 +123,7 @@ function preload() {
   triggerImage = loadImage("assets/images/trigger.png");
   letterImage = loadImage("assets/images/letter.png");
 
-  endingAnimation = loadAnimation("assets/images/end/end001.png", "assets/images/end/end020.png");
+  endingAnimation = loadAnimation("assets/images/ending/Ending_000.png", "assets/images/ending/Ending_227.png");
 
   backgroundMusic = new Audio("assets/sounds/backgroundmusic.m4a");
   levelupAudio = new Audio("assets/sounds/level_up.mp3");
@@ -523,7 +523,9 @@ function displayStage5() {
 function displayWinner() {
   endingAnimation.play(); // Plays the ending animation.
   animation(endingAnimation, 600, 360); // Have the ending animation in the center.
+  endingAnimation.frameDelay = 2; // Sets the frame rate per second.
   endingAnimation.looping = false; // Have the animation only play once.
+
 }
 
 
